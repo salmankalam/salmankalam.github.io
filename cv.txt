@@ -1,0 +1,45 @@
+SALMAN KALAM
+Al Sabkha, Sharjah  •  054 474 8569  •  salmankalam123@gmail.com  
+  
+
+Professional Summary 
+Motivated Computer Science student combining a technical background in web development with a passion for business collaboration. Experienced in managing group projects, leading discussions, and delivering presentations that translate technical solutions into practical, client-focused results. Seeking to contribute to impactful projects through technical solutions, client engagement and solution delivery. 
+  
+
+Relevant Experience & Projects 
+Team Leader – Web Development Group Project 
+Led a team of 5 to design and develop a full-stack blog application with secure user authentication and content management.  
+Conducted online meetings, distributed tasks, and ensured timely completion of milestones.  
+Provided technical guidance and resolved team challenges, improving workflow and communication. Compiled and audited the final project report and delivered a presentation summarizing technical achievements and outcomes. 
+
+Hackathon – AI Software Development 
+Collaborated with a diverse team to create an AI-powered data analytics and inventory prediction solution under tight deadlines.  
+Engaged in problem-solving discussions and aligned technical capabilities with business objectives. Presented the project to a panel, explaining the product’s value and functionality effectively. 
+
+FullStack Blog Application 
+Developed a working app with authentication and CRUD RESTful APIs for dynamic content.                Tech Stack: HTML5, CSS, JavaScript, PostgreSQL, Node.js, Express.js, EJS. 
+ 
+Next.js Dashboard Application 
+Developed an interactive dashboard for managing customer and invoice data with real-time updates and authentication.  
+Tech Stack: Next.js, React, TypeScript, Supabase. 
+
+
+Education 
+
+B.Sc. 	Computer 	Science        University of West London (2023–2026) 
+Relevant Coursework: Human-Centered Computing, E-commerce Web Application 
+  
+ISC Certificate in Science Stream        Progressive English School, Sharjah (2020–2022) 
+Subjects: 	Mathematics, Physics, Chemistry, Computer Science 
+  
+
+Key Skills 
+Team Collaboration & Leadership  	      Business focused and Quality centred  
+Web Development & Technical Consultation 	Presentation & Public Speaking 
+Problem Solving & Initiative 	 	 	            
+  
+
+Additional Information 
+Technical Tools: Figma, Jira, Canva, Git/Github, VS Code Supabase, Vercel, Android Studio, Next.js, Node.js  
+Programming Languages: Python, Java, HTML5, CSS, JavaScript, TypeScript 
+Languages: English (Proficient), Hindi (Native), Arabic (Basic) 

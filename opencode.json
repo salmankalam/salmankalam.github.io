@@ -1,0 +1,24 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "21st": {
+      "type": "remote",
+      "url": "https://21st.dev/api/mcp",
+      "headers": {
+        "x-api-key": "21st_sk_17bdcd48cf7632998dc20e4339784446ba19a3b97a840a3d030becadcca518bd"
+      }
+    },
+    "github": {
+      "type": "local",
+      "command": [
+        "docker", "run", "-i", "--rm",
+        "-e", "GITHUB_PERSONAL_ACCESS_TOKEN",
+        "ghcr.io/github/github-mcp-server"
+      ],
+      "enabled": true,
+      "environment": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "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"
+      }
+    }
+  }
+}

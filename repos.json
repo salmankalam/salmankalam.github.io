@@ -1,0 +1,1148 @@
+{
+  "last_updated": "2026-07-19T13:10:01.729810+00:00",
+  "repos": [
+    {
+      "name": "sovereignmarine",
+      "full_name": "salmankalam/sovereignmarine",
+      "description": "Sovereignmarine",
+      "short_summary": "A full-stack SaaS dashboard built with TanStack Start and React",
+      "long_summary": "A modern full-stack SaaS application built with TanStack Start, React 19, and TypeScript. Features a comprehensive shadcn/ui component library with Radix UI primitives, Tailwind CSS v4 styling, and a Vite build system. Includes routing, authentication, and data management with TanStack Router and React Query.",
+      "repo_url": "https://github.com/salmankalam/sovereignmarine",
+      "pages_url": null,
+      "pages_enabled": false,
+      "frontend": true,
+      "tags": {
+        "languages": [
+          "TypeScript",
+          "CSS",
+          "JavaScript"
+        ],
+        "domain": [
+          "frontend",
+          "fullstack"
+        ],
+        "tools": [
+          "React",
+          "TanStack Start",
+          "TanStack Router",
+          "Tailwind CSS",
+          "shadcn/ui",
+          "Radix UI",
+          "Vite",
+          "Zod",
+          "TypeScript"
+        ],
+        "type": [
+          "project",
+          "saas"
+        ]
+      },
+      "topics": [],
+      "language": "TypeScript",
+      "languages": {
+        "TypeScript": 282197,
+        "CSS": 13832,
+        "JavaScript": 1250
+      },
+      "created_at": "2026-07-13T01:39:14Z",
+      "updated_at": "2026-07-15T13:50:36Z",
+      "pushed_at": "2026-07-15T13:49:00Z",
+      "size": 910,
+      "ai_enriched": true,
+      "pinned": false
+    },
+    {
+      "name": "viva-ecommerce-store",
+      "full_name": "salmankalam/viva-ecommerce-store",
+      "description": "Viva Ecommerce Store",
+      "short_summary": "A modern e-commerce storefront built with React and TypeScript",
+      "long_summary": "A full-featured e-commerce storefront application built with React 19, TypeScript, and TanStack technologies. Uses shadcn/ui component library with Tailwind CSS for styling, TanStack Router for navigation, and Vite as the build tool. Designed as a modern, scalable e-commerce platform.",
+      "repo_url": "https://github.com/salmankalam/viva-ecommerce-store",
+      "pages_url": "https://salmankalam.github.io/viva-ecommerce-store/",
+      "pages_enabled": true,
+      "frontend": true,
+      "tags": {
+        "languages": [
+          "TypeScript",
+          "CSS",
+          "JavaScript"
+        ],
+        "domain": [
+          "frontend",
+          "e-commerce"
+        ],
+        "tools": [
+          "React",
+          "TanStack Router",
+          "TanStack React Query",
+          "Tailwind CSS",
+          "shadcn/ui",
+          "Radix UI",
+          "Vite",
+          "TypeScript"
+        ],
+        "type": [
+          "project",
+          "e-commerce"
+        ]
+      },
+      "topics": [],
+      "language": "TypeScript",
+      "languages": {
+        "TypeScript": 251944,
+        "CSS": 7652,
+        "JavaScript": 1250
+      },
+      "created_at": "2026-06-23T06:53:02Z",
+      "updated_at": "2026-06-23T07:02:44Z",
+      "pushed_at": "2026-06-23T06:53:06Z",
+      "size": 214,
+      "ai_enriched": true,
+      "pinned": false,
+      "page_title": "Page not found · GitHub Pages",
+      "screenshots": [],
+      "screenshot_error": "404"
+    },
+    {
+      "name": "retail-ai-backend",
+      "full_name": "salmankalam/retail-ai-backend",
+      "description": "Retail AI Backend",
+      "short_summary": "A FastAPI backend for retail AI analytics and forecasting",
+      "long_summary": "A Python-based backend API service built with FastAPI for retail AI analytics. Implements machine learning models using scikit-learn, Prophet for time series forecasting, and SHAP for model explainability. Includes data cleaning, ML pipelines, and Supabase integration for data storage. Deployed via Render.",
+      "repo_url": "https://github.com/salmankalam/retail-ai-backend",
+      "pages_url": null,
+      "pages_enabled": false,
+      "frontend": false,
+      "tags": {
+        "languages": [
+          "Python"
+        ],
+        "domain": [
+          "backend",
+          "data analysis",
+          "machine learning"
+        ],
+        "tools": [
+          "FastAPI",
+          "scikit-learn",
+          "Prophet",
+          "SHAP",
+          "pandas",
+          "numpy",
+          "Uvicorn",
+          "Supabase"
+        ],
+        "type": [
+          "project",
+          "api"
+        ]
+      },
+      "topics": [],
+      "language": "Python",
+      "languages": {
+        "Python": 11531
+      },
+      "created_at": "2025-10-18T12:09:23Z",
+      "updated_at": "2026-05-30T04:13:50Z",
+      "pushed_at": "2026-05-30T04:13:47Z",
+      "size": 27,
+      "ai_enriched": true,
+      "screenshots": [
+        {
+          "file": "projects/retail-ai-backend/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        }
+      ],
+      "page_title": "retail ai backend",
+      "pinned": false
+    },
+    {
+      "name": "price_prediction_used_cars_explainable_ai",
+      "full_name": "salmankalam/price_prediction_used_cars_explainable_ai",
+      "description": "Price Prediction Used Cars Explainable AI",
+      "short_summary": "Explainable AI model for used car price prediction",
+      "long_summary": "A machine learning project that predicts used car prices using ensemble models (LightGBM) with comprehensive Explainable AI (XAI) analysis. Includes data preprocessing, model training with multiple algorithms, and SHAP-based interpretability visualizations (summary plots, bar charts). Compares XAI methods for transparency in price predictions.",
+      "repo_url": "https://github.com/salmankalam/price_prediction_used_cars_explainable_ai",
+      "pages_url": null,
+      "pages_enabled": false,
+      "frontend": false,
+      "tags": {
+        "languages": [
+          "Jupyter Notebook",
+          "Python"
+        ],
+        "domain": [
+          "data analysis",
+          "machine learning"
+        ],
+        "tools": [
+          "LightGBM",
+          "SHAP",
+          "scikit-learn",
+          "pandas",
+          "numpy",
+          "Jupyter"
+        ],
+        "type": [
+          "project",
+          "machine learning"
+        ]
+      },
+      "topics": [],
+      "language": "Jupyter Notebook",
+      "languages": {
+        "Jupyter Notebook": 3055832
+      },
+      "created_at": "2026-05-18T23:20:29Z",
+      "updated_at": "2026-05-30T03:32:42Z",
+      "pushed_at": "2026-05-30T03:32:38Z",
+      "size": 2533,
+      "ai_enriched": true,
+      "screenshots": [
+        {
+          "file": "projects/price_prediction_used_cars_explainable_ai/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        }
+      ],
+      "page_title": "price_prediction_used_cars_explainable_ai",
+      "pinned": true
+    },
+    {
+      "name": "car-prediction-insights",
+      "full_name": "salmankalam/car-prediction-insights",
+      "description": "Car Prediction Insights",
+      "short_summary": "A web dashboard for visualizing car prediction insights",
+      "long_summary": "A frontend web application built with Lovable that provides visual insights and analytics for car prediction data. Serves as the frontend interface for the car prediction system.",
+      "repo_url": "https://github.com/salmankalam/car-prediction-insights",
+      "pages_url": "https://salmankalam.github.io/car-prediction-insights/",
+      "pages_enabled": true,
+      "frontend": true,
+      "tags": {
+        "languages": [
+          "TypeScript",
+          "CSS",
+          "JavaScript"
+        ],
+        "domain": [
+          "frontend",
+          "data visualization"
+        ],
+        "tools": [
+          "React",
+          "Tailwind CSS",
+          "Vite"
+        ],
+        "type": [
+          "project",
+          "dashboard"
+        ]
+      },
+      "topics": [],
+      "language": "TypeScript",
+      "languages": {
+        "TypeScript": 252029,
+        "CSS": 16738,
+        "HTML": 1163,
+        "JavaScript": 846
+      },
+      "created_at": "2026-04-20T17:06:53Z",
+      "updated_at": "2026-05-18T23:53:36Z",
+      "pushed_at": "2026-05-18T23:53:33Z",
+      "size": 616,
+      "ai_enriched": true,
+      "pinned": false,
+      "screenshots": [
+        {
+          "file": "projects/car-prediction-insights/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        },
+        {
+          "file": "projects/car-prediction-insights/full.png",
+          "type": "full",
+          "label": "Full Page"
+        },
+        {
+          "file": "projects/car-prediction-insights/mobile.png",
+          "type": "mobile",
+          "label": "Mobile View"
+        }
+      ],
+      "page_title": "Valua.AI — Instant AI valuations for used cars",
+      "screenshot_error": null
+    },
+    {
+      "name": "car-prediction-backend",
+      "full_name": "salmankalam/car-prediction-backend",
+      "description": "Car Prediction Backend",
+      "short_summary": "Backend API server for car prediction services",
+      "long_summary": "A backend service that handles data processing and prediction logic for the car prediction system. Provides API endpoints for serving predictions and managing car-related data.",
+      "repo_url": "https://github.com/salmankalam/car-prediction-backend",
+      "pages_url": null,
+      "pages_enabled": false,
+      "frontend": false,
+      "tags": {
+        "languages": [
+          "Python"
+        ],
+        "domain": [
+          "backend",
+          "api"
+        ],
+        "tools": [
+          "FastAPI",
+          "Python"
+        ],
+        "type": [
+          "project",
+          "api"
+        ]
+      },
+      "topics": [],
+      "language": "Python",
+      "languages": {
+        "Python": 58307
+      },
+      "created_at": "2026-05-11T03:47:44Z",
+      "updated_at": "2026-05-18T23:42:35Z",
+      "pushed_at": "2026-05-18T23:42:31Z",
+      "size": 7485,
+      "ai_enriched": true,
+      "screenshots": [
+        {
+          "file": "projects/car-prediction-backend/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        }
+      ],
+      "page_title": "car prediction backend",
+      "pinned": true
+    },
+    {
+      "name": "dba",
+      "full_name": "salmankalam/dba",
+      "description": "Dba",
+      "short_summary": "Database analytics project with Northstar dataset analysis",
+      "long_summary": "A data analytics repository focused on database analysis and business intelligence using the Northstar dataset. Includes data cleaning, analytics implementation, and dataset processing pipelines.",
+      "repo_url": "https://github.com/salmankalam/dba",
+      "pages_url": null,
+      "pages_enabled": false,
+      "frontend": false,
+      "tags": {
+        "languages": [
+          "Python"
+        ],
+        "domain": [
+          "data analysis",
+          "database"
+        ],
+        "tools": [
+          "pandas",
+          "Jupyter"
+        ],
+        "type": [
+          "project",
+          "analytics"
+        ]
+      },
+      "topics": [],
+      "language": "Jupyter Notebook",
+      "languages": {
+        "Jupyter Notebook": 2381034
+      },
+      "created_at": "2026-05-15T09:33:02Z",
+      "updated_at": "2026-05-16T06:13:33Z",
+      "pushed_at": "2026-05-16T06:13:30Z",
+      "size": 1727,
+      "ai_enriched": true,
+      "screenshots": [
+        {
+          "file": "projects/dba/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        }
+      ],
+      "page_title": "dba",
+      "pinned": false
+    },
+    {
+      "name": "The-Registry",
+      "full_name": "salmankalam/The-Registry",
+      "description": "The Registry",
+      "short_summary": "A modern web application built with React and Vite",
+      "long_summary": "A frontend web application built with React, TypeScript, and Vite. Features shadcn/ui components, Tailwind CSS styling, and comprehensive testing setup with Playwright and Vitest.",
+      "repo_url": "https://github.com/salmankalam/The-Registry",
+      "pages_url": "https://salmankalam.github.io/The-Registry/",
+      "pages_enabled": true,
+      "frontend": true,
+      "tags": {
+        "languages": [
+          "TypeScript",
+          "CSS",
+          "JavaScript"
+        ],
+        "domain": [
+          "frontend"
+        ],
+        "tools": [
+          "React",
+          "Vite",
+          "Tailwind CSS",
+          "shadcn/ui",
+          "Playwright",
+          "Vitest",
+          "TypeScript"
+        ],
+        "type": [
+          "project"
+        ]
+      },
+      "topics": [],
+      "language": "TypeScript",
+      "languages": {
+        "TypeScript": 241397,
+        "CSS": 5060,
+        "HTML": 1118,
+        "JavaScript": 846
+      },
+      "created_at": "2026-03-18T04:33:32Z",
+      "updated_at": "2026-04-04T13:29:12Z",
+      "pushed_at": "2026-06-17T06:55:42Z",
+      "size": 238,
+      "ai_enriched": true,
+      "pinned": true,
+      "screenshots": [
+        {
+          "file": "projects/The-Registry/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        },
+        {
+          "file": "projects/The-Registry/full.png",
+          "type": "full",
+          "label": "Full Page"
+        },
+        {
+          "file": "projects/The-Registry/mobile.png",
+          "type": "mobile",
+          "label": "Mobile View"
+        }
+      ],
+      "page_title": "The Registry — Blogs, AI Tools & Code Snippets",
+      "screenshot_error": null
+    },
+    {
+      "name": "fragment",
+      "full_name": "salmankalam/fragment",
+      "description": "Fragment",
+      "short_summary": "A React-based web application with modern tooling",
+      "long_summary": "A frontend web application built with React, TypeScript, and Vite. Uses shadcn/ui component library, Tailwind CSS for styling, and includes a robust testing setup with Playwright for E2E testing and Vitest for unit testing.",
+      "repo_url": "https://github.com/salmankalam/fragment",
+      "pages_url": "https://salmankalam.github.io/fragment/",
+      "pages_enabled": true,
+      "frontend": true,
+      "tags": {
+        "languages": [
+          "TypeScript",
+          "CSS",
+          "JavaScript"
+        ],
+        "domain": [
+          "frontend"
+        ],
+        "tools": [
+          "React",
+          "Vite",
+          "Tailwind CSS",
+          "shadcn/ui",
+          "Playwright",
+          "Vitest",
+          "TypeScript"
+        ],
+        "type": [
+          "project"
+        ]
+      },
+      "topics": [],
+      "language": "TypeScript",
+      "languages": {
+        "TypeScript": 57515,
+        "CSS": 1914,
+        "HTML": 1030,
+        "JavaScript": 846
+      },
+      "created_at": "2026-03-16T13:25:32Z",
+      "updated_at": "2026-03-18T03:56:24Z",
+      "pushed_at": "2026-03-16T17:12:28Z",
+      "size": 282,
+      "ai_enriched": true,
+      "pinned": false,
+      "screenshots": [
+        {
+          "file": "projects/fragment/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        },
+        {
+          "file": "projects/fragment/full.png",
+          "type": "full",
+          "label": "Full Page"
+        },
+        {
+          "file": "projects/fragment/mobile.png",
+          "type": "mobile",
+          "label": "Mobile View"
+        }
+      ],
+      "page_title": "Lovable App",
+      "screenshot_error": null
+    },
+    {
+      "name": "ai_tools_hub",
+      "full_name": "salmankalam/ai_tools_hub",
+      "description": "AI Tools Hub",
+      "short_summary": "A curated directory of AI tools and resources",
+      "long_summary": "A static HTML website that serves as a comprehensive directory of AI tools, featuring tool listings with descriptions, categories, and images. Covers a wide range of AI-powered tools for various use cases.",
+      "repo_url": "https://github.com/salmankalam/ai_tools_hub",
+      "pages_url": "https://salmankalam.github.io/ai_tools_hub/",
+      "pages_enabled": true,
+      "frontend": true,
+      "tags": {
+        "languages": [
+          "HTML",
+          "CSS",
+          "JavaScript"
+        ],
+        "domain": [
+          "frontend",
+          "curation"
+        ],
+        "tools": [
+          "HTML",
+          "CSS"
+        ],
+        "type": [
+          "project",
+          "directory"
+        ]
+      },
+      "topics": [],
+      "language": "HTML",
+      "languages": {
+        "HTML": 32071
+      },
+      "created_at": "2026-03-16T13:45:28Z",
+      "updated_at": "2026-03-16T13:46:40Z",
+      "pushed_at": "2026-03-16T13:46:36Z",
+      "size": 600,
+      "ai_enriched": true,
+      "pinned": true,
+      "screenshots": [
+        {
+          "file": "projects/ai_tools_hub/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        },
+        {
+          "file": "projects/ai_tools_hub/full.png",
+          "type": "full",
+          "label": "Full Page"
+        },
+        {
+          "file": "projects/ai_tools_hub/mobile.png",
+          "type": "mobile",
+          "label": "Mobile View"
+        }
+      ],
+      "page_title": "AI Tools Hub — Best AI Tools of 2025",
+      "screenshot_error": null
+    },
+    {
+      "name": "chatbot",
+      "full_name": "salmankalam/chatbot",
+      "description": "Chatbot",
+      "short_summary": "A Python chatbot with natural language processing",
+      "long_summary": "A Python-based chatbot application with NLP capabilities. Includes training data, example scripts, and a modular source code structure. Deployable via Heroku with a Procfile configuration.",
+      "repo_url": "https://github.com/salmankalam/chatbot",
+      "pages_url": null,
+      "pages_enabled": false,
+      "frontend": false,
+      "tags": {
+        "languages": [
+          "Python"
+        ],
+        "domain": [
+          "backend",
+          "nlp"
+        ],
+        "tools": [
+          "Python",
+          "NLP",
+          "Heroku"
+        ],
+        "type": [
+          "project",
+          "chatbot"
+        ]
+      },
+      "topics": [],
+      "language": "Python",
+      "languages": {
+        "Python": 56168,
+        "Shell": 68,
+        "Procfile": 60
+      },
+      "created_at": "2025-10-19T13:17:02Z",
+      "updated_at": "2025-10-20T06:10:35Z",
+      "pushed_at": "2025-10-20T06:10:32Z",
+      "size": 1029,
+      "ai_enriched": true,
+      "screenshots": [
+        {
+          "file": "projects/chatbot/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        }
+      ],
+      "page_title": "chatbot",
+      "pinned": false
+    },
+    {
+      "name": "nextjs-dashboard",
+      "full_name": "salmankalam/nextjs-dashboard",
+      "description": "Nextjs Dashboard",
+      "short_summary": "A Next.js dashboard with authentication and analytics",
+      "long_summary": "A full-stack dashboard application built with Next.js 14+ and TypeScript. Features authentication system with NextAuth.js, PostgreSQL database integration, Tailwind CSS styling, and a responsive dashboard layout for data visualization and management.",
+      "repo_url": "https://github.com/salmankalam/nextjs-dashboard",
+      "pages_url": "https://salmankalam.github.io/nextjs-dashboard/",
+      "pages_enabled": true,
+      "frontend": true,
+      "tags": {
+        "languages": [
+          "TypeScript",
+          "CSS",
+          "JavaScript"
+        ],
+        "domain": [
+          "frontend",
+          "fullstack",
+          "dashboard"
+        ],
+        "tools": [
+          "Next.js",
+          "React",
+          "TypeScript",
+          "Tailwind CSS",
+          "NextAuth.js",
+          "PostgreSQL",
+          "pnpm"
+        ],
+        "type": [
+          "project",
+          "dashboard"
+        ]
+      },
+      "topics": [],
+      "language": "TypeScript",
+      "languages": {
+        "TypeScript": 83215,
+        "CSS": 477,
+        "JavaScript": 83
+      },
+      "created_at": "2025-10-02T16:02:21Z",
+      "updated_at": "2025-10-16T10:19:01Z",
+      "pushed_at": "2025-10-16T10:18:58Z",
+      "size": 923,
+      "ai_enriched": true,
+      "pinned": true,
+      "screenshots": [
+        {
+          "file": "projects/nextjs-dashboard/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        },
+        {
+          "file": "projects/nextjs-dashboard/full.png",
+          "type": "full",
+          "label": "Full Page"
+        },
+        {
+          "file": "projects/nextjs-dashboard/mobile.png",
+          "type": "mobile",
+          "label": "Mobile View"
+        }
+      ],
+      "page_title": "Next.js App Router Course - Starter | nextjs-dashboard",
+      "screenshot_error": null
+    },
+    {
+      "name": "myblog",
+      "full_name": "salmankalam/myblog",
+      "description": "Myblog",
+      "short_summary": "A full-stack blog application with Node.js and EJS",
+      "long_summary": "A complete blog application built with Node.js, Express.js, and EJS templating engine. Features server-side rendering, public asset management, task scheduling, and a clean blog interface. Includes 404 handling and a modular view structure.",
+      "repo_url": "https://github.com/salmankalam/myblog",
+      "pages_url": "https://salmankalam.github.io/myblog/",
+      "pages_enabled": true,
+      "frontend": true,
+      "tags": {
+        "languages": [
+          "JavaScript",
+          "HTML",
+          "CSS"
+        ],
+        "domain": [
+          "fullstack",
+          "blog"
+        ],
+        "tools": [
+          "Node.js",
+          "Express.js",
+          "EJS",
+          "JavaScript"
+        ],
+        "type": [
+          "project",
+          "blog"
+        ]
+      },
+      "topics": [],
+      "language": "JavaScript",
+      "languages": {
+        "JavaScript": 28630,
+        "EJS": 17280,
+        "CSS": 3106,
+        "HTML": 29
+      },
+      "created_at": "2025-10-13T06:56:57Z",
+      "updated_at": "2025-10-13T06:58:03Z",
+      "pushed_at": "2025-10-13T06:57:59Z",
+      "size": 1274,
+      "ai_enriched": true,
+      "pinned": false,
+      "screenshots": [
+        {
+          "file": "projects/myblog/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        },
+        {
+          "file": "projects/myblog/full.png",
+          "type": "full",
+          "label": "Full Page"
+        },
+        {
+          "file": "projects/myblog/mobile.png",
+          "type": "mobile",
+          "label": "Mobile View"
+        }
+      ],
+      "page_title": "myblog",
+      "screenshot_error": null
+    },
+    {
+      "name": "travelandtour",
+      "full_name": "salmankalam/travelandtour",
+      "description": "Travelandtour",
+      "short_summary": "A travel and tour booking website",
+      "long_summary": "A frontend website for a travel and tour agency, featuring destination listings, booking information, and travel packages. Built with modern web technologies to provide an engaging user experience.",
+      "repo_url": "https://github.com/salmankalam/travelandtour",
+      "pages_url": "https://salmankalam.github.io/travelandtour/",
+      "pages_enabled": true,
+      "frontend": true,
+      "tags": {
+        "languages": [
+          "HTML",
+          "CSS",
+          "JavaScript"
+        ],
+        "domain": [
+          "frontend",
+          "travel"
+        ],
+        "tools": [
+          "HTML",
+          "CSS",
+          "JavaScript"
+        ],
+        "type": [
+          "project",
+          "website"
+        ]
+      },
+      "topics": [],
+      "language": "CSS",
+      "languages": {
+        "CSS": 15208,
+        "HTML": 14303,
+        "JavaScript": 736
+      },
+      "created_at": "2025-07-10T17:20:11Z",
+      "updated_at": "2025-09-28T13:54:35Z",
+      "pushed_at": "2025-09-28T13:54:32Z",
+      "size": 12076,
+      "ai_enriched": true,
+      "pinned": false,
+      "screenshots": [
+        {
+          "file": "projects/travelandtour/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        },
+        {
+          "file": "projects/travelandtour/full.png",
+          "type": "full",
+          "label": "Full Page"
+        },
+        {
+          "file": "projects/travelandtour/mobile.png",
+          "type": "mobile",
+          "label": "Mobile View"
+        }
+      ],
+      "page_title": "Travel&Tour",
+      "screenshot_error": null
+    },
+    {
+      "name": "tictactoe",
+      "full_name": "salmankalam/tictactoe",
+      "description": "Tictactoe",
+      "short_summary": "A classic Tic Tac Toe game built with web technologies",
+      "long_summary": "An interactive Tic Tac Toe game implementation with a clean user interface. Features game logic, score tracking, and responsive design for both desktop and mobile play.",
+      "repo_url": "https://github.com/salmankalam/tictactoe",
+      "pages_url": "https://salmankalam.github.io/tictactoe/",
+      "pages_enabled": true,
+      "frontend": true,
+      "tags": {
+        "languages": [
+          "HTML",
+          "CSS",
+          "JavaScript"
+        ],
+        "domain": [
+          "frontend",
+          "game"
+        ],
+        "tools": [
+          "HTML",
+          "CSS",
+          "JavaScript"
+        ],
+        "type": [
+          "project",
+          "game"
+        ]
+      },
+      "topics": [],
+      "language": "HTML",
+      "languages": {
+        "HTML": 5998,
+        "CSS": 585
+      },
+      "created_at": "2025-07-31T16:39:58Z",
+      "updated_at": "2025-08-03T21:08:26Z",
+      "pushed_at": "2025-08-03T21:36:31Z",
+      "size": 6,
+      "ai_enriched": true,
+      "pinned": false,
+      "screenshots": [
+        {
+          "file": "projects/tictactoe/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        },
+        {
+          "file": "projects/tictactoe/full.png",
+          "type": "full",
+          "label": "Full Page"
+        },
+        {
+          "file": "projects/tictactoe/mobile.png",
+          "type": "mobile",
+          "label": "Mobile View"
+        }
+      ],
+      "page_title": "Tic tac toe",
+      "screenshot_error": null
+    },
+    {
+      "name": "portfolio",
+      "full_name": "salmankalam/portfolio",
+      "description": "Portfolio",
+      "short_summary": "A personal portfolio website showcasing projects and skills",
+      "long_summary": "A personal portfolio website that showcases projects, skills, and professional experience. Designed to highlight work samples and provide contact information for potential employers or clients.",
+      "repo_url": "https://github.com/salmankalam/portfolio",
+      "pages_url": "https://salmankalam.github.io/portfolio/",
+      "pages_enabled": true,
+      "frontend": true,
+      "tags": {
+        "languages": [
+          "HTML",
+          "CSS",
+          "JavaScript"
+        ],
+        "domain": [
+          "frontend",
+          "portfolio"
+        ],
+        "tools": [
+          "HTML",
+          "CSS",
+          "JavaScript"
+        ],
+        "type": [
+          "project",
+          "portfolio"
+        ]
+      },
+      "topics": [],
+      "language": "HTML",
+      "languages": {
+        "HTML": 2854,
+        "CSS": 1762
+      },
+      "created_at": "2025-07-22T11:03:53Z",
+      "updated_at": "2025-07-29T16:51:16Z",
+      "pushed_at": "2025-07-29T16:51:12Z",
+      "size": 1439,
+      "ai_enriched": true,
+      "pinned": false,
+      "screenshots": [
+        {
+          "file": "projects/portfolio/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        },
+        {
+          "file": "projects/portfolio/full.png",
+          "type": "full",
+          "label": "Full Page"
+        },
+        {
+          "file": "projects/portfolio/mobile.png",
+          "type": "mobile",
+          "label": "Mobile View"
+        }
+      ],
+      "page_title": "Portfolio - Salman",
+      "screenshot_error": null
+    },
+    {
+      "name": "rentalcar",
+      "full_name": "salmankalam/rentalcar",
+      "description": "Rentalcar",
+      "short_summary": "A car rental booking website",
+      "long_summary": "A frontend website for a car rental service, featuring vehicle listings, booking forms, and pricing information. Provides an intuitive interface for browsing and reserving rental cars.",
+      "repo_url": "https://github.com/salmankalam/rentalcar",
+      "pages_url": "https://salmankalam.github.io/rentalcar/",
+      "pages_enabled": true,
+      "frontend": true,
+      "tags": {
+        "languages": [
+          "HTML",
+          "CSS",
+          "JavaScript"
+        ],
+        "domain": [
+          "frontend",
+          "rental"
+        ],
+        "tools": [
+          "HTML",
+          "CSS",
+          "JavaScript"
+        ],
+        "type": [
+          "project",
+          "website"
+        ]
+      },
+      "topics": [],
+      "language": "HTML",
+      "languages": {
+        "HTML": 14622,
+        "CSS": 14569,
+        "JavaScript": 508
+      },
+      "created_at": "2025-07-09T04:01:18Z",
+      "updated_at": "2025-07-23T15:33:09Z",
+      "pushed_at": "2025-07-23T14:51:12Z",
+      "size": 4118,
+      "ai_enriched": true,
+      "pinned": false,
+      "screenshots": [
+        {
+          "file": "projects/rentalcar/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        },
+        {
+          "file": "projects/rentalcar/full.png",
+          "type": "full",
+          "label": "Full Page"
+        },
+        {
+          "file": "projects/rentalcar/mobile.png",
+          "type": "mobile",
+          "label": "Mobile View"
+        }
+      ],
+      "page_title": "Rental Car",
+      "screenshot_error": null
+    },
+    {
+      "name": "Web-Notes",
+      "full_name": "salmankalam/Web-Notes",
+      "description": "Web Notes",
+      "short_summary": "A web-based note-taking application",
+      "long_summary": "A browser-based note-taking application that allows users to create, edit, and manage notes online. Features a clean interface for efficient note organization and retrieval.",
+      "repo_url": "https://github.com/salmankalam/Web-Notes",
+      "pages_url": "https://salmankalam.github.io/Web-Notes/",
+      "pages_enabled": true,
+      "frontend": true,
+      "tags": {
+        "languages": [
+          "HTML",
+          "CSS",
+          "JavaScript"
+        ],
+        "domain": [
+          "frontend",
+          "productivity"
+        ],
+        "tools": [
+          "HTML",
+          "CSS",
+          "JavaScript"
+        ],
+        "type": [
+          "project",
+          "app"
+        ]
+      },
+      "topics": [],
+      "language": "HTML",
+      "languages": {
+        "HTML": 12371
+      },
+      "created_at": "2025-07-09T14:36:55Z",
+      "updated_at": "2025-07-09T16:25:35Z",
+      "pushed_at": "2025-07-09T16:25:32Z",
+      "size": 3,
+      "ai_enriched": true,
+      "pinned": false,
+      "page_title": "Page not found · GitHub Pages",
+      "screenshots": [],
+      "screenshot_error": "404"
+    },
+    {
+      "name": "Notes",
+      "full_name": "salmankalam/Notes",
+      "description": "Notes",
+      "short_summary": "A notes application with backend capabilities",
+      "long_summary": "A notes application that provides note management functionality. Built with a Python backend for data persistence and retrieval.",
+      "repo_url": "https://github.com/salmankalam/Notes",
+      "pages_url": null,
+      "pages_enabled": false,
+      "frontend": false,
+      "tags": {
+        "languages": [
+          "Python"
+        ],
+        "domain": [
+          "backend",
+          "productivity"
+        ],
+        "tools": [
+          "Python"
+        ],
+        "type": [
+          "project",
+          "app"
+        ]
+      },
+      "topics": [],
+      "language": "Java",
+      "languages": {
+        "Java": 22468
+      },
+      "created_at": "2025-01-17T15:23:25Z",
+      "updated_at": "2025-01-17T15:30:22Z",
+      "pushed_at": "2025-07-09T14:07:20Z",
+      "size": 1110,
+      "ai_enriched": true,
+      "screenshots": [
+        {
+          "file": "projects/Notes/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        }
+      ],
+      "page_title": "Notes",
+      "pinned": false
+    },
+    {
+      "name": "salmankalam.github.io",
+      "full_name": "salmankalam/salmankalam.github.io",
+      "description": "Salmankalam Github Io",
+      "short_summary": "Personal GitHub Pages portfolio website",
+      "long_summary": "The main portfolio website hosted on GitHub Pages at salmankalam.github.io. Serves as a personal landing page and will be expanded to showcase projects from the repository data.",
+      "repo_url": "https://github.com/salmankalam/salmankalam.github.io",
+      "pages_url": "https://salmankalam.github.io",
+      "pages_enabled": true,
+      "frontend": true,
+      "tags": {
+        "languages": [
+          "HTML",
+          "CSS"
+        ],
+        "domain": [
+          "frontend",
+          "portfolio",
+          "github pages"
+        ],
+        "tools": [
+          "GitHub Pages",
+          "HTML",
+          "CSS"
+        ],
+        "type": [
+          "project",
+          "portfolio"
+        ]
+      },
+      "topics": [],
+      "language": "HTML",
+      "languages": {
+        "HTML": 307
+      },
+      "created_at": "2022-10-16T12:36:45Z",
+      "updated_at": "2022-10-16T12:50:35Z",
+      "pushed_at": "2022-10-16T12:52:33Z",
+      "size": 1,
+      "ai_enriched": true,
+      "pinned": false,
+      "screenshots": [
+        {
+          "file": "projects/salmankalam.github.io/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        },
+        {
+          "file": "projects/salmankalam.github.io/full.png",
+          "type": "full",
+          "label": "Full Page"
+        },
+        {
+          "file": "projects/salmankalam.github.io/mobile.png",
+          "type": "mobile",
+          "label": "Mobile View"
+        }
+      ],
+      "page_title": "My Website",
+      "screenshot_error": null
+    }
+  ]
+}
