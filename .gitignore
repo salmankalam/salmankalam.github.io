@@ -1,6 +1,7 @@
 node_modules/
 .env
 .env.local
+.env.*
 *.log
 .DS_Store
 Thumbs.db
@@ -8,3 +9,12 @@ __pycache__/
 *.pyc
 .playwright-cli/
 .playwright/
+
+# Never commit credentials or secrets
+*.pem
+*.key
+/opencode.json
+*.secret
+
+# Keep public/projects/ screenshots tracked (used by the site)
+!public/projects/

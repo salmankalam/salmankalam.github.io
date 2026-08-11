@@ -38,10 +38,13 @@ async function captureRepo(repo) {
 
   console.log(`  OPEN ${repo.pages_url}`);
 
-  const browser = await chromium.launch({
-    channel: "chrome",
-    headless: true,
-  });
+  // Local dev uses system Chrome (channel), CI uses Playwright's Chromium.
+  const onCI = Boolean(process.env.GITHUB_ACTIONS);
+  const browser = await chromium.launch(
+    onCI
+      ? { headless: true }
+      : { channel: "chrome", headless: true }
+  );
   const context = await browser.newContext({
     viewport: { width: 1440, height: 900 },
     deviceScaleFactor: 2,

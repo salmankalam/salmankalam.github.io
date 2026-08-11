@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Portfolio Automation — Developer Docs</title>
+<style>
+  :root {
+    --bg: #0b0f14;
+    --card: #131a23;
+    --line: #22303d;
+    --text: #dbe5ee;
+    --muted: #8ea3b5;
+    --accent: #4fd1c5;
+    --code-bg: #0d141b;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    padding: 48px 20px;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; }
+  h1 { font-size: 2.2rem; margin: 0 0 .4rem; }
+  h2 {
+    margin: 48px 0 16px;
+    padding-bottom: .4rem;
+    border-bottom: 1px solid var(--line);
+    font-size: 1.5rem;
+  }
+  h3 { margin: 28px 0 8px; font-size: 1.1rem; color: var(--accent); }
+  p, li { color: var(--muted); }
+  code {
+    background: var(--code-bg);
+    border: 1px solid var(--line);
+    padding: 2px 6px;
+    border-radius: 5px;
+    font-size: .9em;
+  }
+  pre {
+    background: var(--code-bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 16px;
+    overflow-x: auto;
+  }
+  pre code { background: none; border: 0; padding: 0; }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin: 16px 0;
+  }
+  .tag {
+    display: inline-block;
+    background: rgba(79, 209, 197, .12);
+    color: var(--accent);
+    border: 1px solid rgba(79, 209, 197, .3);
+    border-radius: 20px;
+    padding: 2px 12px;
+    font-size: .8rem;
+    margin: 2px 4px 2px 0;
+  }
+  .danger { color: #ff7b72; }
+  .ok { color: #7ee2a8; }
+  table { border-collapse: collapse; width: 100%; margin: 12px 0; }
+  th, td {
+    text-align: left;
+    padding: 8px 12px;
+    border: 1px solid var(--line);
+    font-size: .92rem;
+  }
+  th { background: var(--card); color: var(--text); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Portfolio Automation</h1>
+<p>How the Salman Kalam portfolio stays in sync with GitHub repos, fresh screenshots,
+and secure credential handling.</p>
+
+<span class="tag">Repo sync</span>
+<span class="tag">Screenshots</span>
+<span class="tag">MCP GitHub</span>
+<span class="tag">GitHub Actions</span>
+
+<h2>1. Credential model (security)</h2>
+<div class="card">
+<p>The <strong>only</strong> secret is a GitHub PAT. It must <em>never</em> appear in a
+committed file.</p>
+<ul>
+<li>Local: stored in <code>.env</code> (gitignored).</li>
+<li>CI: stored as the Actions secret <code>GITHUB_PAT</code>.</li>
+<li>The GitHub MCP server reads it from the environment via interpolation
+<code>${GITHUB_PERSONAL_ACCESS_TOKEN}</code> — the literal value is never written
+into <code>opencode.json</code>.</li>
+</ul>
+</div>
+
+<h3>Required PAT scopes</h3>
+<table>
+<tr><th>Scope</th><th>Why</th></tr>
+<tr><td><code>repo</code></td><td>Read repos, languages, topics; push commits (sync).</td></tr>
+<tr><td><code>repo&gt;workflow</code></td><td>Update GitHub Actions workflow files if changed from API.</td></tr>
+<tr><td><code>read:org</code> (fine-grained)</td><td>If repos live under an organization.</td></tr>
+</table>
+<p class="danger">Tip: create a fine-grained PAT scoped to only this repo, not a broad
+classic token with all-scope access.</p>
+
+<h2>2. Local setup (one time)</h2>
+<ol>
+<li>Copy <code>.env.example</code> → <code>.env</code> and paste your PAT.</li>
+<li>Start Docker (the GitHub MCP runs in a container).</li>
+<li>Verify: <code>opencode</code> should surface GitHub tools; <code>scripts/sync_repos.py</code>
+falls back to the env var if <code>opencode.json</code> has none.</li>
+</ol>
+
+<pre><code># .env (local only, gitignored)
+GITHUB_PERSONAL_ACCESS_TOKEN=ghp_XXXX</code></pre>
+
+<h2>3. Repository sync</h2>
+<p><code>scripts/sync_repos.py</code> calls the GitHub API to build <code>repos.json</code>:</p>
+<ul>
+<li>Lists repos (with <code>pages_enabled</code>, <code>pages_url</code>, topics, languages).</li>
+<li>Uses GraphQL to fetch the pinned repos (marked <code>pinned: true</code>).</li>
+<li>Optionally applies AI enrichment (<code>description</code>, <code>tags</code>).</li>
+</ul>
+<p>Run locally:</p>
+<pre><code>python scripts/sync_repos.py</code></pre>
+
+<h2>4. Screenshots</h2>
+<p><code>scripts/capture-screenshots.js</code> (Playwright) opens each Pages site and saves
+three images per repo into <code>public/projects/&lt;repo&gt;/</code>:</p>
+<ul>
+<li><code>hero.png</code> — top of page, desktop viewport.</li>
+<li><code>full.png</code> — full-page (after triggering lazy-load).</li>
+<li><code>mobile.png</code> — full-page at mobile width.</li>
+</ul>
+<p>A 404 is detected via page title and recorded as <code>screenshot_error: "404"</code>.</p>
+<p><strong>Local:</strong> uses system Chrome (<code>channel: "chrome"</code>).<br />
+<strong>CI:</strong> auto-detects <code>GITHUB_ACTIONS</code> and uses Playwright's Chromium.</p>
+<code>node scripts/capture-screenshots.js</code>
+
+<h2>5. GitHub Actions workflows</h2>
+<table>
+<tr><th>File</th><th>Trigger</th><th>Writes</th></tr>
+<tr><td><code>sync-repos.yml</code></td><td>Daily 06:00 + manual</td><td>commits <code>repos.json</code></td></tr>
+<tr><td><code>capture-screenshots.yml</code></td><td>Daily 06:15 + manual</td><td>commits PNGs + <code>repos.json</code></td></tr>
+</table>
+<p class="ok">Both run entirely on GitHub's hosted runners — no secrets in YAML aside
+from the Actions secret reference <code>${{ secrets.GITHUB_PAT }}</code>.</p>
+
+<h2>6. FAQ</h2>
+<h3>Do the MCP server and Playwright run on Actions?</h3>
+<p><strong>MCP server — no.</strong> The GitHub MCP container provides tools to the agent
+interacting with you; Actions never runs it. Actions talks to GitHub directly via the
+PAT (web/REST call) in <code>sync_repos.py</code>.</p>
+<p><strong>Playwright — yes.</strong> The capture workflow installs Chromium headless and runs;
+no screen needed. Local runs use system Chrome, but that is only for your convenience.</p>
+
+</div>
+</body>
+</html>
