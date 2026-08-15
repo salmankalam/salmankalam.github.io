@@ -102,38 +102,110 @@ into <code>opencode.json</code>.</li>
 </ul>
 </div>
 
-<h3>Required PAT scopes</h3>
-<table>
-<tr><th>Scope</th><th>Why</th></tr>
-<tr><td><code>repo</code></td><td>Read repos, languages, topics; push commits (sync).</td></tr>
-<tr><td><code>repo&gt;workflow</code></td><td>Update GitHub Actions workflow files if changed from API.</td></tr>
-<tr><td><code>read:org</code> (fine-grained)</td><td>If repos live under an organization.</td></tr>
-</table>
-<p class="danger">Tip: create a fine-grained PAT scoped to only this repo, not a broad
-classic token with all-scope access.</p>
+<h3>Required PAT permissions</h3>
+<p>Use a <strong>fine-grained PAT</strong> (recommended) scoped to only your repos — do not
+grant a broad classic token. Below are the exact checkboxes to tick.</p>
 
-<h2>2. Local setup (one time)</h2>
+<h4>Creation steps (github.com → Settings → Developer settings → Personal access
+tokens → Fine-grained tokens → Generate new token)</h4>
 <ol>
-<li>Copy <code>.env.example</code> → <code>.env</code> and paste your PAT.</li>
-<li>Start Docker (the GitHub MCP runs in a container).</li>
-<li>Verify: <code>opencode</code> should surface GitHub tools; <code>scripts/sync_repos.py</code>
-falls back to the env var if <code>opencode.json</code> has none.</li>
+<li><strong>Resource owner</strong>: your account (Salman Kalam).</li>
+<li><strong>Repository access</strong>: "Only select repositories" — pick all repos you want
+tracked/hosted, or "All repositories".</li>
+<li><strong>Permissions</strong> — under each category, set exactly:</li>
+</ol>
+
+<table>
+<tr><th>Category</th><th>Permission</th><th>Access</th><th>Why</th></tr>
+<tr><td>Actions</td><td>Workflows</td><td><strong>Read &amp; write</strong></td><td>Commit <code>deploy-pages.yml</code> into React repos.</td></tr>
+<tr><td>Administration</td><td>Administration</td><td><strong>Read &amp; write</strong></td><td>Enable GitHub Pages via the API.</td></tr>
+<tr><td>Contents</td><td>Contents</td><td><strong>Read &amp; write</strong></td><td>Read code, list files, push <code>repos.json</code>/workflows, placeholders.</td></tr>
+<tr><td>Metadata</td><td class="ok">(always on)</td><td>Read</td><td>Required for every token; cannot be deselected.</td></tr>
+<tr><td>Pages</td><td>Pages</td><td><strong>Write</strong></td><td>Read/host the Pages site and its URL.</td></tr>
+</table>
+
+<p class="danger">A fine-grained token that can <em>write workflow files</em> already implies
+<code>Administration</code> write. Missing <code>Actions → Workflows</code> will make the script
+fail to write <code>deploy-pages.yml</code> for React repos.</p>
+
+<div class="card">
+<p><strong>Classic PAT alternative</strong> (if you prefer not to use fine-grained):
+</p>
+<ul>
+<li><code>repo</code> — full repo + Pages content.</li>
+<li><code>workflow</code> — allows updating workflow files.</li>
+</ul>
+</div>
+
+<h2>2. The files this project needs</h2>
+<table>
+<tr><th>File</th><th>Role</th></tr>
+<tr><td><code>.env</code> (gitignored)</td><td>Local secret: holds <code>GITHUB_PERSONAL_ACCESS_TOKEN</code>.</td></tr>
+<tr><td><code>.env.example</code></td><td>Template for <code>.env</code> (committed, safe).</td></tr>
+<tr><td><code>.opencode/opencode.json</code></td><td>openCode config: graphify plugin + GitHub MCP server (reads token via <code>${...}</code>).</td></tr>
+<tr><td><code>scripts/sync_repos.py</code></td><td>Pulls repos from GitHub → builds <code>repos.json</code>, enables Pages.</td></tr>
+<tr><td><code>scripts/capture-screenshots.js</code></td><td>Playwright screenshot capture + backend placeholders.</td></tr>
+<tr><td><code>repos.json</code></td><td>Data consumed by the React site (<code>src/data/repos.ts</code>).</td></tr>
+<tr><td><code>public/projects/&lt;repo&gt;/</code></td><td>Screenshot images (hero.png etc.) + <code>backend.jpg</code>/<code>data_analysis.jpg</code> placeholders.</td></tr>
+<tr><td><code>.github/workflows/sync-repos.yml</code></td><td>CI: daily sync of <code>repos.json</code>.</td></tr>
+<tr><td><code>.github/workflows/capture-screenshots.yml</code></td><td>CI: daily screenshot capture + placeholder generation.</td></tr>
+<tr><td><code>.github/workflows/deploy-pages.yml</code></td><td>Written auto-into React repos — uploads <code>dist</code> to Pages.</td></tr>
+</table>
+
+<h2>3. Local setup (one time)</h2>
+<ol>
+<li><strong>Create the PAT</strong> with the exact permissions above.</li>
+<li><strong>Store it locally</strong>: copy <code>.env.example</code> → <code>.env</code> and paste
+the token (no quotes). <code>.env</code> is gitignored, so it never gets committed.</li>
+<li><strong>Add the token to GitHub Actions</strong>: repo → Settings → Secrets and
+variables → Actions → New repository secret → name <code>GITHUB_PAT</code>, value =
+the same token.</li>
+<li><strong>Start Docker</strong> (the GitHub MCP runs in a container).</li>
 </ol>
 
 <pre><code># .env (local only, gitignored)
 GITHUB_PERSONAL_ACCESS_TOKEN=ghp_XXXX</code></pre>
 
-<h2>3. Repository sync</h2>
+<h3>Run everything locally</h3>
+<table>
+<tr><th>Action</th><th>Command</th></tr>
+<tr><td>Sync repos → <code>repos.json</code></td><td><code>python scripts/sync_repos.py</code></td></tr>
+<tr><td>Capture screenshots + placeholders</td><td><code>npm install</code> then <code>node scripts/capture-screenshots.js</code></td></tr>
+<tr><td>Run the dev server</td><td><code>npm run dev</code></td></tr>
+<tr><td>Production build</td><td><code>npm run build</code></td></tr>
+</table>
+<p class="ok">The scripts read the token from <code>.env</code> / env var first, then fall
+back to <code>opencode.json</code> — so local runs need no extra setup once <code>.env</code>
+exists.</p>
+
+<h2>4. Repository sync</h2>
 <p><code>scripts/sync_repos.py</code> calls the GitHub API to build <code>repos.json</code>:</p>
 <ul>
 <li>Lists repos (with <code>pages_enabled</code>, <code>pages_url</code>, topics, languages).</li>
 <li>Uses GraphQL to fetch the pinned repos (marked <code>pinned: true</code>).</li>
 <li>Optionally applies AI enrichment (<code>description</code>, <code>tags</code>).</li>
 </ul>
+
+<h3>Frontend hosting (auto)</h3>
+<p>For frontend repos, the script detects the publish source and enables Pages:</p>
+<table>
+<tr><th>Repo content</th><th>Build type</th><th>Action</th></tr>
+<tr><td>Root <code>index.html</code></td><td>legacy</td><td><code>enable_pages</code> with path <code>/</code></td></tr>
+<tr><td><code>docs/index.html</code></td><td>legacy</td><td><code>enable_pages</code> with path <code>/docs</code></td></tr>
+<tr><td><code>dist/index.html</code></td><td>workflow</td><td>writes <code>.github/workflows/deploy-pages.yml</code> (upload <code>dist</code>) + <code>build_type: workflow</code></td></tr>
+<tr><td><code>dist/client/index.html</code></td><td>workflow</td><td>writes deploy workflow (upload <code>dist/client</code>) + <code>build_type: workflow</code></td></tr>
+</table>
+<div class="card">
+<p class="danger">GitHub Pages' legacy API only accepts source paths <code>/</code> or
+<code>/docs</code>. React/Vite projects that build to <code>dist/</code> therefore need the
+<strong>workflow</strong> build type and a committed <code>deploy-pages.yml</code>. The token must
+have the <code>workflow</code> scope for the script to write that file.</p>
+</div>
+<p>Only <em>new</em> repos are processed each run; existing tracked repos are left as-is.</p>
 <p>Run locally:</p>
 <pre><code>python scripts/sync_repos.py</code></pre>
 
-<h2>4. Screenshots</h2>
+<h2>5. Screenshots</h2>
 <p><code>scripts/capture-screenshots.js</code> (Playwright) opens each Pages site and saves
 three images per repo into <code>public/projects/&lt;repo&gt;/</code>:</p>
 <ul>
@@ -142,20 +214,27 @@ three images per repo into <code>public/projects/&lt;repo&gt;/</code>:</p>
 <li><code>mobile.png</code> — full-page at mobile width.</li>
 </ul>
 <p>A 404 is detected via page title and recorded as <code>screenshot_error: "404"</code>.</p>
+<p><strong>Non-hosted repos</strong> (backend / data-analysis) get a generated placeholder:
+a repo tagged <code>data analysis</code> is copied to <code>data_analysis.jpg</code>, otherwise
+<code>backend.jpg</code> → <code>projects/&lt;repo&gt;/hero.png</code>.</p>
 <p><strong>Local:</strong> uses system Chrome (<code>channel: "chrome"</code>).<br />
 <strong>CI:</strong> auto-detects <code>GITHUB_ACTIONS</code> and uses Playwright's Chromium.</p>
 <code>node scripts/capture-screenshots.js</code>
 
-<h2>5. GitHub Actions workflows</h2>
+<h2>6. GitHub Actions workflows</h2>
 <table>
 <tr><th>File</th><th>Trigger</th><th>Writes</th></tr>
 <tr><td><code>sync-repos.yml</code></td><td>Daily 06:00 + manual</td><td>commits <code>repos.json</code></td></tr>
 <tr><td><code>capture-screenshots.yml</code></td><td>Daily 06:15 + manual</td><td>commits PNGs + <code>repos.json</code></td></tr>
 </table>
 <p class="ok">Both run entirely on GitHub's hosted runners — no secrets in YAML aside
-from the Actions secret reference <code>${{ secrets.GITHUB_PAT }}</code>.</p>
+from the Actions secret reference <code>${{ secrets.GITHUB_PAT }}</code>. That secret holds
+the <em>same</em> PAT you put in <code>.env</code> locally, so one token covers both.</p>
+<p>Note: the Actions <code>GITHUB_PAT</code> secret needs the same permissions
+(Administration, Actions → Workflows, Contents, Pages write) because the daily sync
+also auto-enables Pages and writes deploy workflows.</p>
 
-<h2>6. FAQ</h2>
+<h2>7. FAQ</h2>
 <h3>Do the MCP server and Playwright run on Actions?</h3>
 <p><strong>MCP server — no.</strong> The GitHub MCP container provides tools to the agent
 interacting with you; Actions never runs it. Actions talks to GitHub directly via the

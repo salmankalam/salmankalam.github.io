@@ -14,6 +14,42 @@ const projectsDir = path.join(root, "public", "projects");
 
 const FOUR04_TITLES = ["Page not found · GitHub Pages", "404"];
 
+// Placeholder cards for repos with no hosted site (backend / data-analysis).
+const PLACEHOLDERS = {
+  backend: "backend.jpg",
+  "data analysis": "data_analysis.jpg",
+};
+
+function applyPlaceholder(repo) {
+  // Prefer a data-analysis placeholder when the repo is tagged accordingly.
+  const domain = repo.tags?.domain || [];
+  const key = domain.includes("data analysis") ? "data analysis" : "backend";
+  const srcName = PLACEHOLDERS[key];
+  const src = path.join(projectsDir, srcName);
+  if (!fs.existsSync(src)) {
+    console.log(`  SKIP ${repo.name} — placeholder missing: ${srcName}`);
+    return;
+  }
+
+  const outDir = path.join(projectsDir, repo.name);
+  const relDir = `projects/${repo.name}`;
+  fs.mkdirSync(outDir, { recursive: true });
+
+  const dest = path.join(outDir, "hero.png");
+  if (!fs.existsSync(dest)) {
+    fs.copyFileSync(src, dest);
+    console.log(`  PLACE ${repo.name} → ${relDir}/hero.png (${srcName})`);
+  } else {
+    console.log(`  DONE ${repo.name} — placeholder exists, skipping`);
+  }
+
+  repo.screenshots = [
+    { file: `${relDir}/hero.png`, type: "hero", label: "Hero View" },
+  ];
+  repo.page_title = repo.name;
+  repo.screenshot_error = null;
+}
+
 async function captureRepo(repo) {
   if (!repo.pages_enabled || !repo.pages_url) {
     console.log(`  SKIP ${repo.name} — no GitHub Pages`);
@@ -123,7 +159,11 @@ async function main() {
   console.log(`Capturing screenshots for ${repos.length} repos…\n`);
 
   for (const repo of repos) {
-    await captureRepo(repo);
+    if (repo.pages_enabled && repo.pages_url) {
+      await captureRepo(repo);
+    } else {
+      applyPlaceholder(repo);
+    }
     await new Promise((r) => setTimeout(r, 1000));
   }
 

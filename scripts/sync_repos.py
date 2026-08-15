@@ -8,6 +8,7 @@ sync_repos.py - Sync GitHub repos to repos.json
 - Updates repos.json with all data
 """
 
+import base64
 import json
 import os
 import re
@@ -108,25 +109,149 @@ def fetch_repo_contents(token, full_name):
     return r.json() if r.status_code == 200 else []
 
 
+def fetch_repo_contents_at(token, full_name, path):
+    r = requests.get(
+        f"{GITHUB_API}/repos/{full_name}/contents/{path}",
+        headers=get_headers(token),
+    )
+    return r.json() if r.status_code == 200 else []
+
+
 def check_pages(token, full_name):
     r = requests.get(f"{GITHUB_API}/repos/{full_name}/pages", headers=get_headers(token))
     return r.json() if r.status_code == 200 else None
 
 
-def enable_pages(token, full_name, branch="main"):
+def enable_pages(token, full_name, branch="main", path="/"):
     headers = {**get_headers(token), "Accept": "application/vnd.github.v3+json"}
     r = requests.post(
         f"{GITHUB_API}/repos/{full_name}/pages",
         headers=headers,
-        json={"source": {"branch": branch, "path": "/"}},
+        json={"source": {"branch": branch, "path": path}},
     )
     return r.status_code in (200, 201, 204)
 
 
+def enable_pages_workflow(token, full_name):
+    headers = {**get_headers(token), "Accept": "application/vnd.github.v3+json"}
+    r = requests.post(
+        f"{GITHUB_API}/repos/{full_name}/pages",
+        headers=headers,
+        json={"build_type": "workflow"},
+    )
+    return r.status_code in (200, 201, 204)
+
+
+DEPLOY_PAGES_YAML = """name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [{branch}]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: {upload_path}
+      - uses: actions/deploy-pages@v4
+"""
+
+
+def create_deploy_workflow(token, full_name, default_branch, upload_path):
+    """Commit .github/workflows/deploy-pages.yml into the target repo.
+
+    Requires the token to have the `workflow` scope (contents write).
+    Returns True if the workflow is present/created, False on failure.
+    """
+    headers = {**get_headers(token), "Accept": "application/vnd.github.v3+json"}
+    wf_path = ".github/workflows/deploy-pages.yml"
+
+    check = requests.get(
+        f"{GITHUB_API}/repos/{full_name}/contents/{wf_path}",
+        headers=headers,
+    )
+    if check.status_code == 200:
+        print(f"     Workflow already present, skipping")
+        return True
+
+    content = DEPLOY_PAGES_YAML.format(
+        branch=default_branch or "main", upload_path=upload_path
+    )
+    r = requests.put(
+        f"{GITHUB_API}/repos/{full_name}/contents/{wf_path}",
+        headers=headers,
+        json={
+            "message": "chore: add GitHub Pages deploy workflow",
+            "content": base64.b64encode(content.encode("utf-8")).decode("utf-8"),
+        },
+    )
+    return r.status_code in (200, 201)
+
+
+def detect_pages_source(token, full_name, contents):
+    """Detect how a repo should be published to Pages.
+
+    Returns (build_type, source) where build_type is "legacy" or "workflow",
+    or None if no hostable content is found.
+    - legacy "/": root index.html
+    - legacy "/docs": docs/index.html
+    - workflow "dist": dist/index.html
+    - workflow "dist/client": dist/client/index.html
+    """
+    if not isinstance(contents, list):
+        return None
+    names = {item.get("name") for item in contents if isinstance(item, dict)}
+
+    if "index.html" in names:
+        return ("legacy", "/")
+
+    if "dist" in names:
+        dist = fetch_repo_contents_at(token, full_name, "dist")
+        if isinstance(dist, list):
+            dist_names = {item.get("name") for item in dist if isinstance(item, dict)}
+            if "index.html" in dist_names:
+                return ("workflow", "dist")
+            if "client" in dist_names:
+                client = fetch_repo_contents_at(token, full_name, "dist/client")
+                if isinstance(client, list) and any(
+                    isinstance(i, dict) and i.get("name") == "index.html"
+                    for i in client
+                ):
+                    return ("workflow", "dist/client")
+
+    if "docs" in names:
+        docs = fetch_repo_contents_at(token, full_name, "docs")
+        if isinstance(docs, list) and any(
+            isinstance(i, dict) and i.get("name") == "index.html" for i in docs
+        ):
+            return ("legacy", "/docs")
+
+    return None
+
+
 def is_frontend_repo(languages, contents, full_name, repo_info):
     if isinstance(contents, list):
-        for item in contents:
-            if item.get("name") == "index.html" and item.get("type") == "file":
+        names = {item.get("name") for item in contents}
+        # Root index.html (plain HTML site)
+        if "index.html" in names:
+            return True
+        # dist/ or dist/client build output (e.g. React/Vite/TanStack)
+        for folder in ("dist", "docs"):
+            if folder in names:
                 return True
 
     if languages:
@@ -333,18 +458,39 @@ def main():
                     pages_url = pages_info.get("html_url") or f"https://{OWNER}.github.io/{name}/"
                 print(f"     Pages active: {pages_url}")
             else:
-                print(f"     Enabling Pages...")
-                success = enable_pages(token, full_name)
-                if not success:
-                    success = enable_pages(token, full_name, "master")
-                if success:
-                    pages_enabled_count += 1
-                    pages_url = f"https://{OWNER}.github.io/{name}/"
-                    if full_name == f"{OWNER}/{OWNER}.github.io":
-                        pages_url = f"https://{OWNER}.github.io"
-                    print(f"     Pages enabled: {pages_url}")
+                print(f"     Detecting publish source...")
+                source = detect_pages_source(token, full_name, contents)
+                if not source:
+                    print(f"     No hostable index.html found; skipping Pages")
+                elif source[0] == "legacy":
+                    print(f"     Enabling Pages (legacy, path {source[1]})...")
+                    success = enable_pages(token, full_name, path=source[1])
+                    if not success:
+                        success = enable_pages(token, full_name, "master", source[1])
+                    if success:
+                        pages_enabled_count += 1
+                        pages_url = f"https://{OWNER}.github.io/{name}/"
+                        if full_name == f"{OWNER}/{OWNER}.github.io":
+                            pages_url = f"https://{OWNER}.github.io"
+                        print(f"     Pages enabled: {pages_url}")
+                    else:
+                        print(f"     Failed to enable Pages")
                 else:
-                    print(f"     Failed to enable Pages")
+                    _, upload_path = source
+                    print(f"     Workflow deploy detected (upload {upload_path})...")
+                    default_branch = repo.get("default_branch")
+                    wf_ok = create_deploy_workflow(
+                        token, full_name, default_branch, upload_path
+                    )
+                    pw_ok = enable_pages_workflow(token, full_name)
+                    if wf_ok and pw_ok:
+                        pages_enabled_count += 1
+                        pages_url = f"https://{OWNER}.github.io/{name}/"
+                        if full_name == f"{OWNER}/{OWNER}.github.io":
+                            pages_url = f"https://{OWNER}.github.io"
+                        print(f"     Pages enabled (workflow): {pages_url}")
+                    else:
+                        print(f"     Failed: workflow={wf_ok}, pages={pw_ok}")
         else:
             print(f"     Skipping Pages (not frontend)")
 
