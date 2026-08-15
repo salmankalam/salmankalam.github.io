@@ -207,13 +207,22 @@ have the <code>workflow</code> scope for the script to write that file.</p>
 
 <h2>5. Screenshots</h2>
 <p><code>scripts/capture-screenshots.js</code> (Playwright) opens each Pages site and saves
-three images per repo into <code>public/projects/&lt;repo&gt;/</code>:</p>
+images into <code>public/projects/&lt;repo&gt;/</code>. Desktop viewport only (no mobile):</p>
+<p><strong>Home page — 3 screenshots:</strong></p>
 <ul>
 <li><code>hero.png</code> — top of page, desktop viewport.</li>
 <li><code>full.png</code> — full-page (after triggering lazy-load).</li>
-<li><code>mobile.png</code> — full-page at mobile width.</li>
+<li><code>content.png</code> — viewport scrolled to the middle of the page.</li>
 </ul>
-<p>A 404 is detected via page title and recorded as <code>screenshot_error: "404"</code>.</p>
+<p><strong>Other routes — 1 screenshot each:</strong></p>
+<ul>
+<li>Internal links (same-site routes, up to <code>MAX_ROUTES=8</code>) are discovered from
+the home page's anchors.</li>
+<li>Each is saved as <code>route-N.png</code> (full-page) with label <code>type: "route"</code>.</li>
+<li>Anchor-only and external links are skipped; a route that 404s is skipped too.</li>
+</ul>
+<p>A 404 home page is detected via page title and recorded as
+<code>screenshot_error: "404"</code>.</p>
 <p><strong>Non-hosted repos</strong> (backend / data-analysis) get a generated placeholder:
 a repo tagged <code>data analysis</code> is copied to <code>data_analysis.jpg</code>, otherwise
 <code>backend.jpg</code> → <code>projects/&lt;repo&gt;/hero.png</code>.</p>
