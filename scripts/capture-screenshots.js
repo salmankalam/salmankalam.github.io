@@ -246,6 +246,11 @@ async function main() {
   console.log(`Capturing screenshots for ${repos.length} repos…\n`);
 
   for (const repo of repos) {
+    if (repo.hostedByTheUser) {
+      // Hosted by the user elsewhere — no auto capture, no placeholder.
+      console.log(`  SKIP ${repo.name} — hosted by user (${repo.hostedByTheUserLink || "external link"})`);
+      continue;
+    }
     if (repo.pages_enabled && repo.pages_url) {
       await captureRepo(repo);
     } else {

@@ -95,7 +95,7 @@ and secure credential handling.</p>
 committed file.</p>
 <ul>
 <li>Local: stored in <code>.env</code> (gitignored).</li>
-<li>CI: stored as the Actions secret <code>GITHUB_PAT</code>.</li>
+<li>CI: stored as the Actions secret <code>PORTFOLIO_PAT</code>.</li>
 <li>The GitHub MCP server reads it from the environment via interpolation
 <code>${GITHUB_PERSONAL_ACCESS_TOKEN}</code> — the literal value is never written
 into <code>opencode.json</code>.</li>
@@ -158,7 +158,7 @@ fail to write <code>deploy-pages.yml</code> for React repos.</p>
 <li><strong>Store it locally</strong>: copy <code>.env.example</code> → <code>.env</code> and paste
 the token (no quotes). <code>.env</code> is gitignored, so it never gets committed.</li>
 <li><strong>Add the token to GitHub Actions</strong>: repo → Settings → Secrets and
-variables → Actions → New repository secret → name <code>GITHUB_PAT</code>, value =
+variables → Actions → New repository secret → name <code>PORTFOLIO_PAT</code>, value =
 the same token.</li>
 <li><strong>Start Docker</strong> (the GitHub MCP runs in a container).</li>
 </ol>
@@ -202,6 +202,10 @@ exists.</p>
 have the <code>workflow</code> scope for the script to write that file.</p>
 </div>
 <p>Only <em>new</em> repos are processed each run; existing tracked repos are left as-is.</p>
+<p>To host a repo <strong>outside GitHub Pages</strong> (e.g. Render, Vercel, a personal domain),
+set <code>hostedByTheUser: true</code> and <code>hostedByTheUserLink: &lt;url&gt;</code> on its entry in
+<code>repos.json</code>. The sync script will then never enable Pages for it, and the capture
+script will skip screenshots/placeholders for it.</p>
 <p>Run locally:</p>
 <pre><code>python scripts/sync_repos.py</code></pre>
 
@@ -226,6 +230,11 @@ the home page's anchors.</li>
 <p><strong>Non-hosted repos</strong> (backend / data-analysis) get a generated placeholder:
 a repo tagged <code>data analysis</code> is copied to <code>data_analysis.jpg</code>, otherwise
 <code>backend.jpg</code> → <code>projects/&lt;repo&gt;/hero.png</code>.</p>
+<p><strong>Externally hosted repos</strong>: set <code>hostedByTheUser: true</code> (with
+<code>hostedByTheUserLink</code> = the live URL) on a repo in <code>repos.json</code> and the capture
+script <em>skips</em> it entirely — no screenshot, no placeholder. Add your own images under
+<code>public/projects/&lt;repo&gt;/</code> and reference them in that repo's <code>screenshots</code>
+array. These repos are also never auto-enabled for GitHub Pages.</p>
 <p><strong>Local:</strong> uses system Chrome (<code>channel: "chrome"</code>).<br />
 <strong>CI:</strong> auto-detects <code>GITHUB_ACTIONS</code> and uses Playwright's Chromium.</p>
 <code>node scripts/capture-screenshots.js</code>
@@ -237,9 +246,9 @@ a repo tagged <code>data analysis</code> is copied to <code>data_analysis.jpg</c
 <tr><td><code>capture-screenshots.yml</code></td><td>Daily 06:15 + manual</td><td>commits PNGs + <code>repos.json</code></td></tr>
 </table>
 <p class="ok">Both run entirely on GitHub's hosted runners — no secrets in YAML aside
-from the Actions secret reference <code>${{ secrets.GITHUB_PAT }}</code>. That secret holds
+from the Actions secret reference <code>${{ secrets.PORTFOLIO_PAT }}</code>. That secret holds
 the <em>same</em> PAT you put in <code>.env</code> locally, so one token covers both.</p>
-<p>Note: the Actions <code>GITHUB_PAT</code> secret needs the same permissions
+<p>Note: the Actions <code>PORTFOLIO_PAT</code> secret needs the same permissions
 (Administration, Actions → Workflows, Contents, Pages write) because the daily sync
 also auto-enables Pages and writes deploy workflows.</p>
 

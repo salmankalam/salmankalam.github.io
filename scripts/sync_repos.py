@@ -406,6 +406,12 @@ def main():
     token = get_token()
     existing = load_existing_repos()
     tracked_names = {r["full_name"] for r in existing["repos"]}
+    # Repos the user hosts externally (not on GitHub Pages) — never enable Pages.
+    externally_hosted = {
+        r["full_name"]
+        for r in existing["repos"]
+        if r.get("hostedByTheUser")
+    }
     print(f"\n Tracked repos: {len(tracked_names)}")
 
     print("\n Fetching pinned repos...")
@@ -449,7 +455,7 @@ def main():
         pages_info = check_pages(token, full_name)
         pages_url = None
 
-        if frontend:
+        if frontend and full_name not in externally_hosted:
             if pages_info:
                 pages_already_active += 1
                 if full_name == f"{OWNER}/{OWNER}.github.io":
@@ -498,6 +504,11 @@ def main():
         if not frontend:
             pages_url = None
 
+        # Externally-hosted repos are never on GitHub Pages.
+        externally_hosted_this = full_name in externally_hosted
+        if externally_hosted_this:
+            pages_url = None
+
         short, long, tags = generate_basic_summary(repo, readme_text, languages, topics)
         description = repo_name_to_title(name)
 
@@ -509,8 +520,10 @@ def main():
             "long_summary": long,
             "repo_url": repo["html_url"],
             "pages_url": pages_url,
-            "pages_enabled": pages_info is not None,
+            "pages_enabled": pages_info is not None and not externally_hosted_this,
             "frontend": frontend,
+            "hostedByTheUser": externally_hosted_this,
+            "hostedByTheUserLink": None,
             "pinned": name in pinned_names,
             "tags": tags,
             "topics": topics,

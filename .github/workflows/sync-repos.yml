@@ -23,7 +23,7 @@ jobs:
 
       - name: Run sync script
         env:
-          GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.GITHUB_PAT }}
+          GITHUB_PERSONAL_ACCESS_TOKEN: ${{ secrets.PORTFOLIO_PAT }}
         run: python scripts/sync_repos.py
 
       - name: Commit changes

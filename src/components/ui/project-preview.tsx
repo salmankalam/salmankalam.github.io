@@ -74,7 +74,17 @@ export function ProjectPreview({ repo, onClose }: ProjectPreviewProps) {
               )}
             </div>
             <div className="flex items-center gap-3">
-              {repo.pages_enabled && repo.pages_url && (
+              {repo.hostedByTheUser && repo.hostedByTheUserLink && (
+                <a
+                  href={repo.hostedByTheUserLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[0.6rem] uppercase tracking-[0.15em] text-white/40 transition-colors hover:text-white/80"
+                >
+                  Live Site
+                </a>
+              )}
+              {!repo.hostedByTheUser && repo.pages_enabled && repo.pages_url && (
                 <a
                   href={repo.pages_url}
                   target="_blank"

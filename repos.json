@@ -58,9 +58,11 @@
       "short_summary": "A modern e-commerce storefront built with React and TypeScript",
       "long_summary": "A full-featured e-commerce storefront application built with React 19, TypeScript, and TanStack technologies. Uses shadcn/ui component library with Tailwind CSS for styling, TanStack Router for navigation, and Vite as the build tool. Designed as a modern, scalable e-commerce platform.",
       "repo_url": "https://github.com/salmankalam/viva-ecommerce-store",
-      "pages_url": "https://salmankalam.github.io/viva-ecommerce-store/",
-      "pages_enabled": true,
+      "pages_url": null,
+      "pages_enabled": false,
       "frontend": true,
+      "hostedByTheUser": true,
+      "hostedByTheUserLink": "https://vivastore.lovable.app",
       "tags": {
         "languages": [
           "TypeScript",
@@ -101,7 +103,7 @@
       "pinned": false,
       "page_title": "Page not found · GitHub Pages",
       "screenshots": [],
-      "screenshot_error": "404"
+      "screenshot_error": null
     },
     {
       "name": "retail-ai-backend",
@@ -283,6 +285,8 @@
       "pages_url": null,
       "pages_enabled": false,
       "frontend": false,
+      "hostedByTheUser": true,
+      "hostedByTheUserLink": "https://car-prediction-backend.onrender.com",
       "tags": {
         "languages": [
           "Python"
@@ -616,9 +620,11 @@
       "short_summary": "A Next.js dashboard with authentication and analytics",
       "long_summary": "A full-stack dashboard application built with Next.js 14+ and TypeScript. Features authentication system with NextAuth.js, PostgreSQL database integration, Tailwind CSS styling, and a responsive dashboard layout for data visualization and management.",
       "repo_url": "https://github.com/salmankalam/nextjs-dashboard",
-      "pages_url": "https://salmankalam.github.io/nextjs-dashboard/",
-      "pages_enabled": true,
+      "pages_url": null,
+      "pages_enabled": false,
       "frontend": true,
+      "hostedByTheUser": true,
+      "hostedByTheUserLink": "https://nextjs-dashboard-gamma-ten-49.vercel.app/",
       "tags": {
         "languages": [
           "TypeScript",
