@@ -35,7 +35,26 @@
       "updated_at": "2026-08-15T17:11:40Z",
       "pushed_at": "2026-08-15T17:11:09Z",
       "size": 5,
-      "ai_enriched": false
+      "ai_enriched": false,
+      "screenshots": [
+        {
+          "file": "projects/graphify/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        },
+        {
+          "file": "projects/graphify/full.png",
+          "type": "full",
+          "label": "Full Page"
+        },
+        {
+          "file": "projects/graphify/content.png",
+          "type": "content",
+          "label": "Content View"
+        }
+      ],
+      "page_title": "Graphify — Setup Guide",
+      "screenshot_error": null
     },
     {
       "name": "podcast-xml-rss--generator",
@@ -82,7 +101,16 @@
       "updated_at": "2026-08-08T17:24:19Z",
       "pushed_at": "2026-08-08T17:25:34Z",
       "size": 9,
-      "ai_enriched": false
+      "ai_enriched": false,
+      "screenshots": [
+        {
+          "file": "projects/podcast-xml-rss--generator/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        }
+      ],
+      "page_title": "podcast-xml-rss--generator",
+      "screenshot_error": null
     },
     {
       "name": "podcast_test-practical_github_actions",
@@ -118,7 +146,16 @@
       "updated_at": "2026-08-08T16:32:16Z",
       "pushed_at": "2026-08-08T16:32:12Z",
       "size": 2231,
-      "ai_enriched": false
+      "ai_enriched": false,
+      "screenshots": [
+        {
+          "file": "projects/podcast_test-practical_github_actions/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        }
+      ],
+      "page_title": "podcast_test-practical_github_actions",
+      "screenshot_error": null
     },
     {
       "name": "codegraph",
@@ -154,7 +191,10 @@
       "updated_at": "2026-08-06T10:25:15Z",
       "pushed_at": "2026-08-06T10:23:23Z",
       "size": 5,
-      "ai_enriched": false
+      "ai_enriched": false,
+      "page_title": "Page not found · GitHub Pages",
+      "screenshots": [],
+      "screenshot_error": "404"
     },
     {
       "name": "machine-learning-algorithms",
@@ -190,7 +230,16 @@
       "updated_at": "2026-07-29T09:51:11Z",
       "pushed_at": "2026-07-29T09:48:12Z",
       "size": 2932,
-      "ai_enriched": false
+      "ai_enriched": false,
+      "screenshots": [
+        {
+          "file": "projects/machine-learning-algorithms/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        }
+      ],
+      "page_title": "machine-learning-algorithms",
+      "screenshot_error": null
     },
     {
       "name": "data_analysis-python-sql-r-mongodb",
@@ -226,7 +275,16 @@
       "updated_at": "2026-07-29T09:39:09Z",
       "pushed_at": "2026-07-29T09:34:46Z",
       "size": 1777,
-      "ai_enriched": false
+      "ai_enriched": false,
+      "screenshots": [
+        {
+          "file": "projects/data_analysis-python-sql-r-mongodb/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        }
+      ],
+      "page_title": "data_analysis-python-sql-r-mongodb",
+      "screenshot_error": null
     },
     {
       "name": "viva-ecommerce-store",
