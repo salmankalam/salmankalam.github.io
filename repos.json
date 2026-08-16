@@ -52,7 +52,43 @@
       "ai_enriched": true,
       "pinned": false,
       "page_title": "Page not found · GitHub Pages",
-      "screenshots": [],
+      "screenshots": [
+        {
+          "file": "projects/viva-ecommerce-store/hero-3.png",
+          "type": "hero",
+          "label": "hero-3"
+        },
+        {
+          "file": "projects/viva-ecommerce-store/hero.png",
+          "type": "section",
+          "label": "hero"
+        },
+        {
+          "file": "projects/viva-ecommerce-store/hero2.png",
+          "type": "section",
+          "label": "hero2"
+        },
+        {
+          "file": "projects/viva-ecommerce-store/route-cart.png",
+          "type": "section",
+          "label": "route-cart"
+        },
+        {
+          "file": "projects/viva-ecommerce-store/route-contact.png",
+          "type": "section",
+          "label": "route-contact"
+        },
+        {
+          "file": "projects/viva-ecommerce-store/route-search.png",
+          "type": "section",
+          "label": "route-search"
+        },
+        {
+          "file": "projects/viva-ecommerce-store/route-shop.png",
+          "type": "section",
+          "label": "route-shop"
+        }
+      ],
       "screenshot_error": null
     },
     {
@@ -103,7 +139,7 @@
         {
           "file": "projects/retail-ai-backend/hero.png",
           "type": "hero",
-          "label": "Hero View"
+          "label": "hero"
         }
       ],
       "page_title": "retail-ai-backend",
@@ -154,9 +190,9 @@
       "ai_enriched": true,
       "screenshots": [
         {
-          "file": "projects/price_prediction_used_cars_explainable_ai/hero.png",
+          "file": "projects/price_prediction_used_cars_explainable_ai/data_analysis.jpg",
           "type": "hero",
-          "label": "Hero View"
+          "label": "data_analysis"
         }
       ],
       "page_title": "price_prediction_used_cars_explainable_ai",
@@ -207,7 +243,28 @@
       "size": 616,
       "ai_enriched": true,
       "pinned": false,
-      "screenshots": [],
+      "screenshots": [
+        {
+          "file": "projects/car-prediction-insights/hero-budget.png",
+          "type": "hero",
+          "label": "hero-budget"
+        },
+        {
+          "file": "projects/car-prediction-insights/hero-light.png",
+          "type": "section",
+          "label": "hero-light"
+        },
+        {
+          "file": "projects/car-prediction-insights/hero-valuation.png",
+          "type": "section",
+          "label": "hero-valuation"
+        },
+        {
+          "file": "projects/car-prediction-insights/hero.png",
+          "type": "section",
+          "label": "hero"
+        }
+      ],
       "page_title": "Valua.AI — Instant AI valuations for used cars",
       "screenshot_error": null,
       "hostedByTheUser": true,
@@ -252,7 +309,23 @@
       "pushed_at": "2026-05-18T23:42:31Z",
       "size": 7485,
       "ai_enriched": true,
-      "screenshots": [],
+      "screenshots": [
+        {
+          "file": "projects/car-prediction-backend/hero.png",
+          "type": "hero",
+          "label": "hero"
+        },
+        {
+          "file": "projects/car-prediction-backend/hero2.png",
+          "type": "section",
+          "label": "hero2"
+        },
+        {
+          "file": "projects/car-prediction-backend/hero3.png",
+          "type": "section",
+          "label": "hero3"
+        }
+      ],
       "page_title": "car prediction backend",
       "pinned": true,
       "screenshot_error": null
@@ -298,7 +371,7 @@
         {
           "file": "projects/dba/hero.png",
           "type": "hero",
-          "label": "Hero View"
+          "label": "hero"
         }
       ],
       "page_title": "dba",
@@ -351,7 +424,38 @@
       "size": 238,
       "ai_enriched": true,
       "pinned": true,
-      "screenshots": [],
+      "screenshots": [
+        {
+          "file": "projects/The-Registry/hero-filtered.png",
+          "type": "hero",
+          "label": "hero-filtered"
+        },
+        {
+          "file": "projects/The-Registry/hero-full.png",
+          "type": "section",
+          "label": "hero-full"
+        },
+        {
+          "file": "projects/The-Registry/hero.png",
+          "type": "section",
+          "label": "hero"
+        },
+        {
+          "file": "projects/The-Registry/route-aitools.png",
+          "type": "section",
+          "label": "route-aitools"
+        },
+        {
+          "file": "projects/The-Registry/route-favorites.png",
+          "type": "section",
+          "label": "route-favorites"
+        },
+        {
+          "file": "projects/The-Registry/route-search.png",
+          "type": "section",
+          "label": "route-search"
+        }
+      ],
       "page_title": "The Registry — Blogs, AI Tools & Code Snippets",
       "screenshot_error": null,
       "hostedByTheUser": true,
@@ -449,7 +553,33 @@
       "size": 600,
       "ai_enriched": true,
       "pinned": true,
-      "screenshots": [],
+      "screenshots": [
+        {
+          "file": "projects/ai_tools_hub/hero-filtered.png",
+          "type": "hero",
+          "label": "hero-filtered"
+        },
+        {
+          "file": "projects/ai_tools_hub/hero-full.png",
+          "type": "section",
+          "label": "hero-full"
+        },
+        {
+          "file": "projects/ai_tools_hub/hero-light.png",
+          "type": "section",
+          "label": "hero-light"
+        },
+        {
+          "file": "projects/ai_tools_hub/hero-section.png",
+          "type": "section",
+          "label": "hero-section"
+        },
+        {
+          "file": "projects/ai_tools_hub/hero.png",
+          "type": "section",
+          "label": "hero"
+        }
+      ],
       "page_title": "AI Tools Hub — Best AI Tools of 2025",
       "screenshot_error": null,
       "hostedByTheUser": true,
@@ -499,7 +629,7 @@
         {
           "file": "projects/chatbot/hero.png",
           "type": "hero",
-          "label": "Hero View"
+          "label": "hero"
         }
       ],
       "page_title": "chatbot",
@@ -556,7 +686,23 @@
       "size": 923,
       "ai_enriched": true,
       "pinned": true,
-      "screenshots": [],
+      "screenshots": [
+        {
+          "file": "projects/nextjs-dashboard/full.png",
+          "type": "hero",
+          "label": "full"
+        },
+        {
+          "file": "projects/nextjs-dashboard/hero.png",
+          "type": "section",
+          "label": "hero"
+        },
+        {
+          "file": "projects/nextjs-dashboard/mobile.png",
+          "type": "section",
+          "label": "mobile"
+        }
+      ],
       "page_title": "Next.js App Router Course - Starter | nextjs-dashboard",
       "screenshot_error": null
     },
@@ -609,7 +755,7 @@
         {
           "file": "projects/myblog/hero.png",
           "type": "hero",
-          "label": "Hero View"
+          "label": "hero"
         }
       ],
       "page_title": "myblog",
@@ -662,19 +808,24 @@
       "pinned": false,
       "screenshots": [
         {
-          "file": "projects/travelandtour/hero.png",
-          "type": "hero",
-          "label": "Hero View"
-        },
-        {
-          "file": "projects/travelandtour/full.png",
-          "type": "full",
-          "label": "Full Page"
-        },
-        {
           "file": "projects/travelandtour/content.png",
-          "type": "content",
-          "label": "Content View"
+          "type": "hero",
+          "label": "content"
+        },
+        {
+          "file": "projects/travelandtour/hero.png",
+          "type": "section",
+          "label": "hero"
+        },
+        {
+          "file": "projects/travelandtour/route1.png",
+          "type": "section",
+          "label": "route1"
+        },
+        {
+          "file": "projects/travelandtour/route2.png",
+          "type": "section",
+          "label": "route2"
         }
       ],
       "page_title": "Travel&Tour",
@@ -724,19 +875,19 @@
       "pinned": false,
       "screenshots": [
         {
-          "file": "projects/tictactoe/hero.png",
+          "file": "projects/tictactoe/hero-dark.png",
           "type": "hero",
-          "label": "Hero View"
+          "label": "hero-dark"
         },
         {
-          "file": "projects/tictactoe/full.png",
-          "type": "full",
-          "label": "Full Page"
+          "file": "projects/tictactoe/hero.png",
+          "type": "section",
+          "label": "hero"
         },
         {
-          "file": "projects/tictactoe/content.png",
-          "type": "content",
-          "label": "Content View"
+          "file": "projects/tictactoe/hero3.png",
+          "type": "section",
+          "label": "hero3"
         }
       ],
       "page_title": "Tic tac toe",
@@ -787,29 +938,29 @@
       "pinned": false,
       "screenshots": [
         {
-          "file": "projects/rentalcar/hero.png",
+          "file": "projects/rentalcar/content.png",
           "type": "hero",
-          "label": "Hero View"
+          "label": "content"
         },
         {
           "file": "projects/rentalcar/full.png",
-          "type": "full",
-          "label": "Full Page"
+          "type": "section",
+          "label": "full"
         },
         {
-          "file": "projects/rentalcar/content.png",
-          "type": "content",
-          "label": "Content View"
+          "file": "projects/rentalcar/hero.png",
+          "type": "section",
+          "label": "hero"
         },
         {
           "file": "projects/rentalcar/route-1.png",
-          "type": "route",
-          "label": "MetroRide"
+          "type": "section",
+          "label": "route-1"
         },
         {
           "file": "projects/rentalcar/route-3.png",
-          "type": "route",
-          "label": "MetroRide"
+          "type": "section",
+          "label": "route-3"
         }
       ],
       "page_title": "Rental Car",
@@ -861,17 +1012,7 @@
         {
           "file": "projects/Web-Notes/hero.png",
           "type": "hero",
-          "label": "Hero View"
-        },
-        {
-          "file": "projects/Web-Notes/full.png",
-          "type": "full",
-          "label": "Full Page"
-        },
-        {
-          "file": "projects/Web-Notes/content.png",
-          "type": "content",
-          "label": "Content View"
+          "label": "hero"
         }
       ],
       "screenshot_error": null
@@ -916,7 +1057,7 @@
         {
           "file": "projects/Notes/hero.png",
           "type": "hero",
-          "label": "Hero View"
+          "label": "hero"
         }
       ],
       "page_title": "Notes",
@@ -966,19 +1107,9 @@
       "pinned": false,
       "screenshots": [
         {
-          "file": "projects/salmankalam.github.io/hero.png",
+          "file": "projects/salmankalam.github.io/salmankalam.github.io_.png",
           "type": "hero",
-          "label": "Hero View"
-        },
-        {
-          "file": "projects/salmankalam.github.io/full.png",
-          "type": "full",
-          "label": "Full Page"
-        },
-        {
-          "file": "projects/salmankalam.github.io/content.png",
-          "type": "content",
-          "label": "Content View"
+          "label": "salmankalam.github.io_"
         }
       ],
       "page_title": "Salman Kalam — Portfolio",

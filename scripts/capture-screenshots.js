@@ -240,17 +240,67 @@ async function discoverRoutes(page, pagesUrl) {
   return routes;
 }
 
+const IMAGE_EXTS = new Set([".png", ".jpg", ".jpeg", ".gif", ".webp", ".avif"]);
+
+// Build a screenshots array from whatever image files already exist in the
+// repo's project folder, preserving the user's chosen filenames and order.
+function scanLocalImages(repo) {
+  const outDir = path.join(projectsDir, repo.name);
+  if (!fs.existsSync(outDir)) return null;
+
+  const files = fs
+    .readdirSync(outDir)
+    .filter((f) => IMAGE_EXTS.has(path.extname(f).toLowerCase()))
+    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+
+  if (files.length === 0) return null;
+
+  return files.map((f, i) => ({
+    file: `projects/${repo.name}/${f}`,
+    type: i === 0 ? "hero" : "section",
+    label: path.basename(f, path.extname(f)),
+  }));
+}
+
 async function main() {
   const repos = reposJson.repos;
 
-  console.log(`Capturing screenshots for ${repos.length} repos…\n`);
+  console.log(`Processing screenshots for ${repos.length} repos…\n`);
 
   for (const repo of repos) {
-    if (repo.hostedByTheUser) {
-      // Hosted by the user elsewhere — no auto capture, no placeholder.
-      console.log(`  SKIP ${repo.name} — hosted by user (${repo.hostedByTheUserLink || "external link"})`);
+    // 1. User has dropped custom images into the project folder — use them as-is,
+    //    preserving their filenames and order. This overrides any prior refs.
+    const local = scanLocalImages(repo);
+    if (local) {
+      repo.screenshots = local;
+      repo.page_title = repo.page_title || repo.name;
+      repo.screenshot_error = null;
+      console.log(
+        `  SCAN ${repo.name} — using ${local.length} existing image(s): ${local
+          .map((s) => path.basename(s.file))
+          .join(", ")}`
+      );
+      await new Promise((r) => setTimeout(r, 300));
       continue;
     }
+
+    // 2. Already has screenshots in repos.json (user-managed) — never touch.
+    if (Array.isArray(repo.screenshots) && repo.screenshots.length > 0) {
+      console.log(
+        `  KEEP ${repo.name} — ${repo.screenshots.length} screenshots already set, skipping`
+      );
+      continue;
+    }
+
+    // 3. Externally hosted with no local images — skip entirely.
+    if (repo.hostedByTheUser) {
+      console.log(
+        `  SKIP ${repo.name} — hosted by user (${repo.hostedByTheUserLink || "external link"}), no images`
+      );
+      continue;
+    }
+
+    // 4. Live Pages site — auto-capture.
     if (repo.pages_enabled && repo.pages_url) {
       await captureRepo(repo);
     } else {
