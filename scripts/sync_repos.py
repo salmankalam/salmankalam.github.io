@@ -30,7 +30,7 @@ def get_token():
     if token:
         return token
     try:
-        with open(OPENSE_JSON_PATH) as f:
+        with open(OPENSE_JSON_PATH, encoding="utf-8") as f:
             config = json.load(f)
         env = config.get("mcp", {}).get("github", {}).get("environment", {})
         token = env.get("GITHUB_PERSONAL_ACCESS_TOKEN")
@@ -387,7 +387,7 @@ def fetch_pinned_repos(token):
 
 def load_existing_repos():
     if REPOS_JSON_PATH.exists():
-        with open(REPOS_JSON_PATH) as f:
+        with open(REPOS_JSON_PATH, encoding="utf-8") as f:
             return json.load(f)
     return {"last_updated": None, "repos": []}
 

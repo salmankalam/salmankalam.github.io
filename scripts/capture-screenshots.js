@@ -106,6 +106,19 @@ async function captureRepo(repo) {
       });
     }
 
+    // A meta-refresh redirect (e.g. index.html → guide.html) fires a navigation
+    // right after load, which destroys the execution context. Wait until the
+    // page settles before interacting with it.
+    for (let i = 0; i < 10; i++) {
+      try {
+        await page.evaluate(() => document.readyState);
+        await page.waitForLoadState("networkidle").catch(() => {});
+        break;
+      } catch {
+        await page.waitForTimeout(500);
+      }
+    }
+
     const pageTitle = await page.title();
 
     // Detect 404 page
@@ -151,6 +164,16 @@ async function captureRepo(repo) {
         await page.goto(route.url, { waitUntil: "load", timeout: 20000 });
       } catch {
         await page.goto(route.url, { waitUntil: "domcontentloaded", timeout: 20000 });
+      }
+
+      for (let i = 0; i < 10; i++) {
+        try {
+          await page.evaluate(() => document.readyState);
+          await page.waitForLoadState("networkidle").catch(() => {});
+          break;
+        } catch {
+          await page.waitForTimeout(500);
+        }
       }
 
       const routeTitle = await page.title();

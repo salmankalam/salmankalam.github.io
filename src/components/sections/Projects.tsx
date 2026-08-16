@@ -15,6 +15,26 @@ const validRepos = repos.filter(
 const pinned = validRepos.filter((r) => r.pinned);
 const others = validRepos.filter((r) => !r.pinned);
 
+type Category = "frontend" | "backend" | "data analysis";
+
+function categorize(repo: Repo): Category {
+  const domain = repo.tags?.domain || [];
+  if (domain.some((d) => d === "backend" || d === "api")) return "backend";
+  if (
+    domain.some(
+      (d) => d === "data analysis" || d === "machine learning" || d === "nlp"
+    )
+  )
+    return "data analysis";
+  return "frontend";
+}
+
+const categories: { key: Category; label: string }[] = [
+  { key: "frontend", label: "Frontend" },
+  { key: "backend", label: "Backend" },
+  { key: "data analysis", label: "Data Analysis" },
+];
+
 function ProjectCard({
   repo,
   onSelect,
@@ -161,15 +181,26 @@ export function Projects() {
               All Projects
             </motion.h2>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2, ease: [0.34, 1.56, 0.64, 1] }}
-              className="mt-8"
-            >
-              <ProjectGrid repos={others} onSelect={setSelected} />
-            </motion.div>
+            {categories.map((cat) => {
+              const group = validRepos.filter((r) => categorize(r) === cat.key);
+              if (group.length === 0) return null;
+              return (
+                <div key={cat.key} className="mt-12">
+                  <h3 className="text-[0.65rem] uppercase tracking-[0.25em] text-white/30">
+                    {cat.label}
+                  </h3>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.2, ease: [0.34, 1.56, 0.64, 1] }}
+                    className="mt-6"
+                  >
+                    <ProjectGrid repos={group} onSelect={setSelected} />
+                  </motion.div>
+                </div>
+              );
+            })}
           </>
         )}
       </div>

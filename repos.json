@@ -38,19 +38,19 @@
       "ai_enriched": false,
       "screenshots": [
         {
-          "file": "projects/graphify/hero.png",
+          "file": "projects/graphify/content.png",
           "type": "hero",
-          "label": "Hero View"
+          "label": "content"
         },
         {
           "file": "projects/graphify/full.png",
-          "type": "full",
-          "label": "Full Page"
+          "type": "section",
+          "label": "full"
         },
         {
-          "file": "projects/graphify/content.png",
-          "type": "content",
-          "label": "Content View"
+          "file": "projects/graphify/hero.png",
+          "type": "section",
+          "label": "hero"
         }
       ],
       "page_title": "Graphify — Setup Guide",
@@ -106,7 +106,7 @@
         {
           "file": "projects/podcast-xml-rss--generator/hero.png",
           "type": "hero",
-          "label": "Hero View"
+          "label": "hero"
         }
       ],
       "page_title": "podcast-xml-rss--generator",
@@ -151,7 +151,7 @@
         {
           "file": "projects/podcast_test-practical_github_actions/hero.png",
           "type": "hero",
-          "label": "Hero View"
+          "label": "hero"
         }
       ],
       "page_title": "podcast_test-practical_github_actions",
@@ -193,8 +193,24 @@
       "size": 5,
       "ai_enriched": false,
       "page_title": "Page not found · GitHub Pages",
-      "screenshots": [],
-      "screenshot_error": "404"
+      "screenshots": [
+        {
+          "file": "projects/codegraph/content.png",
+          "type": "hero",
+          "label": "content"
+        },
+        {
+          "file": "projects/codegraph/full.png",
+          "type": "section",
+          "label": "full"
+        },
+        {
+          "file": "projects/codegraph/hero.png",
+          "type": "section",
+          "label": "hero"
+        }
+      ],
+      "screenshot_error": null
     },
     {
       "name": "machine-learning-algorithms",
@@ -235,7 +251,7 @@
         {
           "file": "projects/machine-learning-algorithms/hero.png",
           "type": "hero",
-          "label": "Hero View"
+          "label": "hero"
         }
       ],
       "page_title": "machine-learning-algorithms",
@@ -280,7 +296,7 @@
         {
           "file": "projects/data_analysis-python-sql-r-mongodb/hero.png",
           "type": "hero",
-          "label": "Hero View"
+          "label": "hero"
         }
       ],
       "page_title": "data_analysis-python-sql-r-mongodb",
@@ -527,7 +543,7 @@
       "pushed_at": "2026-05-18T23:53:33Z",
       "size": 616,
       "ai_enriched": true,
-      "pinned": false,
+      "pinned": true,
       "screenshots": [
         {
           "file": "projects/car-prediction-insights/hero-budget.png",
@@ -613,54 +629,6 @@
       ],
       "page_title": "car prediction backend",
       "pinned": true,
-      "screenshot_error": null
-    },
-    {
-      "name": "dba",
-      "full_name": "salmankalam/dba",
-      "description": "Dba",
-      "short_summary": "Database analytics project with Northstar dataset analysis",
-      "long_summary": "A data analytics repository focused on database analysis and business intelligence using the Northstar dataset. Includes data cleaning, analytics implementation, and dataset processing pipelines.",
-      "repo_url": "https://github.com/salmankalam/dba",
-      "pages_url": null,
-      "pages_enabled": false,
-      "frontend": false,
-      "tags": {
-        "languages": [
-          "Python"
-        ],
-        "domain": [
-          "data analysis",
-          "database"
-        ],
-        "tools": [
-          "pandas",
-          "Jupyter"
-        ],
-        "type": [
-          "project",
-          "analytics"
-        ]
-      },
-      "topics": [],
-      "language": "Jupyter Notebook",
-      "languages": {
-        "Jupyter Notebook": 2381034
-      },
-      "created_at": "2026-05-15T09:33:02Z",
-      "updated_at": "2026-05-16T06:13:33Z",
-      "pushed_at": "2026-05-16T06:13:30Z",
-      "size": 1727,
-      "ai_enriched": true,
-      "screenshots": [
-        {
-          "file": "projects/dba/hero.png",
-          "type": "hero",
-          "label": "hero"
-        }
-      ],
-      "page_title": "dba",
-      "pinned": false,
       "screenshot_error": null
     },
     {
@@ -792,7 +760,23 @@
       "size": 282,
       "ai_enriched": true,
       "pinned": false,
-      "screenshots": [],
+      "screenshots": [
+        {
+          "file": "projects/fragment/filtered.png",
+          "type": "hero",
+          "label": "filtered"
+        },
+        {
+          "file": "projects/fragment/full.png",
+          "type": "section",
+          "label": "full"
+        },
+        {
+          "file": "projects/fragment/hero.png",
+          "type": "section",
+          "label": "hero"
+        }
+      ],
       "page_title": "Lovable App",
       "screenshot_error": null,
       "hostedByTheUser": true,
@@ -837,7 +821,7 @@
       "pushed_at": "2026-03-16T13:46:36Z",
       "size": 600,
       "ai_enriched": true,
-      "pinned": true,
+      "pinned": false,
       "screenshots": [
         {
           "file": "projects/ai_tools_hub/hero-filtered.png",
@@ -1389,7 +1373,7 @@
       "pushed_at": "2022-10-16T12:52:33Z",
       "size": 1,
       "ai_enriched": true,
-      "pinned": false,
+      "pinned": true,
       "screenshots": [
         {
           "file": "projects/salmankalam.github.io/salmankalam.github.io_.png",
