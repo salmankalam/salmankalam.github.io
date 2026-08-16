@@ -2,6 +2,17 @@
   "last_updated": "2026-08-16T06:32:08.902092+00:00",
   "repos": [
     {
+      "name": "ui components",
+      "full_name": "salmankalam/uicomponents",
+      "description": "UI Components",
+      "repo_url": "https://github.com/salmankalam/uicomponents",
+      "pages_enabled": false,
+      "frontend": true,
+      "hostedByTheUser": true,
+      "hostedByTheUserLink": "https://skuicomponents.vercel.app/",
+      "pinned": false,      
+    },
+    {
       "name": "graphify",
       "full_name": "salmankalam/graphify",
       "description": "Graphify",
