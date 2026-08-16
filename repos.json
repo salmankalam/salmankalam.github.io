@@ -364,8 +364,8 @@
       "short_summary": "A React-based web application with modern tooling",
       "long_summary": "A frontend web application built with React, TypeScript, and Vite. Uses shadcn/ui component library, Tailwind CSS for styling, and includes a robust testing setup with Playwright for E2E testing and Vitest for unit testing.",
       "repo_url": "https://github.com/salmankalam/fragment",
-      "pages_url": "https://salmankalam.github.io/fragment/",
-      "pages_enabled": true,
+      "pages_url": null,
+      "pages_enabled": false,
       "frontend": true,
       "tags": {
         "languages": [
@@ -403,25 +403,11 @@
       "size": 282,
       "ai_enriched": true,
       "pinned": false,
-      "screenshots": [
-        {
-          "file": "projects/fragment/hero.png",
-          "type": "hero",
-          "label": "Hero View"
-        },
-        {
-          "file": "projects/fragment/full.png",
-          "type": "full",
-          "label": "Full Page"
-        },
-        {
-          "file": "projects/fragment/content.png",
-          "type": "content",
-          "label": "Content View"
-        }
-      ],
+      "screenshots": [],
       "page_title": "Lovable App",
-      "screenshot_error": null
+      "screenshot_error": null,
+      "hostedByTheUser": true,
+      "hostedByTheUserLink": "https://thefragment.lovable.app"
     },
     {
       "name": "ai_tools_hub",
@@ -430,8 +416,8 @@
       "short_summary": "A curated directory of AI tools and resources",
       "long_summary": "A static HTML website that serves as a comprehensive directory of AI tools, featuring tool listings with descriptions, categories, and images. Covers a wide range of AI-powered tools for various use cases.",
       "repo_url": "https://github.com/salmankalam/ai_tools_hub",
-      "pages_url": "https://salmankalam.github.io/ai_tools_hub/",
-      "pages_enabled": true,
+      "pages_url": null,
+      "pages_enabled": false,
       "frontend": true,
       "tags": {
         "languages": [
@@ -463,30 +449,11 @@
       "size": 600,
       "ai_enriched": true,
       "pinned": true,
-      "screenshots": [
-        {
-          "file": "projects/ai_tools_hub/hero.png",
-          "type": "hero",
-          "label": "Hero View"
-        },
-        {
-          "file": "projects/ai_tools_hub/full.png",
-          "type": "full",
-          "label": "Full Page"
-        },
-        {
-          "file": "projects/ai_tools_hub/content.png",
-          "type": "content",
-          "label": "Content View"
-        },
-        {
-          "file": "projects/ai_tools_hub/route-1.png",
-          "type": "route",
-          "label": "AI Tools Hub"
-        }
-      ],
+      "screenshots": [],
       "page_title": "AI Tools Hub — Best AI Tools of 2025",
-      "screenshot_error": null
+      "screenshot_error": null,
+      "hostedByTheUser": true,
+      "hostedByTheUserLink": "https://aitoolshub123.lovable.app"
     },
     {
       "name": "chatbot",
@@ -773,78 +740,6 @@
         }
       ],
       "page_title": "Tic tac toe",
-      "screenshot_error": null
-    },
-    {
-      "name": "portfolio",
-      "full_name": "salmankalam/portfolio",
-      "description": "Portfolio",
-      "short_summary": "A personal portfolio website showcasing projects and skills",
-      "long_summary": "A personal portfolio website that showcases projects, skills, and professional experience. Designed to highlight work samples and provide contact information for potential employers or clients.",
-      "repo_url": "https://github.com/salmankalam/portfolio",
-      "pages_url": "https://salmankalam.github.io/portfolio/",
-      "pages_enabled": true,
-      "frontend": true,
-      "tags": {
-        "languages": [
-          "HTML",
-          "CSS",
-          "JavaScript"
-        ],
-        "domain": [
-          "frontend",
-          "portfolio"
-        ],
-        "tools": [
-          "HTML",
-          "CSS",
-          "JavaScript"
-        ],
-        "type": [
-          "project",
-          "portfolio"
-        ]
-      },
-      "topics": [],
-      "language": "HTML",
-      "languages": {
-        "HTML": 2854,
-        "CSS": 1762
-      },
-      "created_at": "2025-07-22T11:03:53Z",
-      "updated_at": "2025-07-29T16:51:16Z",
-      "pushed_at": "2025-07-29T16:51:12Z",
-      "size": 1439,
-      "ai_enriched": true,
-      "pinned": false,
-      "screenshots": [
-        {
-          "file": "projects/portfolio/hero.png",
-          "type": "hero",
-          "label": "Hero View"
-        },
-        {
-          "file": "projects/portfolio/full.png",
-          "type": "full",
-          "label": "Full Page"
-        },
-        {
-          "file": "projects/portfolio/content.png",
-          "type": "content",
-          "label": "Content View"
-        },
-        {
-          "file": "projects/portfolio/route-1.png",
-          "type": "route",
-          "label": "Project name Project details"
-        },
-        {
-          "file": "projects/portfolio/route-2.png",
-          "type": "route",
-          "label": "Project name Project details"
-        }
-      ],
-      "page_title": "Portfolio - Salman",
       "screenshot_error": null
     },
     {
