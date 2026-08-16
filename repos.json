@@ -1,6 +1,291 @@
 {
-  "last_updated": "2026-07-19T13:10:01.729810+00:00",
+  "last_updated": "2026-08-16T06:32:08.902092+00:00",
   "repos": [
+    {
+      "name": "graphify",
+      "full_name": "salmankalam/graphify",
+      "description": "Graphify",
+      "short_summary": "A HTML repository",
+      "long_summary": "A HTML repository",
+      "repo_url": "https://github.com/salmankalam/graphify",
+      "pages_url": "https://salmankalam.github.io/graphify/",
+      "pages_enabled": true,
+      "frontend": true,
+      "hostedByTheUser": false,
+      "hostedByTheUserLink": null,
+      "pinned": false,
+      "tags": {
+        "languages": [
+          "HTML"
+        ],
+        "domain": [
+          "frontend"
+        ],
+        "tools": [],
+        "type": [
+          "project"
+        ]
+      },
+      "topics": [],
+      "language": "HTML",
+      "languages": {
+        "HTML": 14250
+      },
+      "created_at": "2026-08-06T10:19:50Z",
+      "updated_at": "2026-08-15T17:11:40Z",
+      "pushed_at": "2026-08-15T17:11:09Z",
+      "size": 5,
+      "ai_enriched": false,
+      "screenshots": [
+        {
+          "file": "projects/graphify/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        },
+        {
+          "file": "projects/graphify/full.png",
+          "type": "full",
+          "label": "Full Page"
+        },
+        {
+          "file": "projects/graphify/content.png",
+          "type": "content",
+          "label": "Content View"
+        }
+      ],
+      "page_title": "Graphify — Setup Guide",
+      "screenshot_error": null
+    },
+    {
+      "name": "podcast-xml-rss--generator",
+      "full_name": "salmankalam/podcast-xml-rss--generator",
+      "description": "Podcast Xml Rss  Generator",
+      "short_summary": "Generates feed for a podcast from a YAML file hosted on github pages",
+      "long_summary": "1. actions.yml - is called: orchestrates the workflow 2. Dockerfile - is used: to setup the machine and copy files 3. entrypoint.sh - is called: to run the script which generates podcast and pushes the updates back to github repo",
+      "repo_url": "https://github.com/salmankalam/podcast-xml-rss--generator",
+      "pages_url": null,
+      "pages_enabled": false,
+      "frontend": false,
+      "hostedByTheUser": false,
+      "hostedByTheUserLink": null,
+      "pinned": false,
+      "tags": {
+        "languages": [
+          "Python",
+          "Shell",
+          "Dockerfile"
+        ],
+        "domain": [
+          "data analysis",
+          "deployment"
+        ],
+        "tools": [],
+        "type": [
+          "project"
+        ]
+      },
+      "topics": [
+        "dockerfile",
+        "githubaction-workflow",
+        "python-script",
+        "rss",
+        "xml"
+      ],
+      "language": "Python",
+      "languages": {
+        "Python": 1917,
+        "Shell": 779,
+        "Dockerfile": 493
+      },
+      "created_at": "2026-08-08T15:24:53Z",
+      "updated_at": "2026-08-08T17:24:19Z",
+      "pushed_at": "2026-08-08T17:25:34Z",
+      "size": 9,
+      "ai_enriched": false,
+      "screenshots": [
+        {
+          "file": "projects/podcast-xml-rss--generator/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        }
+      ],
+      "page_title": "podcast-xml-rss--generator",
+      "screenshot_error": null
+    },
+    {
+      "name": "podcast_test-practical_github_actions",
+      "full_name": "salmankalam/podcast_test-practical_github_actions",
+      "description": "Podcast Test Practical Github Actions",
+      "short_summary": "The Future in Tech",
+      "long_summary": "<img src=\"https://raybo.org/tfit-feed/images/artwork.jpg\" width=\"250\">",
+      "repo_url": "https://github.com/salmankalam/podcast_test-practical_github_actions",
+      "pages_url": null,
+      "pages_enabled": true,
+      "frontend": false,
+      "hostedByTheUser": false,
+      "hostedByTheUserLink": null,
+      "pinned": false,
+      "tags": {
+        "languages": [
+          "Python"
+        ],
+        "domain": [
+          "frontend"
+        ],
+        "tools": [],
+        "type": [
+          "tutorial"
+        ]
+      },
+      "topics": [],
+      "language": "Python",
+      "languages": {
+        "Python": 1916
+      },
+      "created_at": "2026-08-08T08:07:37Z",
+      "updated_at": "2026-08-08T16:32:16Z",
+      "pushed_at": "2026-08-08T16:32:12Z",
+      "size": 2231,
+      "ai_enriched": false,
+      "screenshots": [
+        {
+          "file": "projects/podcast_test-practical_github_actions/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        }
+      ],
+      "page_title": "podcast_test-practical_github_actions",
+      "screenshot_error": null
+    },
+    {
+      "name": "codegraph",
+      "full_name": "salmankalam/codegraph",
+      "description": "Codegraph",
+      "short_summary": "A HTML repository",
+      "long_summary": "A HTML repository",
+      "repo_url": "https://github.com/salmankalam/codegraph",
+      "pages_url": "https://salmankalam.github.io/codegraph/",
+      "pages_enabled": true,
+      "frontend": true,
+      "hostedByTheUser": false,
+      "hostedByTheUserLink": null,
+      "pinned": false,
+      "tags": {
+        "languages": [
+          "HTML"
+        ],
+        "domain": [
+          "frontend"
+        ],
+        "tools": [],
+        "type": [
+          "project"
+        ]
+      },
+      "topics": [],
+      "language": "HTML",
+      "languages": {
+        "HTML": 15342
+      },
+      "created_at": "2026-08-06T10:21:19Z",
+      "updated_at": "2026-08-06T10:25:15Z",
+      "pushed_at": "2026-08-06T10:23:23Z",
+      "size": 5,
+      "ai_enriched": false,
+      "page_title": "Page not found · GitHub Pages",
+      "screenshots": [],
+      "screenshot_error": "404"
+    },
+    {
+      "name": "machine-learning-algorithms",
+      "full_name": "salmankalam/machine-learning-algorithms",
+      "description": "Machine Learning Algorithms",
+      "short_summary": "A Jupyter Notebook repository",
+      "long_summary": "A Jupyter Notebook repository",
+      "repo_url": "https://github.com/salmankalam/machine-learning-algorithms",
+      "pages_url": null,
+      "pages_enabled": false,
+      "frontend": false,
+      "hostedByTheUser": false,
+      "hostedByTheUserLink": null,
+      "pinned": false,
+      "tags": {
+        "languages": [
+          "Jupyter Notebook"
+        ],
+        "domain": [
+          "data analysis"
+        ],
+        "tools": [],
+        "type": [
+          "project"
+        ]
+      },
+      "topics": [],
+      "language": "Jupyter Notebook",
+      "languages": {
+        "Jupyter Notebook": 4543489
+      },
+      "created_at": "2026-07-29T09:41:36Z",
+      "updated_at": "2026-07-29T09:51:11Z",
+      "pushed_at": "2026-07-29T09:48:12Z",
+      "size": 2932,
+      "ai_enriched": false,
+      "screenshots": [
+        {
+          "file": "projects/machine-learning-algorithms/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        }
+      ],
+      "page_title": "machine-learning-algorithms",
+      "screenshot_error": null
+    },
+    {
+      "name": "data_analysis-python-sql-r-mongodb",
+      "full_name": "salmankalam/data_analysis-python-sql-r-mongodb",
+      "description": "Data Analysis Python Sql R Mongodb",
+      "short_summary": "A Jupyter Notebook repository",
+      "long_summary": "A Jupyter Notebook repository",
+      "repo_url": "https://github.com/salmankalam/data_analysis-python-sql-r-mongodb",
+      "pages_url": null,
+      "pages_enabled": false,
+      "frontend": false,
+      "hostedByTheUser": false,
+      "hostedByTheUserLink": null,
+      "pinned": false,
+      "tags": {
+        "languages": [
+          "Jupyter Notebook"
+        ],
+        "domain": [
+          "data analysis"
+        ],
+        "tools": [],
+        "type": [
+          "project"
+        ]
+      },
+      "topics": [],
+      "language": "Jupyter Notebook",
+      "languages": {
+        "Jupyter Notebook": 2384002
+      },
+      "created_at": "2026-05-15T09:33:02Z",
+      "updated_at": "2026-07-29T09:39:09Z",
+      "pushed_at": "2026-07-29T09:34:46Z",
+      "size": 1777,
+      "ai_enriched": false,
+      "screenshots": [
+        {
+          "file": "projects/data_analysis-python-sql-r-mongodb/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        }
+      ],
+      "page_title": "data_analysis-python-sql-r-mongodb",
+      "screenshot_error": null
+    },
     {
       "name": "viva-ecommerce-store",
       "full_name": "salmankalam/viva-ecommerce-store",
