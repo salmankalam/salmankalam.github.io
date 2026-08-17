@@ -39,7 +39,16 @@
       "updated_at": "2026-08-16T14:29:26Z",
       "pushed_at": "2026-08-16T14:29:06Z",
       "size": 905,
-      "ai_enriched": false
+      "ai_enriched": false,
+      "screenshots": [
+        {
+          "file": "projects/uicomponents/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        }
+      ],
+      "page_title": "uicomponents",
+      "screenshot_error": null
     },
     {
       "name": "graphify",
