@@ -13,14 +13,14 @@ function TagGroup({ label, tags }: { label: string; tags: string[] }) {
   if (!tags || tags.length === 0) return null;
   return (
     <div>
-      <span className="text-[0.5rem] uppercase tracking-[0.2em] text-white/20">
+      <span className="text-[0.6rem] uppercase tracking-[0.2em] text-white/60">
         {label}
       </span>
       <div className="mt-1.5 flex flex-wrap gap-1.5">
         {tags.map((t) => (
           <span
             key={t}
-            className="rounded-full bg-white/5 px-2.5 py-1 text-[0.55rem] uppercase tracking-[0.1em] text-white/40"
+            className="rounded-full bg-white/5 px-2.5 py-1 text-[0.65rem] uppercase tracking-[0.1em] text-white/70"
           >
             {t}
           </span>
@@ -62,13 +62,13 @@ export function ProjectPreview({ repo, onClose }: ProjectPreviewProps) {
                   {repo.name.replace(/-/g, " ")}
                 </h2>
                 {repo.pinned && (
-                  <span className="rounded-full bg-white/5 px-2 py-0.5 text-[0.45rem] uppercase tracking-[0.15em] text-white/40">
+                  <span className="rounded-full bg-white/5 px-2 py-0.5 text-[0.55rem] uppercase tracking-[0.15em] text-white/60">
                     Pinned
                   </span>
                 )}
               </div>
               {repo.page_title && (
-                <p className="mt-0.5 text-xs text-white/30">
+                <p className="mt-0.5 text-sm text-white/60">
                   {repo.page_title}
                 </p>
               )}
@@ -79,7 +79,7 @@ export function ProjectPreview({ repo, onClose }: ProjectPreviewProps) {
                   href={repo.hostedByTheUserLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[0.6rem] uppercase tracking-[0.15em] text-white/40 transition-colors hover:text-white/80"
+                  className="text-[0.7rem] uppercase tracking-[0.15em] text-white/60 transition-colors hover:text-white/90"
                 >
                   Live Site
                 </a>
@@ -89,7 +89,7 @@ export function ProjectPreview({ repo, onClose }: ProjectPreviewProps) {
                   href={repo.pages_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[0.6rem] uppercase tracking-[0.15em] text-white/40 transition-colors hover:text-white/80"
+                  className="text-[0.7rem] uppercase tracking-[0.15em] text-white/60 transition-colors hover:text-white/90"
                 >
                   Live Site
                 </a>
@@ -98,13 +98,13 @@ export function ProjectPreview({ repo, onClose }: ProjectPreviewProps) {
                 href={repo.repo_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[0.6rem] uppercase tracking-[0.15em] text-white/40 transition-colors hover:text-white/80"
+                className="text-[0.7rem] uppercase tracking-[0.15em] text-white/60 transition-colors hover:text-white/90"
               >
                 Source
               </a>
               <button
                 onClick={onClose}
-                className="ml-2 text-sm text-white/30 transition-colors hover:text-white/70"
+                className="ml-2 text-base text-white/60 transition-colors hover:text-white/90"
               >
                 &times;
               </button>
@@ -120,7 +120,7 @@ export function ProjectPreview({ repo, onClose }: ProjectPreviewProps) {
                   className="h-full w-full rounded-lg object-contain"
                 />
               ) : (
-                <div className="flex h-full items-center justify-center text-sm text-white/20">
+                <div className="flex h-full items-center justify-center text-base text-white/40">
                   No screenshots available
                 </div>
               )}
@@ -154,7 +154,7 @@ export function ProjectPreview({ repo, onClose }: ProjectPreviewProps) {
               )}
 
               <div className="flex-1 overflow-auto p-4">
-                <p className="text-xs leading-relaxed text-white/50">
+                <p className="text-sm leading-relaxed text-white/70">
                   {repo.long_summary || repo.short_summary || repo.description}
                 </p>
 

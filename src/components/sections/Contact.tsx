@@ -13,7 +13,7 @@ export function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
-          className="text-[0.65rem] uppercase tracking-[0.25em] text-white/30"
+          className="text-[0.7rem] uppercase tracking-[0.25em] text-white/50"
         >
           Contact
         </motion.p>
@@ -53,7 +53,7 @@ export function Contact() {
           <div>
             <label
               htmlFor="message"
-              className="block text-[0.7rem] uppercase tracking-[0.15em] text-[var(--ic-muted-foreground)] mb-2"
+              className="block text-[0.75rem] uppercase tracking-[0.15em] text-[var(--ic-muted-foreground)] mb-2"
             >
               Message
             </label>

@@ -47,14 +47,14 @@ function SkillGroup({
         ease: [0.34, 1.56, 0.64, 1],
       }}
     >
-      <span className="text-[0.55rem] uppercase tracking-[0.25em] text-white/20">
+      <span className="text-[0.6rem] uppercase tracking-[0.25em] text-white/40">
         {label}
       </span>
       <div className="mt-3 flex flex-wrap gap-2">
         {skills.map((skill) => (
           <span
             key={skill}
-            className="rounded-full bg-white/5 px-4 py-2 text-xs text-white/50 transition-colors hover:bg-white/10 hover:text-white/80"
+            className="rounded-full bg-white/5 px-4 py-2 text-sm text-white/70 transition-colors hover:bg-white/10 hover:text-white/90"
           >
             {skill}
           </span>
@@ -73,7 +73,7 @@ export function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
-          className="text-[0.65rem] uppercase tracking-[0.25em] text-white/30"
+          className="text-[0.7rem] uppercase tracking-[0.25em] text-white/50"
         >
           Skills & Technologies
         </motion.p>

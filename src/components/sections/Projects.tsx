@@ -81,18 +81,18 @@ function ProjectCard({
 
           <div className="relative z-10 mt-auto flex flex-col p-5" style={{ transform: "translateZ(30px)" }}>
             {repo.pinned && (
-              <span className="mb-1.5 text-[0.45rem] uppercase tracking-[0.2em] text-white/40">
+              <span className="mb-1.5 text-[0.55rem] uppercase tracking-[0.2em] text-white/60">
                 Pinned
               </span>
             )}
-            <span className="text-[0.55rem] uppercase tracking-[0.2em] text-white/20">
+            <span className="text-[0.6rem] uppercase tracking-[0.2em] text-white/40">
               {repo.language || "Project"}
             </span>
             <h3 className="mt-1 text-base font-light text-white/90">
               {repo.name.replace(/-/g, " ")}
             </h3>
             {repo.short_summary && (
-              <p className="mt-1 text-xs leading-relaxed text-white/40 line-clamp-2">
+              <p className="mt-1 text-sm leading-relaxed text-white/70 line-clamp-2">
                 {repo.short_summary}
               </p>
             )}
@@ -100,7 +100,7 @@ function ProjectCard({
               {(repo.tags?.languages || []).slice(0, 3).map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full bg-white/5 px-2.5 py-0.5 text-[0.55rem] uppercase tracking-[0.1em] text-white/30"
+                  className="rounded-full bg-white/5 px-2.5 py-0.5 text-[0.6rem] uppercase tracking-[0.1em] text-white/50"
                 >
                   {tag}
                 </span>
@@ -140,7 +140,7 @@ export function Projects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
-          className="text-[0.65rem] uppercase tracking-[0.25em] text-white/30"
+          className="text-[0.7rem] uppercase tracking-[0.25em] text-white/50"
         >
           Projects
         </motion.p>
@@ -186,7 +186,7 @@ export function Projects() {
               if (group.length === 0) return null;
               return (
                 <div key={cat.key} className="mt-12">
-                  <h3 className="text-[0.65rem] uppercase tracking-[0.25em] text-white/30">
+                  <h3 className="text-[0.7rem] uppercase tracking-[0.25em] text-white/50">
                     {cat.label}
                   </h3>
                   <motion.div

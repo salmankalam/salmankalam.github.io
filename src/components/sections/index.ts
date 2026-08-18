@@ -3,6 +3,8 @@ export { Hero } from "./Hero";
 export { About } from "./About";
 export { Skills } from "./Skills";
 export { Projects } from "./Projects";
+export { Certificates } from "./Certificates";
 export { Education } from "./Education";
+export { Resume } from "./Resume";
 export { Contact } from "./Contact";
 export { Footer } from "./Footer";

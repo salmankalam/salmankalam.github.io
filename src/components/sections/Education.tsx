@@ -24,7 +24,7 @@ function TimelineItem({
     >
       <div className="absolute left-0 top-1.5 h-2 w-2 rounded-full bg-white/20" />
       <div className="absolute left-[3px] top-4 bottom-0 w-px bg-white/5 last:hidden" />
-      <p className="text-sm text-white/50">{text}</p>
+      <p className="text-base text-white/70">{text}</p>
     </motion.div>
   );
 }
@@ -38,14 +38,14 @@ export function Education() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
-          className="text-[0.65rem] uppercase tracking-[0.25em] text-white/30"
+          className="text-[0.7rem] uppercase tracking-[0.25em] text-white/50"
         >
           Background
         </motion.p>
 
         <div className="mt-12 grid gap-16 md:grid-cols-2">
           <div>
-            <h3 className="mb-8 text-sm font-medium uppercase tracking-[0.15em] text-white/30">
+            <h3 className="mb-8 text-base font-medium uppercase tracking-[0.15em] text-white/50">
               Education
             </h3>
             {cv.education.map((edu, i) => (
@@ -53,7 +53,7 @@ export function Education() {
             ))}
           </div>
           <div>
-            <h3 className="mb-8 text-sm font-medium uppercase tracking-[0.15em] text-white/30">
+            <h3 className="mb-8 text-base font-medium uppercase tracking-[0.15em] text-white/50">
               Experience
             </h3>
             {cv.experience.map((exp, i) => (

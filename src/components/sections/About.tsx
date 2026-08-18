@@ -32,7 +32,7 @@ export function About() {
         <div className="grid gap-16 lg:grid-cols-[1.2fr_1fr]">
           <div>
             <RevealText>
-              <span className="text-[0.65rem] uppercase tracking-[0.25em] text-white/30">
+              <span className="text-[0.7rem] uppercase tracking-[0.25em] text-white/50">
                 About
               </span>
             </RevealText>
@@ -41,12 +41,12 @@ export function About() {
               <h2 className="mt-6 text-[clamp(2rem,4vw,3.5rem)] font-light leading-[1.1] tracking-[-0.02em] text-white">
                 Crafting code into
                 <br />
-                <span className="text-white/60">meaningful interfaces</span>
+                <span className="text-white/75">meaningful interfaces</span>
               </h2>
             </RevealText>
 
             <RevealText delay={0.3}>
-              <div className="mt-8 space-y-4 text-sm leading-relaxed text-white/50">
+              <div className="mt-8 space-y-4 text-base leading-relaxed text-white/75">
                 {cv.summary.length > 0 ? (
                   cv.summary.map((para) => <p key={para}>{para}</p>)
                 ) : (
@@ -72,7 +72,7 @@ export function About() {
                 {cv.skills.slice(0, 8).map((skill) => (
                   <span
                     key={skill}
-                    className="rounded-full border border-white/10 px-4 py-1.5 text-[0.65rem] uppercase tracking-[0.12em] text-white/40 transition-colors hover:border-white/30 hover:text-white/70"
+                    className="rounded-full border border-white/15 px-4 py-1.5 text-[0.7rem] uppercase tracking-[0.12em] text-white/60 transition-colors hover:border-white/40 hover:text-white/90"
                   >
                     {skill}
                   </span>
@@ -85,29 +85,29 @@ export function About() {
             <RevealText delay={0.35}>
               <div className="sticky top-32 space-y-8">
                 <div>
-                  <span className="text-[0.55rem] uppercase tracking-[0.25em] text-white/20">
+                  <span className="text-[0.6rem] uppercase tracking-[0.25em] text-white/40">
                     Education
                   </span>
                   <div className="mt-3 space-y-3">
                     {cv.education.map((edu, i) => (
-                      <p key={i} className="text-sm text-white/50">
+                      <p key={i} className="text-sm text-white/70">
                         {edu}
                       </p>
                     ))}
                   </div>
                 </div>
 
-                <div className="h-px bg-white/5" />
+                <div className="h-px bg-white/10" />
 
                 <div>
-                  <span className="text-[0.55rem] uppercase tracking-[0.25em] text-white/20">
+                  <span className="text-[0.6rem] uppercase tracking-[0.25em] text-white/40">
                     Languages
                   </span>
                   <div className="mt-3 flex flex-wrap gap-2">
                     {cv.languages.map((lang) => (
                       <span
                         key={lang}
-                        className="text-sm text-white/40"
+                        className="text-sm text-white/60"
                       >
                         {lang}
                       </span>

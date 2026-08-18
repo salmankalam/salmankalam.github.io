@@ -6,10 +6,9 @@ import { GradientButton } from "../ui/gradient-button";
 import { motion } from "motion/react";
 
 const roles = [
-  "Full-Stack Developer",
-  "UI Engineer",
+  "Frontend Developer",
+  "UI/UX Designer",
   "Problem Solver",
-  "Open Source Contributor",
 ];
 
 export function Hero() {
@@ -28,7 +27,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2, ease: [0.34, 1.56, 0.64, 1] }}
-          className="mb-4 text-[0.65rem] uppercase tracking-[0.25em] text-white/40"
+          className="mb-4 text-[0.7rem] uppercase tracking-[0.25em] text-white/60"
         >
           Salman Kalam
         </motion.p>
@@ -55,10 +54,10 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 1.4, ease: [0.34, 1.56, 0.64, 1] }}
           className="mt-8 flex items-center justify-center gap-3"
         >
-          <span className="text-sm text-white/50">I&apos;m a</span>
+          <span className="text-base text-white/70">I&apos;m a</span>
           <AnimatedTextCycle
             texts={roles}
-            className="text-sm font-medium text-white/90"
+            className="text-base font-medium text-white/90"
             interval={2800}
           />
         </motion.div>

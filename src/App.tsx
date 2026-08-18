@@ -4,7 +4,9 @@ import {
   About,
   Skills,
   Projects,
+  Certificates,
   Education,
+  Resume,
   Contact,
   Footer,
 } from "./components/sections";
@@ -18,7 +20,9 @@ export default function App() {
         <About />
         <Skills />
         <Projects />
+        <Certificates />
         <Education />
+        <Resume />
         <Contact />
       </main>
       <Footer />
