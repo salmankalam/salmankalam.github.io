@@ -44,7 +44,7 @@
         {
           "file": "projects/uicomponents/hero.png",
           "type": "hero",
-          "label": "Hero View"
+          "label": "hero"
         }
       ],
       "page_title": "uicomponents",
