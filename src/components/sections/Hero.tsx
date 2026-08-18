@@ -23,15 +23,6 @@ export function Hero() {
       />
 
       <div className="relative z-10 mx-auto max-w-5xl text-center">
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2, ease: [0.34, 1.56, 0.64, 1] }}
-          className="mb-4 text-[0.7rem] uppercase tracking-[0.25em] text-white/60"
-        >
-          Salman Kalam
-        </motion.p>
-
         <DiaTextReveal
           className="text-[clamp(3rem,10vw,7rem)] font-light leading-[0.95] tracking-[-0.03em] text-white"
           delay={0.3}

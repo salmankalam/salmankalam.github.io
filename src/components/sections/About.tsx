@@ -54,9 +54,9 @@ export function About() {
             </RevealText>
 
             <RevealText delay={0.3}>
-              <div className="mt-8 text-base leading-relaxed text-white/75">
+              <div className="mt-8 space-y-4 text-base leading-relaxed text-white/75">
                 {cv.summary.length > 0 ? (
-                  <p>{cv.summary.join(" ")}</p>
+                  cv.summary.map((para) => <p key={para}>{para}</p>)
                 ) : (
                   <p>
                     Full-stack developer and Computer Science student at the
@@ -107,7 +107,7 @@ export function About() {
                   <img
                     src="WhatsApp-Image.jpeg"
                     alt="Salman Kalam"
-                    className="aspect-[16/10] h-auto w-full object-cover"
+                    className="aspect-[16/10] h-auto w-full object-contain"
                   />
                 </div>
               </div>

@@ -19,11 +19,13 @@ export function Nav() {
       className="fixed top-0 left-0 right-0 z-50 mix-blend-difference"
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
-          <a
-            href="#"
-            className="text-sm tracking-[0.2em] uppercase text-white/90"
-          >
-            SK
+          <a href="#" className="flex items-baseline gap-2">
+            <span className="text-sm tracking-[0.2em] uppercase text-white/90">
+              SK
+            </span>
+            <span className="text-sm tracking-[0.15em] text-white/90">
+              Salman Kalam
+            </span>
           </a>
         <div className="flex items-center gap-8">
           {links.map((link) => (

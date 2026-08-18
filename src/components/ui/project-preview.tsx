@@ -111,7 +111,7 @@ export function ProjectPreview({ repo, onClose }: ProjectPreviewProps) {
             </div>
           </div>
 
-          <div className="flex flex-1 flex-col overflow-hidden md:flex-row">
+          <div className="flex flex-1 flex-col overflow-hidden">
             <div className="relative flex-1 overflow-auto bg-[#0a0a0a] p-4">
               {imgs.length > 0 ? (
                 <img
@@ -126,44 +126,42 @@ export function ProjectPreview({ repo, onClose }: ProjectPreviewProps) {
               )}
             </div>
 
-            <div className="flex w-full flex-col border-t border-white/5 md:w-72 md:border-t-0 md:border-l">
-              {imgs.length > 1 && (
-                <div className="flex gap-1 overflow-x-auto border-b border-white/5 p-3 md:flex-col md:overflow-y-auto">
-                  {imgs.map((img, i) => (
-                    <button
-                      key={img.file}
-                      onClick={() => setActiveImage(i)}
-                      className={`relative shrink-0 overflow-hidden rounded-lg border transition-all duration-300 ${
-                        i === activeImage
-                          ? "border-white/40 opacity-100"
-                          : "border-white/5 opacity-50 hover:opacity-80"
-                      }`}
-                      style={{ width: 80, height: 56 }}
-                    >
-                      <img
-                        src={img.file}
-                        alt={img.label}
-                        className="h-full w-full object-cover"
-                      />
-                      <span className="absolute bottom-0 left-0 right-0 bg-black/60 px-1 py-0.5 text-[0.45rem] uppercase tracking-[0.1em] text-white/60">
-                        {img.label}
-                      </span>
-                    </button>
-                  ))}
-                </div>
-              )}
+            {imgs.length > 1 && (
+              <div className="flex flex-wrap gap-2 border-t border-white/5 p-3">
+                {imgs.map((img, i) => (
+                  <button
+                    key={img.file}
+                    onClick={() => setActiveImage(i)}
+                    className={`relative shrink-0 overflow-hidden rounded-lg border transition-all duration-300 ${
+                      i === activeImage
+                        ? "border-white/40 opacity-100"
+                        : "border-white/5 opacity-50 hover:opacity-80"
+                    }`}
+                    style={{ width: 80, height: 56 }}
+                  >
+                    <img
+                      src={img.file}
+                      alt={img.label}
+                      className="h-full w-full object-contain"
+                    />
+                    <span className="absolute bottom-0 left-0 right-0 bg-black/60 px-1 py-0.5 text-[0.45rem] uppercase tracking-[0.1em] text-white/60">
+                      {img.label}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            )}
 
-              <div className="flex-1 overflow-auto p-4">
-                <p className="text-sm leading-relaxed text-white/70">
-                  {repo.long_summary || repo.short_summary || repo.description}
-                </p>
+            <div className="max-h-48 overflow-auto border-t border-white/5 p-4">
+              <p className="text-sm leading-relaxed text-white/70">
+                {repo.long_summary || repo.short_summary || repo.description}
+              </p>
 
-                <div className="mt-4 space-y-3">
-                  <TagGroup label="Languages" tags={repo.tags?.languages} />
-                  <TagGroup label="Domain" tags={repo.tags?.domain} />
-                  <TagGroup label="Tools & Technologies" tags={repo.tags?.tools} />
-                  <TagGroup label="Type" tags={repo.tags?.type} />
-                </div>
+              <div className="mt-4 space-y-3">
+                <TagGroup label="Languages" tags={repo.tags?.languages} />
+                <TagGroup label="Domain" tags={repo.tags?.domain} />
+                <TagGroup label="Tools & Technologies" tags={repo.tags?.tools} />
+                <TagGroup label="Type" tags={repo.tags?.type} />
               </div>
             </div>
           </div>
