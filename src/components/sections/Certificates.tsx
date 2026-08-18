@@ -115,12 +115,12 @@ function CertificatePreview({
                 ))}
               </div>
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2.5">
               <a
                 href={cert.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[0.7rem] uppercase tracking-[0.15em] text-white/80 transition-colors hover:text-white"
+                className="rounded-full bg-white px-4 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-black transition-colors hover:bg-white/80"
               >
                 View Certificate
               </a>

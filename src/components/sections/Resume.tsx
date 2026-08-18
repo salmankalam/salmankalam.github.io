@@ -3,11 +3,10 @@
 import { motion, AnimatePresence, useInView } from "motion/react";
 import { useRef, useState } from "react";
 
-const RESUME_URL = "/resume/ProfessionalResume.pdf";
+const RESUME_URL = "resume/ProfessionalResume.pdf";
+const RESUME_IMAGE = "resume/resume.png";
 
-function ResumePreview({ url, onClose }: { url: string | null; onClose: () => void }) {
-  if (!url) return null;
-
+function ResumePreview({ onClose }: { onClose: () => void }) {
   return (
     <AnimatePresence>
       <motion.div
@@ -30,23 +29,23 @@ function ResumePreview({ url, onClose }: { url: string | null; onClose: () => vo
             <h2 className="text-lg font-light text-white/90">Resume</h2>
             <div className="flex items-center gap-4">
               <a
-                href={url}
+                href={RESUME_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[0.6rem] uppercase tracking-[0.15em] text-white/60 transition-colors hover:text-white/80"
+                className="rounded-full bg-white px-5 py-2 text-[0.7rem] font-medium uppercase tracking-[0.15em] text-black transition-colors hover:bg-white/80"
               >
                 Open
               </a>
               <a
-                href={url}
+                href={RESUME_URL}
                 download
-                className="text-[0.6rem] uppercase tracking-[0.15em] text-white/60 transition-colors hover:text-white/80"
+                className="rounded-full border border-white/30 bg-white/5 px-5 py-2 text-[0.7rem] font-medium uppercase tracking-[0.15em] text-white transition-colors hover:bg-white/15 hover:border-white/50"
               >
                 Download
               </a>
               <button
                 onClick={onClose}
-                className="ml-2 text-sm text-white/50 transition-colors hover:text-white/70"
+                className="ml-2 text-base text-white/60 transition-colors hover:text-white"
               >
                 &times;
               </button>
@@ -54,7 +53,11 @@ function ResumePreview({ url, onClose }: { url: string | null; onClose: () => vo
           </div>
 
           <div className="flex-1 overflow-auto bg-[#0a0a0a] p-4">
-            <iframe src={url} className="h-[70vh] w-full rounded-lg border-0" title="Resume preview" />
+            <img
+              src={RESUME_IMAGE}
+              alt="Resume preview"
+              className="mx-auto h-[70vh] w-auto max-w-full rounded-lg object-contain"
+            />
           </div>
         </motion.div>
       </motion.div>
@@ -69,7 +72,7 @@ export function Resume() {
 
   return (
     <section id="resume" className="bg-[#0a0a0a] px-6 py-32">
-      <div className="mx-auto max-w-6xl">
+      <div className="mx-auto max-w-3xl">
         <motion.p
           ref={ref}
           initial={{ opacity: 0, y: 10 }}
@@ -80,41 +83,41 @@ export function Resume() {
           Resume
         </motion.p>
 
-        <motion.div
+        <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.1, ease: [0.34, 1.56, 0.64, 1] }}
-          className="mt-8 flex flex-col items-start justify-between gap-8 md:flex-row md:items-center"
+          className="mt-3 text-[clamp(2rem,4vw,3rem)] font-light leading-[1.1] tracking-[-0.02em] text-white"
         >
-          <div>
-            <h2 className="text-[clamp(1.5rem,3vw,2rem)] font-light leading-[1.1] tracking-[-0.02em] text-white">
-              My Resume
-            </h2>
-            <p className="mt-3 max-w-lg text-sm leading-relaxed text-white/70">
-              View or download my latest resume to learn more about my experience,
-              education, and the work I&apos;ve done.
-            </p>
-          </div>
+          My Resume
+        </motion.h2>
 
-          <div className="flex flex-wrap items-center gap-4">
-            <button
-              onClick={() => setPreview(true)}
-              className="rounded-full border border-white/15 px-6 py-3 text-[0.7rem] uppercase tracking-[0.15em] text-white/80 transition-colors hover:border-white/40 hover:text-white"
-            >
-              View
-            </button>
-            <a
-              href={RESUME_URL}
-              download
-              className="rounded-full border border-white/15 px-6 py-3 text-[0.7rem] uppercase tracking-[0.15em] text-white/80 transition-colors hover:border-white/40 hover:text-white"
-            >
-              Download
-            </a>
-          </div>
-        </motion.div>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.15, ease: [0.34, 1.56, 0.64, 1] }}
+          className="mt-3 max-w-lg text-base leading-relaxed text-white/75"
+        >
+          View or download my latest resume to learn more about my experience,
+          education, and the work I&apos;ve done.
+        </motion.p>
+
+        <motion.button
+          initial={{ opacity: 0, y: 30 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.2, ease: [0.34, 1.56, 0.64, 1] }}
+          onClick={() => setPreview(true)}
+          className="group mt-16 block w-full overflow-hidden rounded-2xl border border-white/10 bg-[#111] transition-colors hover:border-white/30"
+        >
+          <img
+            src={RESUME_IMAGE}
+            alt="Resume preview"
+            className="mx-auto h-[75vh] w-auto max-w-full object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+          />
+        </motion.button>
       </div>
 
-      <ResumePreview url={preview ? RESUME_URL : null} onClose={() => setPreview(false)} />
+      {preview && <ResumePreview onClose={() => setPreview(false)} />}
     </section>
   );
 }

@@ -52,11 +52,12 @@ function ProjectCard({
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, ease: [0.34, 1.56, 0.64, 1] }}
+      className="h-full"
     >
       <TiltCard className="relative h-full" tiltDegree={4}>
         <button
           onClick={() => onSelect(repo)}
-          className="group relative flex aspect-[4/3] h-full flex-col overflow-hidden rounded-2xl border border-white/[0.06] text-left"
+          className="group relative flex aspect-[4/3] h-full w-full flex-col overflow-hidden rounded-2xl border border-white/[0.06] text-left"
           style={{ transformStyle: "preserve-3d" }}
         >
           {heroImg ? (
@@ -121,7 +122,7 @@ function ProjectGrid({
   onSelect: (repo: Repo) => void;
 }) {
   return (
-    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-5">
+    <div className="grid auto-rows-fr grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-5">
       {repos.map((repo) => (
         <ProjectCard key={repo.name} repo={repo} onSelect={onSelect} />
       ))}

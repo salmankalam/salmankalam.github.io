@@ -5,6 +5,14 @@ import { cv } from "../../data/cv";
 import { useInView } from "motion/react";
 import { useRef } from "react";
 
+const languages = (cv.languages.find((l) => l.startsWith("Languages:")) ?? "")
+  .split(":")
+  .slice(1)
+  .join(":")
+  .split(",")
+  .map((l) => l.trim())
+  .filter(Boolean);
+
 function RevealText({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
@@ -46,24 +54,35 @@ export function About() {
             </RevealText>
 
             <RevealText delay={0.3}>
-              <div className="mt-8 space-y-4 text-base leading-relaxed text-white/75">
+              <div className="mt-8 text-base leading-relaxed text-white/75">
                 {cv.summary.length > 0 ? (
-                  cv.summary.map((para) => <p key={para}>{para}</p>)
+                  <p>{cv.summary.join(" ")}</p>
                 ) : (
-                  <>
-                    <p>
-                      Full-stack developer and Computer Science student at the
-                      University of West London, passionate about building
-                      performant, human-centered digital experiences.
-                    </p>
-                    <p>
-                      I work across the stack — from crafting fluid UI
-                      components in React to designing scalable backend
-                      architectures. I believe great software is built at the
-                      intersection of engineering rigor and design thinking.
-                    </p>
-                  </>
+                  <p>
+                    Full-stack developer and Computer Science student at the
+                    University of West London, passionate about building
+                    performant, human-centered digital experiences.
+                  </p>
                 )}
+              </div>
+            </RevealText>
+
+            <RevealText delay={0.4}>
+              <div className="mt-8">
+                <span className="text-[0.6rem] uppercase tracking-[0.25em] text-white/40">
+                  Languages
+                </span>
+                <ul className="mt-3 space-y-1.5">
+                  {languages.map((lang) => (
+                    <li
+                      key={lang}
+                      className="flex items-center gap-3 text-base text-white/75"
+                    >
+                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-white/30" />
+                      {lang}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </RevealText>
 
@@ -72,7 +91,7 @@ export function About() {
                 {cv.skills.slice(0, 8).map((skill) => (
                   <span
                     key={skill}
-                    className="rounded-full border border-white/15 px-4 py-1.5 text-[0.7rem] uppercase tracking-[0.12em] text-white/60 transition-colors hover:border-white/40 hover:text-white/90"
+                    className="rounded-full border border-white/25 bg-white/5 px-4 py-1.5 text-[0.7rem] uppercase tracking-[0.12em] text-white/80 transition-colors hover:border-white/50 hover:bg-white/10 hover:text-white"
                   >
                     {skill}
                   </span>
@@ -81,38 +100,15 @@ export function About() {
             </RevealText>
           </div>
 
-          <div className="relative">
+          <div className="relative flex items-center">
             <RevealText delay={0.35}>
-              <div className="sticky top-32 space-y-8">
-                <div>
-                  <span className="text-[0.6rem] uppercase tracking-[0.25em] text-white/40">
-                    Education
-                  </span>
-                  <div className="mt-3 space-y-3">
-                    {cv.education.map((edu, i) => (
-                      <p key={i} className="text-sm text-white/70">
-                        {edu}
-                      </p>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="h-px bg-white/10" />
-
-                <div>
-                  <span className="text-[0.6rem] uppercase tracking-[0.25em] text-white/40">
-                    Languages
-                  </span>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {cv.languages.map((lang) => (
-                      <span
-                        key={lang}
-                        className="text-sm text-white/60"
-                      >
-                        {lang}
-                      </span>
-                    ))}
-                  </div>
+              <div className="w-full">
+                <div className="overflow-hidden rounded-2xl border border-white/10 bg-[#111]">
+                  <img
+                    src="WhatsApp-Image.jpeg"
+                    alt="Salman Kalam"
+                    className="aspect-[16/10] h-auto w-full object-cover"
+                  />
                 </div>
               </div>
             </RevealText>

@@ -43,23 +43,13 @@ export function Education() {
           Background
         </motion.p>
 
-        <div className="mt-12 grid gap-16 md:grid-cols-2">
-          <div>
-            <h3 className="mb-8 text-base font-medium uppercase tracking-[0.15em] text-white/50">
-              Education
-            </h3>
-            {cv.education.map((edu, i) => (
-              <TimelineItem key={i} text={edu} index={i} />
-            ))}
-          </div>
-          <div>
-            <h3 className="mb-8 text-base font-medium uppercase tracking-[0.15em] text-white/50">
-              Experience
-            </h3>
-            {cv.experience.map((exp, i) => (
-              <TimelineItem key={i} text={exp} index={i} />
-            ))}
-          </div>
+        <div className="mt-12 max-w-3xl">
+          <h3 className="mb-8 text-base font-medium uppercase tracking-[0.15em] text-white/50">
+            Education
+          </h3>
+          {cv.education.map((edu, i) => (
+            <TimelineItem key={i} text={edu} index={i} />
+          ))}
         </div>
       </div>
     </section>

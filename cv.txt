@@ -3,8 +3,12 @@ Al Sabkha, Sharjah  •  054 474 8569  •  salmankalam123@gmail.com
   
 
 Professional Summary 
-Motivated Computer Science student combining a technical background in web development with a passion for business collaboration. Experienced in managing group projects, leading discussions, and delivering presentations that translate technical solutions into practical, client-focused results. Seeking to contribute to impactful projects through technical solutions, client engagement and solution delivery. 
-  
+I am a Front-End Developer and UI/UX designer combining a technical background in software engineering with a
+passion for Web Development and AI. Experienced in managing group projects, leading discussions &
+communications, and delivering presentations translating technical solutions into practical, client-focused results. I
+work with React, TanStack, NextJS for UI, Supabase & MongoDB for database and Vercel, Render & Hostinger for
+hosting. I actively use AI coding agents, SKILLS, MCP servers and experienced with ML and Data Analysis.
+
 
 Relevant Experience & Projects 
 Team Leader – Web Development Group Project 
