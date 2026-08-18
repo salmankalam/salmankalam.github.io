@@ -36,7 +36,7 @@ function CertificateCard({
             <img
               src={cert.image}
               alt={cert.name}
-              className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105"
+              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/50 to-transparent" />
           </div>
