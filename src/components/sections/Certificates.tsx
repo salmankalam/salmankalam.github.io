@@ -25,6 +25,7 @@ function CertificateCard({
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay: (index % 3) * 0.1, ease: [0.34, 1.56, 0.64, 1] }}
+      className="h-full"
     >
       <TiltCard className="relative h-full" tiltDegree={4}>
         <button
@@ -36,7 +37,7 @@ function CertificateCard({
             <img
               src={cert.image}
               alt={cert.name}
-              className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105"
+              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/50 to-transparent" />
           </div>

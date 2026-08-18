@@ -107,7 +107,7 @@ export function About() {
                   <img
                     src="WhatsApp-Image.jpeg"
                     alt="Salman Kalam"
-                    className="aspect-[16/10] h-auto w-full object-contain"
+                    className="aspect-[16/10] h-auto w-full object-cover"
                   />
                 </div>
               </div>

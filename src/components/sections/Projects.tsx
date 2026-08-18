@@ -57,21 +57,30 @@ function ProjectCard({
       <TiltCard className="relative h-full" tiltDegree={4}>
         <button
           onClick={() => onSelect(repo)}
-          className="group relative flex aspect-[4/3] h-full w-full flex-col overflow-hidden rounded-2xl border border-white/[0.06] text-left"
+          className="group relative flex h-full w-full flex-col overflow-hidden rounded-2xl border border-white/[0.06] bg-[#111] text-left transition-colors hover:border-white/15"
           style={{ transformStyle: "preserve-3d" }}
         >
-          {heroImg ? (
-            <div className="absolute inset-0">
+          <div className="relative aspect-[16/9] w-full shrink-0 overflow-hidden bg-[#0a0a0a]">
+            {heroImg ? (
               <img
                 src={heroImg}
                 alt=""
-                className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105"
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/60 to-[#0a0a0a]/20" />
-            </div>
-          ) : (
-            <div className="absolute inset-0 bg-[#111] transition-colors group-hover:bg-[#181818]" />
-          )}
+            ) : (
+              <div className="absolute inset-0 bg-[#0d0d0d] transition-colors group-hover:bg-[#141414]" />
+            )}
+
+            {repo.pinned && (
+              <span className="absolute left-3 top-3 z-10 rounded-full bg-white/10 px-2.5 py-1 text-[0.55rem] font-medium uppercase tracking-[0.15em] text-white backdrop-blur-sm">
+                Pinned
+              </span>
+            )}
+
+            <span className="absolute right-3 top-3 z-10 rounded-full bg-black/60 px-2.5 py-1 text-[0.6rem] uppercase tracking-[0.15em] text-white/80 backdrop-blur-sm">
+              {repo.language || "Project"}
+            </span>
+          </div>
 
           <GlowingEffect
             glow
@@ -80,16 +89,8 @@ function ProjectCard({
             style={{ "--glow-color": "rgba(201,98,135,0.2)" } as React.CSSProperties}
           />
 
-          <div className="relative z-10 mt-auto flex flex-col p-5" style={{ transform: "translateZ(30px)" }}>
-            {repo.pinned && (
-              <span className="mb-1.5 text-[0.55rem] uppercase tracking-[0.2em] text-white/60">
-                Pinned
-              </span>
-            )}
-            <span className="text-[0.6rem] uppercase tracking-[0.2em] text-white/40">
-              {repo.language || "Project"}
-            </span>
-            <h3 className="mt-1 text-base font-light text-white/90">
+          <div className="relative z-10 flex flex-1 flex-col p-5" style={{ transform: "translateZ(30px)" }}>
+            <h3 className="text-base font-light text-white/90">
               {repo.name.replace(/-/g, " ")}
             </h3>
             {repo.short_summary && (
@@ -97,11 +98,11 @@ function ProjectCard({
                 {repo.short_summary}
               </p>
             )}
-            <div className="mt-3 flex flex-wrap gap-1.5">
+            <div className="mt-auto flex flex-wrap gap-1.5 pt-3">
               {(repo.tags?.languages || []).slice(0, 3).map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full bg-white/5 px-2.5 py-0.5 text-[0.6rem] uppercase tracking-[0.1em] text-white/50"
+                  className="rounded-full bg-white/10 px-2.5 py-0.5 text-[0.6rem] uppercase tracking-[0.1em] text-white/70"
                 >
                   {tag}
                 </span>

@@ -23,19 +23,27 @@ export function Nav() {
             <span className="text-sm tracking-[0.2em] uppercase text-white/90">
               SK
             </span>
-            <span className="text-sm tracking-[0.15em] text-white/90">
+            <span className="text-sm tracking-[0.15em] uppercase text-white/90">
               Salman Kalam
             </span>
           </a>
         <div className="flex items-center gap-8">
           {links.map((link) => (
-            <a
+            <motion.a
               key={link.href}
               href={link.href}
-              className="text-[0.7rem] uppercase tracking-[0.15em] text-white/80 transition-colors hover:text-white"
+              whileHover={{ y: -2 }}
+              transition={{ duration: 0.25, ease: [0.34, 1.56, 0.64, 1] }}
+              className="relative text-[0.7rem] uppercase tracking-[0.15em] text-white/80 transition-colors hover:text-white"
             >
               {link.label}
-            </a>
+              <motion.span
+                className="absolute -bottom-1 left-0 right-0 h-px origin-left bg-white/70"
+                initial={{ scaleX: 0 }}
+                whileHover={{ scaleX: 1 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              />
+            </motion.a>
           ))}
         </div>
       </div>
