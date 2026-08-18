@@ -30,4 +30,16 @@ export const certificates: Certificate[] = [
     link: "https://example.com/certificate/practical-github-project-management",
     tags: ["GitHub", "Project Management", "Agile", "Team Collaboration"],
   },
+  {
+    name: "Java Algorithms",
+    image: "certificates/java-algorithms.png",
+    link: "https://example.com/certificate/java-algorithms",
+    tags: ["Java", "Algorithms", "Data Structures", "Programming"],
+  },
+  {
+    name: "Practical GitHub Actions",
+    image: "certificates/practical-github-actions.png",
+    link: "https://example.com/certificate/practical-github-actions",
+    tags: ["GitHub", "CI/CD", "Automation", "DevOps"],
+  },
 ];
