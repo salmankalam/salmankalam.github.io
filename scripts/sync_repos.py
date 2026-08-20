@@ -122,12 +122,101 @@ def check_pages(token, full_name):
     return r.json() if r.status_code == 200 else None
 
 
-def enable_pages(token, full_name, branch="main", path="/"):
+DEPLOY_WORKFLOW = """name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install dependencies
+        run: npm ci || npm install
+      - name: Build site
+        run: npm run build
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+"""
+
+
+def get_file_sha(token, full_name, path):
+    r = requests.get(f"{GITHUB_API}/repos/{full_name}/contents/{path}", headers=get_headers(token))
+    return r.json().get("sha") if r.status_code == 200 else None
+
+
+def create_or_update_file(token, full_name, path, content, message):
     headers = {**get_headers(token), "Accept": "application/vnd.github.v3+json"}
-    r = requests.post(
+    sha = get_file_sha(token, full_name, path)
+    payload = {
+        "message": message,
+        "content": base64.b64encode(content.encode("utf-8")).decode("utf-8"),
+    }
+    if sha:
+        payload["sha"] = sha
+    r = requests.put(f"{GITHUB_API}/repos/{full_name}/contents/{path}", headers=headers, json=payload)
+    return r.status_code in (200, 201)
+
+
+def ensure_vite_base(token, full_name):
+    """Add base './' to vite.config.ts so assets resolve under a subpath (repo-name/)."""
+    sha = get_file_sha(token, full_name, "vite.config.ts")
+    if not sha:
+        return False
+    headers = {**get_headers(token), "Accept": "application/vnd.github.v3.raw"}
+    r = requests.get(f"{GITHUB_API}/repos/{full_name}/contents/vite.config.ts", headers=headers)
+    if r.status_code != 200:
+        return False
+    text = r.text
+    if "base" in text and re.search(r'base\s*:', text):
+        return True
+    if "defineConfig({" not in text:
+        return False
+    updated = text.replace("defineConfig({", 'defineConfig({\n  base: "./",', 1)
+    return create_or_update_file(
+        token,
+        full_name,
+        "vite.config.ts",
+        updated,
+        "chore: add base './' for GitHub Pages subpath",
+    )
+
+
+def set_pages_workflow(token, full_name):
+    """Switch the Pages build to 'workflow' so Actions (not legacy Jekyll) deploys dist."""
+    headers = {**get_headers(token), "Accept": "application/vnd.github.v3+json"}
+    r = requests.put(
         f"{GITHUB_API}/repos/{full_name}/pages",
         headers=headers,
-        json={"source": {"branch": branch, "path": path}},
+        json={"build_type": "workflow"},
     )
     return r.status_code in (200, 201, 204)
 
@@ -140,6 +229,38 @@ def enable_pages_workflow(token, full_name):
         json={"build_type": "workflow"},
     )
     return r.status_code in (200, 201, 204)
+
+
+def enable_pages(token, full_name, branch="main", path="/"):
+    headers = {**get_headers(token), "Accept": "application/vnd.github.v3+json"}
+    r = requests.post(
+        f"{GITHUB_API}/repos/{full_name}/pages",
+        headers=headers,
+        json={"source": {"branch": branch, "path": path}},
+    )
+    return r.status_code in (200, 201, 204)
+
+
+def is_vite_project(token, full_name, contents):
+    """True if the repo is a Vite/React app (needs workflow build, never legacy deploy)."""
+    if not isinstance(contents, list):
+        return False
+    names = {item.get("name") for item in contents if isinstance(item, dict)}
+    if "vite.config.ts" in names or "vite.config.js" in names or "vite.config.mts" in names:
+        return True
+    if "package.json" in names:
+        try:
+            pkg = fetch_repo_contents_at(token, full_name, "package.json")
+            if isinstance(pkg, dict):
+                raw = base64.b64decode(pkg.get("content", "")).decode("utf-8")
+                data = json.loads(raw)
+                scripts = data.get("scripts", {}) or {}
+                devdeps = data.get("devDependencies", {}) or {}
+                build = str(scripts.get("build", ""))
+                return "vite" in devdeps or "vite build" in build or "vite" in devdeps.get("vite", "")
+        except Exception:
+            return False
+    return False
 
 
 DEPLOY_PAGES_YAML = """name: Deploy to GitHub Pages
@@ -454,15 +575,35 @@ def main():
 
         pages_info = check_pages(token, full_name)
         pages_url = None
+        pages_on = False
 
         if frontend and full_name not in externally_hosted:
-            if pages_info:
+            if pages_info and pages_info.get("build_type") == "workflow":
                 pages_already_active += 1
+                pages_on = True
                 if full_name == f"{OWNER}/{OWNER}.github.io":
                     pages_url = f"https://{OWNER}.github.io"
                 else:
                     pages_url = pages_info.get("html_url") or f"https://{OWNER}.github.io/{name}/"
-                print(f"     Pages active: {pages_url}")
+                print(f"     Pages active (workflow): {pages_url}")
+            elif is_vite_project(token, full_name, contents):
+                print(f"     Vite/React app detected; deploying built dist via Actions...")
+                default_branch = repo.get("default_branch") or "main"
+                wf_ok = create_deploy_workflow(token, full_name, default_branch, "dist")
+                ensure_vite_base(token, full_name)
+                if pages_info:
+                    pw_ok = set_pages_workflow(token, full_name)
+                else:
+                    pw_ok = enable_pages_workflow(token, full_name)
+                if wf_ok and pw_ok:
+                    pages_enabled_count += 1
+                    pages_on = True
+                    pages_url = f"https://{OWNER}.github.io/{name}/"
+                    if full_name == f"{OWNER}/{OWNER}.github.io":
+                        pages_url = f"https://{OWNER}.github.io"
+                    print(f"     Pages enabled (workflow): {pages_url}")
+                else:
+                    print(f"     Failed: workflow={wf_ok}, pages={pw_ok}")
             else:
                 print(f"     Detecting publish source...")
                 source = detect_pages_source(token, full_name, contents)
@@ -475,6 +616,7 @@ def main():
                         success = enable_pages(token, full_name, "master", source[1])
                     if success:
                         pages_enabled_count += 1
+                        pages_on = True
                         pages_url = f"https://{OWNER}.github.io/{name}/"
                         if full_name == f"{OWNER}/{OWNER}.github.io":
                             pages_url = f"https://{OWNER}.github.io"
@@ -484,13 +626,14 @@ def main():
                 else:
                     _, upload_path = source
                     print(f"     Workflow deploy detected (upload {upload_path})...")
-                    default_branch = repo.get("default_branch")
+                    default_branch = repo.get("default_branch") or "main"
                     wf_ok = create_deploy_workflow(
                         token, full_name, default_branch, upload_path
                     )
                     pw_ok = enable_pages_workflow(token, full_name)
                     if wf_ok and pw_ok:
                         pages_enabled_count += 1
+                        pages_on = True
                         pages_url = f"https://{OWNER}.github.io/{name}/"
                         if full_name == f"{OWNER}/{OWNER}.github.io":
                             pages_url = f"https://{OWNER}.github.io"
@@ -520,7 +663,7 @@ def main():
             "long_summary": long,
             "repo_url": repo["html_url"],
             "pages_url": pages_url,
-            "pages_enabled": pages_info is not None and not externally_hosted_this,
+            "pages_enabled": pages_on and not externally_hosted_this,
             "frontend": frontend,
             "hostedByTheUser": externally_hosted_this,
             "hostedByTheUserLink": None,
