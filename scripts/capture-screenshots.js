@@ -450,24 +450,62 @@ async function discoverSections(page, pagesUrl) {
 
 const IMAGE_EXTS = new Set([".png", ".jpg", ".jpeg", ".gif", ".webp", ".avif"]);
 
+// Display order for screenshot categories: hero first, then content, then
+// in-page #sections, then internal routes.
+const TYPE_RANK = { hero: 0, content: 1, full: 2, section: 3, route: 4 };
+
+function typeOfFile(f) {
+  if (f === "hero.png") return "hero";
+  if (f === "content.png") return "content";
+  if (f === "full.png") return "full";
+  if (/^section-\d+\.png$/i.test(f)) return "section";
+  if (/^route-\d+\.png$/i.test(f)) return "route";
+  return "section";
+}
+
+// Order screenshots as hero -> content -> full -> sections -> routes, keeping
+// the numeric suffix order within each category.
+function sortScreenshots(list) {
+  const numOf = (s) => Number((path.basename(s.file).match(/(\d+)\./) || [])[1]) || 0;
+  return list.sort((a, b) => {
+    const ra = TYPE_RANK[a.type] ?? 9;
+    const rb = TYPE_RANK[b.type] ?? 9;
+    if (ra !== rb) return ra - rb;
+    return numOf(a) - numOf(b);
+  });
+}
+
 // Build a screenshots array from whatever image files already exist in the
-// repo's project folder, preserving the user's chosen filenames and order.
+// repo's project folder. The type is derived from the filename (so the real
+// hero.png is correctly identified as the hero) and then ordered
+// hero -> content -> sections -> routes.
 function scanLocalImages(repo) {
   const outDir = path.join(projectsDir, repo.name);
   if (!fs.existsSync(outDir)) return null;
 
   const files = fs
     .readdirSync(outDir)
-    .filter((f) => IMAGE_EXTS.has(path.extname(f).toLowerCase()))
-    .sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+    .filter((f) => IMAGE_EXTS.has(path.extname(f).toLowerCase()));
 
   if (files.length === 0) return null;
 
-  return files.map((f, i) => ({
-    file: `projects/${repo.name}/${f}`,
-    type: i === 0 ? "hero" : "section",
-    label: path.basename(f, path.extname(f)),
-  }));
+  const list = files.map((f) => {
+    const type = typeOfFile(f);
+    const num = Number((f.match(/(\d+)\./) || [])[1]) || 0;
+    const label =
+      type === "hero"
+        ? "Hero View"
+        : type === "content"
+        ? "Content View"
+        : type === "section"
+        ? `Section ${num || ""}`.trim()
+        : type === "route"
+        ? `Route ${num || ""}`.trim()
+        : path.basename(f, path.extname(f));
+    return { file: `projects/${repo.name}/${f}`, type, label };
+  });
+
+  return sortScreenshots(list);
 }
 
 async function main() {
@@ -526,6 +564,12 @@ async function main() {
       applyPlaceholder(repo);
     }
     await new Promise((r) => setTimeout(r, 1000));
+  }
+
+  // Normalize ordering for every repo so the hero is always first, regardless
+  // of how the screenshots were originally captured or stored.
+  for (const repo of repos) {
+    if (Array.isArray(repo.screenshots)) repo.screenshots.sort(sortScreenshots);
   }
 
   fs.writeFileSync(
