@@ -1,4 +1,5 @@
 import { chromium } from "playwright";
+import { PNG } from "pngjs";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -50,6 +51,80 @@ function applyPlaceholder(repo) {
   repo.screenshot_error = null;
 }
 
+// A screenshot is "blank" when its pixels are nearly uniform (very low
+// luminance variance) — covers both white-blank and the near-black blank
+// heroes some dark-themed sites produce before they finish rendering.
+function isBlankBuffer(buf) {
+  let png;
+  try {
+    png = PNG.sync.read(buf);
+  } catch {
+    return false;
+  }
+  const { data, width, height } = png;
+  if (!width || !height) return true;
+  let sum = 0;
+  let sumSq = 0;
+  let n = 0;
+  const step = Math.max(4, Math.floor(width * height / 4000) * 4);
+  for (let i = 0; i < data.length; i += step) {
+    const r = data[i];
+    const g = data[i + 1];
+    const b = data[i + 2];
+    const lum = 0.299 * r + 0.587 * g + 0.114 * b;
+    sum += lum;
+    sumSq += lum * lum;
+    n++;
+  }
+  if (n === 0) return true;
+  const mean = sum / n;
+  const variance = sumSq / n - mean * mean;
+  const std = Math.sqrt(Math.max(0, variance));
+  return std < 12;
+}
+
+function isBlankFile(p) {
+  try {
+    return isBlankBuffer(fs.readFileSync(p));
+  } catch {
+    // Missing or unreadable file → treat as blank so it gets retried.
+    return true;
+  }
+}
+
+// Capture a screenshot, and if it comes out blank, re-settle the page and
+// re-shoot (up to 3 retries). `shootFn` performs the actual screenshot after
+// any page-specific scrolling has been applied by the caller.
+async function shootWithRetry(page, url, shootFn, outPath, label) {
+  for (let attempt = 0; attempt < 4; attempt++) {
+    if (attempt > 0) {
+      try {
+        await page.goto(url, { waitUntil: "load", timeout: 20000 });
+      } catch {
+        try {
+          await page.goto(url, { waitUntil: "domcontentloaded", timeout: 20000 });
+        } catch {
+          /* ignore */
+        }
+      }
+      await page.evaluate(() => document.fonts && document.fonts.ready).catch(() => {});
+      await page.waitForLoadState("networkidle").catch(() => {});
+      await page.waitForTimeout(2500);
+      await page.evaluate(() => window.scrollTo(0, 0));
+      await page.waitForTimeout(400);
+    }
+    try {
+      await shootFn();
+    } catch (e) {
+      console.log(`      ERR shoot ${label}: ${e.message}`);
+    }
+    if (!isBlankFile(outPath)) return true;
+    console.log(`      RETRY ${label} — blank (attempt ${attempt + 1})`);
+  }
+  console.log(`      WARN ${label} still blank after retries`);
+  return false;
+}
+
 async function captureRepo(repo) {
   if (!repo.pages_enabled || !repo.pages_url) {
     console.log(`  SKIP ${repo.name} — no GitHub Pages`);
@@ -65,10 +140,18 @@ async function captureRepo(repo) {
 
   const force = Boolean(process.env.FORCE);
   if (existing.length > 0 && repo.screenshots?.length > 0 && !force) {
+    // Re-capture only if any existing screenshot is blank; otherwise leave
+    // the repo alone (don't disturb repos with good screenshots).
+    const anyBlank = existing.some((f) => isBlankFile(path.join(outDir, f)));
+    if (!anyBlank) {
+      console.log(
+        `  DONE ${repo.name} — ${existing.length} screenshots exist, skipping`
+      );
+      return;
+    }
     console.log(
-      `  DONE ${repo.name} — ${existing.length} screenshots exist, skipping`
+      `  BLANK ${repo.name} — existing screenshots are blank, re-capturing`
     );
-    return;
   }
 
   if (force) {
@@ -135,60 +218,109 @@ async function captureRepo(repo) {
 
     const screenshots = [];
 
-    // ---- Home page: 3 screenshots (desktop only, no mobile) ----
+    // ---- Home page: hero + content (no full-page capture) ----
     // 1. Hero — viewport at top
-    await page.screenshot({ path: path.join(outDir, "hero.png"), fullPage: false });
+    const heroPath = path.join(outDir, "hero.png");
+    await shootWithRetry(
+      page,
+      repo.pages_url,
+      () => page.screenshot({ path: heroPath, fullPage: false }),
+      heroPath,
+      "hero"
+    );
     screenshots.push({ file: `${relativeDir}/hero.png`, type: "hero", label: "Hero View" });
     console.log(`    → hero.png`);
 
-    // 2. Full page (catches all content after lazy-load triggered)
-    await page.screenshot({ path: path.join(outDir, "full.png"), fullPage: true });
-    screenshots.push({ file: `${relativeDir}/full.png`, type: "full", label: "Full Page" });
-    console.log(`    → full.png`);
-
-    // 3. Content — viewport scrolled to the middle section
-    await page.evaluate(() =>
-      window.scrollTo(0, Math.max(0, (document.body.scrollHeight - window.innerHeight) / 2))
+    // 2. Content — viewport scrolled to the middle section
+    const contentPath = path.join(outDir, "content.png");
+    await shootWithRetry(
+      page,
+      repo.pages_url,
+      () => {
+        return page.evaluate(() =>
+          window.scrollTo(0, Math.max(0, (document.body.scrollHeight - window.innerHeight) / 2))
+        ).then(() => page.waitForTimeout(500))
+          .then(() => page.screenshot({ path: contentPath, fullPage: false }));
+      },
+      contentPath,
+      "content"
     );
-    await page.waitForTimeout(500);
-    await page.screenshot({ path: path.join(outDir, "content.png"), fullPage: false });
     screenshots.push({ file: `${relativeDir}/content.png`, type: "content", label: "Content View" });
     console.log(`    → content.png`);
 
-    // ---- One screenshot per internal route (desktop, no mobile) ----
+    // ---- Internal routes OR in-page sections ----
     const routes = await discoverRoutes(page, repo.pages_url);
-    for (const [i, route] of routes.entries()) {
-      const file = `route-${i + 1}.png`;
-      console.log(`    → ${file} (${route.url})`);
-      try {
-        await page.goto(route.url, { waitUntil: "load", timeout: 20000 });
-      } catch {
-        await page.goto(route.url, { waitUntil: "domcontentloaded", timeout: 20000 });
-      }
-
-      for (let i = 0; i < 10; i++) {
+    if (routes.length > 0) {
+      // Multi-page / SPA sites: one screenshot per internal route.
+      for (const [i, route] of routes.entries()) {
+        const file = `route-${i + 1}.png`;
+        console.log(`    → ${file} (${route.url})`);
         try {
-          await page.evaluate(() => document.readyState);
-          await page.waitForLoadState("networkidle").catch(() => {});
-          break;
+          await page.goto(route.url, { waitUntil: "load", timeout: 20000 });
         } catch {
-          await page.waitForTimeout(500);
+          await page.goto(route.url, { waitUntil: "domcontentloaded", timeout: 20000 });
         }
-      }
 
-      const routeTitle = await page.title();
-      if (FOUR04_TITLES.some((t) => routeTitle.includes(t))) {
-        console.log(`      SKIP route (404): ${route.url}`);
-        continue;
-      }
+        for (let i = 0; i < 10; i++) {
+          try {
+            await page.evaluate(() => document.readyState);
+            await page.waitForLoadState("networkidle").catch(() => {});
+            break;
+          } catch {
+            await page.waitForTimeout(500);
+          }
+        }
 
-      await triggerLazyLoad(page);
-      await page.screenshot({ path: path.join(outDir, file), fullPage: true });
-      screenshots.push({
-        file: `${relativeDir}/${file}`,
-        type: "route",
-        label: route.label || new URL(route.url).pathname || `Route ${i + 1}`,
-      });
+        const routeTitle = await page.title();
+        if (FOUR04_TITLES.some((t) => routeTitle.includes(t))) {
+          console.log(`      SKIP route (404): ${route.url}`);
+          continue;
+        }
+
+        await triggerLazyLoad(page);
+        const rPath = path.join(outDir, file);
+        await shootWithRetry(
+          page,
+          route.url,
+          () => page.screenshot({ path: rPath, fullPage: true }),
+          rPath,
+          file
+        );
+        screenshots.push({
+          file: `${relativeDir}/${file}`,
+          type: "route",
+          label: route.label || new URL(route.url).pathname || `Route ${i + 1}`,
+        });
+      }
+    } else {
+      // Single-page / HTML sites have no internal routes: screenshot each
+      // in-page #section (up to MAX_ROUTES), like the route capture above.
+      const sections = await discoverSections(page, repo.pages_url);
+      for (const [i, section] of sections.entries()) {
+        const file = `section-${i + 1}.png`;
+        console.log(`    → ${file} (${section.label})`);
+        const sPath = path.join(outDir, file);
+        await shootWithRetry(
+          page,
+          repo.pages_url,
+          () =>
+            page
+              .evaluate((elId) => {
+                const el = document.getElementById(elId);
+                if (el) el.scrollIntoView({ block: "start" });
+                window.scrollBy(0, -80);
+              }, section.id)
+              .then(() => page.waitForTimeout(500))
+              .then(() => page.screenshot({ path: sPath, fullPage: false })),
+          sPath,
+          file
+        );
+        screenshots.push({
+          file: `${relativeDir}/${file}`,
+          type: "section",
+          label: section.label || `Section ${i + 1}`,
+        });
+      }
     }
 
     repo.screenshots = screenshots;
@@ -263,6 +395,59 @@ async function discoverRoutes(page, pagesUrl) {
   return routes;
 }
 
+// For single-page / HTML sites that have no internal page routes, collect the
+// in-page #anchor links (e.g. nav to #commands) and screenshot each target
+// section. Up to MAX_ROUTES sections, mirroring the route capture for SPAs.
+async function discoverSections(page, pagesUrl) {
+  const base = new URL(pagesUrl);
+  const MAX = Number(process.env.MAX_ROUTES || 8);
+
+  const links = await page.evaluate(() =>
+    [...document.querySelectorAll("a[href]")].map((a) => ({
+      href: a.getAttribute("href"),
+      text: (a.textContent || "").trim().replace(/\s+/g, " ").slice(0, 80),
+    }))
+  );
+
+  const seen = new Set();
+  const sections = [];
+  for (const link of links) {
+    const href = link.href || "";
+    let id;
+    try {
+      const url = new URL(href, base);
+      if (url.origin !== base.origin) continue;
+      const pre = href.split("#")[0];
+      if (
+        pre &&
+        pre !== base.pathname &&
+        pre !== base.pathname.replace(/\/$/, "")
+      ) {
+        continue;
+      }
+      id = url.hash.slice(1);
+    } catch {
+      continue;
+    }
+    if (!id) continue;
+    if (seen.has(id)) continue;
+
+    const exists = await page
+      .evaluate((elId) => {
+        const el = document.getElementById(elId);
+        return !!el && el.getBoundingClientRect().height > 0;
+      }, id)
+      .catch(() => false);
+    if (!exists) continue;
+
+    seen.add(id);
+    sections.push({ id, label: link.text || id });
+    if (sections.length >= MAX) break;
+  }
+
+  return sections;
+}
+
 const IMAGE_EXTS = new Set([".png", ".jpg", ".jpeg", ".gif", ".webp", ".avif"]);
 
 // Build a screenshots array from whatever image files already exist in the
@@ -292,9 +477,15 @@ async function main() {
 
   for (const repo of repos) {
     // 1. User has dropped custom images into the project folder — use them as-is,
-    //    preserving their filenames and order. This overrides any prior refs.
+    //    preserving their filenames and order. Re-capture instead if any is blank.
     const local = scanLocalImages(repo);
-    if (local) {
+    const localBlank = local
+      ? local.some((s) =>
+          isBlankFile(path.join(projectsDir, repo.name, path.basename(s.file)))
+        )
+      : false;
+
+    if (local && !localBlank) {
       repo.screenshots = local;
       repo.page_title = repo.page_title || repo.name;
       repo.screenshot_error = null;
@@ -307,8 +498,13 @@ async function main() {
       continue;
     }
 
-    // 2. Already has screenshots in repos.json (user-managed) — never touch.
-    if (Array.isArray(repo.screenshots) && repo.screenshots.length > 0) {
+    if (localBlank) {
+      console.log(
+        `  BLANK ${repo.name} — existing local screenshots are blank, re-capturing`
+      );
+      // fall through to re-capture
+    } else if (Array.isArray(repo.screenshots) && repo.screenshots.length > 0) {
+      // 2. Already has screenshots in repos.json (user-managed) — never touch.
       console.log(
         `  KEEP ${repo.name} — ${repo.screenshots.length} screenshots already set, skipping`
       );

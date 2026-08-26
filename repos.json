@@ -43,14 +43,49 @@
           "label": "Hero View"
         },
         {
-          "file": "projects/git-guide/full.png",
-          "type": "full",
-          "label": "Full Page"
-        },
-        {
           "file": "projects/git-guide/content.png",
           "type": "content",
           "label": "Content View"
+        },
+        {
+          "file": "projects/git-guide/section-1.png",
+          "type": "section",
+          "label": "Concepts"
+        },
+        {
+          "file": "projects/git-guide/section-2.png",
+          "type": "section",
+          "label": "Setup3"
+        },
+        {
+          "file": "projects/git-guide/section-3.png",
+          "type": "section",
+          "label": "Stage & Commit5"
+        },
+        {
+          "file": "projects/git-guide/section-4.png",
+          "type": "section",
+          "label": "Remote & Push4"
+        },
+        {
+          "file": "projects/git-guide/section-5.png",
+          "type": "section",
+          "label": "Branches6"
+        },
+        {
+          "file": "projects/git-guide/section-6.png",
+          "type": "section",
+          "label": "Collaborate5"
+        },
+        {
+          "file": "projects/git-guide/section-7.png",
+          "type": "section",
+          "label": "Undo3"
+        },
+        {
+          "file": "projects/git-guide/section-8.png",
+          "type": "section",
+          "label": "Everyday Extras5"
         }
       ],
       "page_title": "Git & GitHub Guide",
@@ -98,14 +133,49 @@
           "label": "Hero View"
         },
         {
-          "file": "projects/docker-guide/full.png",
-          "type": "full",
-          "label": "Full Page"
-        },
-        {
           "file": "projects/docker-guide/content.png",
           "type": "content",
           "label": "Content View"
+        },
+        {
+          "file": "projects/docker-guide/section-1.png",
+          "type": "section",
+          "label": "Concepts"
+        },
+        {
+          "file": "projects/docker-guide/section-2.png",
+          "type": "section",
+          "label": "Get Started6"
+        },
+        {
+          "file": "projects/docker-guide/section-3.png",
+          "type": "section",
+          "label": "Build Images2"
+        },
+        {
+          "file": "projects/docker-guide/section-4.png",
+          "type": "section",
+          "label": "Run Containers6"
+        },
+        {
+          "file": "projects/docker-guide/section-5.png",
+          "type": "section",
+          "label": "Inspect5"
+        },
+        {
+          "file": "projects/docker-guide/section-6.png",
+          "type": "section",
+          "label": "Stop & Remove6"
+        },
+        {
+          "file": "projects/docker-guide/section-7.png",
+          "type": "section",
+          "label": "Docker Hub4"
+        },
+        {
+          "file": "projects/docker-guide/section-8.png",
+          "type": "section",
+          "label": "Cleanup5"
         }
       ],
       "page_title": "Docker Command Guide",
