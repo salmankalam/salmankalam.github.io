@@ -35,7 +35,26 @@
       "updated_at": "2026-08-25T17:12:23Z",
       "pushed_at": "2026-08-25T17:04:21Z",
       "size": 21,
-      "ai_enriched": false
+      "ai_enriched": false,
+      "screenshots": [
+        {
+          "file": "projects/git-guide/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        },
+        {
+          "file": "projects/git-guide/full.png",
+          "type": "full",
+          "label": "Full Page"
+        },
+        {
+          "file": "projects/git-guide/content.png",
+          "type": "content",
+          "label": "Content View"
+        }
+      ],
+      "page_title": "Git & GitHub Guide",
+      "screenshot_error": null
     },
     {
       "name": "docker-guide",
@@ -71,7 +90,26 @@
       "updated_at": "2026-08-25T16:24:45Z",
       "pushed_at": "2026-08-25T16:10:52Z",
       "size": 18,
-      "ai_enriched": false
+      "ai_enriched": false,
+      "screenshots": [
+        {
+          "file": "projects/docker-guide/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        },
+        {
+          "file": "projects/docker-guide/full.png",
+          "type": "full",
+          "label": "Full Page"
+        },
+        {
+          "file": "projects/docker-guide/content.png",
+          "type": "content",
+          "label": "Content View"
+        }
+      ],
+      "page_title": "Docker Command Guide",
+      "screenshot_error": null
     },
     {
       "name": "uicomponents",
