@@ -455,11 +455,14 @@ const IMAGE_EXTS = new Set([".png", ".jpg", ".jpeg", ".gif", ".webp", ".avif"]);
 const TYPE_RANK = { hero: 0, content: 1, full: 2, section: 3, route: 4 };
 
 function typeOfFile(f) {
-  if (f === "hero.png") return "hero";
-  if (f === "content.png") return "content";
-  if (f === "full.png") return "full";
-  if (/^section-\d+\.png$/i.test(f)) return "section";
-  if (/^route-\d+\.png$/i.test(f)) return "route";
+  const base = f.replace(/\.\w+$/i, "").toLowerCase();
+  // Any screenshot whose name contains "hero" (e.g. hero.png, hero-3.png,
+  // hero-buget.png) is the project's hero image.
+  if (base === "hero" || base.startsWith("hero")) return "hero";
+  if (base === "content") return "content";
+  if (base === "full") return "full";
+  if (/^section-\d+$/i.test(base)) return "section";
+  if (/^route-\d+$/i.test(base)) return "route";
   return "section";
 }
 

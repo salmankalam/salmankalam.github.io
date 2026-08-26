@@ -589,6 +589,16 @@
           "label": "Hero View"
         },
         {
+          "file": "projects/viva-ecommerce-store/hero2.png",
+          "type": "hero",
+          "label": "Section 2"
+        },
+        {
+          "file": "projects/viva-ecommerce-store/hero-3.png",
+          "type": "hero",
+          "label": "Section 3"
+        },
+        {
           "file": "projects/viva-ecommerce-store/route-cart.png",
           "type": "section",
           "label": "Section"
@@ -607,16 +617,6 @@
           "file": "projects/viva-ecommerce-store/route-shop.png",
           "type": "section",
           "label": "Section"
-        },
-        {
-          "file": "projects/viva-ecommerce-store/hero2.png",
-          "type": "section",
-          "label": "Section 2"
-        },
-        {
-          "file": "projects/viva-ecommerce-store/hero-3.png",
-          "type": "section",
-          "label": "Section 3"
         }
       ],
       "screenshot_error": null
@@ -781,17 +781,17 @@
         },
         {
           "file": "projects/car-prediction-insights/hero-budget.png",
-          "type": "section",
+          "type": "hero",
           "label": "Section"
         },
         {
           "file": "projects/car-prediction-insights/hero-light.png",
-          "type": "section",
+          "type": "hero",
           "label": "Section"
         },
         {
           "file": "projects/car-prediction-insights/hero-valuation.png",
-          "type": "section",
+          "type": "hero",
           "label": "Section"
         }
       ],
@@ -847,12 +847,12 @@
         },
         {
           "file": "projects/car-prediction-backend/hero2.png",
-          "type": "section",
+          "type": "hero",
           "label": "Section 2"
         },
         {
           "file": "projects/car-prediction-backend/hero3.png",
-          "type": "section",
+          "type": "hero",
           "label": "Section 3"
         }
       ],
@@ -914,12 +914,12 @@
         },
         {
           "file": "projects/The-Registry/hero-filtered.png",
-          "type": "section",
+          "type": "hero",
           "label": "Section"
         },
         {
           "file": "projects/The-Registry/hero-full.png",
-          "type": "section",
+          "type": "hero",
           "label": "Section"
         },
         {
@@ -1059,22 +1059,22 @@
         },
         {
           "file": "projects/ai_tools_hub/hero-filtered.png",
-          "type": "section",
+          "type": "hero",
           "label": "Section"
         },
         {
           "file": "projects/ai_tools_hub/hero-full.png",
-          "type": "section",
+          "type": "hero",
           "label": "Section"
         },
         {
           "file": "projects/ai_tools_hub/hero-light.png",
-          "type": "section",
+          "type": "hero",
           "label": "Section"
         },
         {
           "file": "projects/ai_tools_hub/hero-section.png",
-          "type": "section",
+          "type": "hero",
           "label": "Section"
         }
       ],
@@ -1379,12 +1379,12 @@
         },
         {
           "file": "projects/tictactoe/hero-dark.png",
-          "type": "section",
+          "type": "hero",
           "label": "Section"
         },
         {
           "file": "projects/tictactoe/hero3.png",
-          "type": "section",
+          "type": "hero",
           "label": "Section 3"
         }
       ],
