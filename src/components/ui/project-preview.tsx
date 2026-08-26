@@ -115,7 +115,7 @@ export function ProjectPreview({ repo, onClose }: ProjectPreviewProps) {
             <div className="relative flex-1 overflow-auto bg-[#0a0a0a] p-4">
               {imgs.length > 0 ? (
                 <img
-                  src={imgs[activeImage]?.file}
+                  src={imgs[activeImage]?.file ? `${import.meta.env.BASE_URL}${imgs[activeImage].file}` : undefined}
                   alt={imgs[activeImage]?.label || repo.name}
                   className="h-full w-full rounded-lg object-contain"
                 />
@@ -141,7 +141,7 @@ export function ProjectPreview({ repo, onClose }: ProjectPreviewProps) {
                       style={{ width: 80, height: 56 }}
                     >
                       <img
-                        src={img.file}
+                        src={`${import.meta.env.BASE_URL}${img.file}`}
                         alt={img.label}
                         className="h-full w-full object-cover"
                       />

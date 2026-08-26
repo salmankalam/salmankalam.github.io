@@ -63,7 +63,7 @@ function ProjectCard({
           <div className="relative aspect-[16/9] w-full shrink-0 overflow-hidden bg-[#0a0a0a]">
             {heroImg ? (
               <img
-                src={heroImg}
+                src={heroImg ? `${import.meta.env.BASE_URL}${heroImg}` : undefined}
                 alt=""
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
