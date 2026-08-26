@@ -590,32 +590,32 @@
         },
         {
           "file": "projects/viva-ecommerce-store/hero2.png",
-          "type": "hero",
+          "type": "section",
           "label": "Section 2"
         },
         {
           "file": "projects/viva-ecommerce-store/hero-3.png",
-          "type": "hero",
+          "type": "section",
           "label": "Section 3"
         },
         {
           "file": "projects/viva-ecommerce-store/route-cart.png",
-          "type": "section",
+          "type": "route",
           "label": "Section"
         },
         {
           "file": "projects/viva-ecommerce-store/route-contact.png",
-          "type": "section",
+          "type": "route",
           "label": "Section"
         },
         {
           "file": "projects/viva-ecommerce-store/route-search.png",
-          "type": "section",
+          "type": "route",
           "label": "Section"
         },
         {
           "file": "projects/viva-ecommerce-store/route-shop.png",
-          "type": "section",
+          "type": "route",
           "label": "Section"
         }
       ],
@@ -781,17 +781,17 @@
         },
         {
           "file": "projects/car-prediction-insights/hero-budget.png",
-          "type": "hero",
+          "type": "section",
           "label": "Section"
         },
         {
           "file": "projects/car-prediction-insights/hero-light.png",
-          "type": "hero",
+          "type": "section",
           "label": "Section"
         },
         {
           "file": "projects/car-prediction-insights/hero-valuation.png",
-          "type": "hero",
+          "type": "section",
           "label": "Section"
         }
       ],
@@ -847,12 +847,12 @@
         },
         {
           "file": "projects/car-prediction-backend/hero2.png",
-          "type": "hero",
+          "type": "section",
           "label": "Section 2"
         },
         {
           "file": "projects/car-prediction-backend/hero3.png",
-          "type": "hero",
+          "type": "section",
           "label": "Section 3"
         }
       ],
@@ -914,27 +914,27 @@
         },
         {
           "file": "projects/The-Registry/hero-filtered.png",
-          "type": "hero",
+          "type": "section",
           "label": "Section"
         },
         {
           "file": "projects/The-Registry/hero-full.png",
-          "type": "hero",
+          "type": "section",
           "label": "Section"
         },
         {
           "file": "projects/The-Registry/route-aitools.png",
-          "type": "section",
+          "type": "route",
           "label": "Section"
         },
         {
           "file": "projects/The-Registry/route-favorites.png",
-          "type": "section",
+          "type": "route",
           "label": "Section"
         },
         {
           "file": "projects/The-Registry/route-search.png",
-          "type": "section",
+          "type": "route",
           "label": "Section"
         }
       ],
@@ -1059,22 +1059,22 @@
         },
         {
           "file": "projects/ai_tools_hub/hero-filtered.png",
-          "type": "hero",
+          "type": "section",
           "label": "Section"
         },
         {
           "file": "projects/ai_tools_hub/hero-full.png",
-          "type": "hero",
+          "type": "section",
           "label": "Section"
         },
         {
           "file": "projects/ai_tools_hub/hero-light.png",
-          "type": "hero",
+          "type": "section",
           "label": "Section"
         },
         {
           "file": "projects/ai_tools_hub/hero-section.png",
-          "type": "hero",
+          "type": "section",
           "label": "Section"
         }
       ],
@@ -1317,12 +1317,12 @@
         },
         {
           "file": "projects/travelandtour/route1.png",
-          "type": "section",
+          "type": "route",
           "label": "Section 1"
         },
         {
           "file": "projects/travelandtour/route2.png",
-          "type": "section",
+          "type": "route",
           "label": "Section 2"
         }
       ],
@@ -1379,12 +1379,12 @@
         },
         {
           "file": "projects/tictactoe/hero-dark.png",
-          "type": "hero",
+          "type": "section",
           "label": "Section"
         },
         {
           "file": "projects/tictactoe/hero3.png",
-          "type": "hero",
+          "type": "section",
           "label": "Section 3"
         }
       ],

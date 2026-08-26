@@ -456,14 +456,16 @@ const TYPE_RANK = { hero: 0, content: 1, full: 2, section: 3, route: 4 };
 
 function typeOfFile(f) {
   const base = f.replace(/\.\w+$/i, "").toLowerCase();
-  // Any screenshot whose name contains "hero" (e.g. hero.png, hero-3.png,
-  // hero-buget.png) is the project's hero image.
-  if (base === "hero" || base.startsWith("hero")) return "hero";
+  // The canonical hero is exactly "hero.png". Other hero-* / heroN variants
+  // (hero-filtered, hero-budget, hero2, hero-3, …) are extra feature shots,
+  // NOT the hero.
+  if (base === "hero") return "hero";
   if (base === "content") return "content";
   if (base === "full") return "full";
   if (/^section-\d+$/i.test(base)) return "section";
-  if (/^route-\d+$/i.test(base)) return "route";
-  return "section";
+  if (/^route/i.test(base)) return "route"; // route, route-1, route-aitools, route1, …
+  if (base.startsWith("hero")) return "section"; // extra hero shots
+  return "section"; // any other screenshot (mobile.png, filtered.png, data_analysis.jpg, …)
 }
 
 // Order screenshots as hero -> content -> full -> sections -> routes, keeping
