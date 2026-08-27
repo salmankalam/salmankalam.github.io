@@ -234,17 +234,17 @@
         {
           "file": "projects/uicomponents/section-1.png",
           "type": "section",
-          "label": "About"
+          "label": "Section 1"
         },
         {
           "file": "projects/uicomponents/section-2.png",
           "type": "section",
-          "label": "Projects"
+          "label": "Section 2"
         },
         {
           "file": "projects/uicomponents/section-3.png",
           "type": "section",
-          "label": "Skills"
+          "label": "Section 3"
         }
       ],
       "page_title": "21st.dev Components Showcase",
@@ -299,7 +299,7 @@
         {
           "file": "projects/graphify/full.png",
           "type": "full",
-          "label": "Full Page"
+          "label": "full"
         }
       ],
       "page_title": "Graphify — Setup Guide",
@@ -456,7 +456,7 @@
         {
           "file": "projects/codegraph/full.png",
           "type": "full",
-          "label": "Full Page"
+          "label": "full"
         }
       ],
       "screenshot_error": null
@@ -621,22 +621,22 @@
         {
           "file": "projects/viva-ecommerce-store/route-cart.png",
           "type": "route",
-          "label": "Section"
+          "label": "Route"
         },
         {
           "file": "projects/viva-ecommerce-store/route-contact.png",
           "type": "route",
-          "label": "Section"
+          "label": "Route"
         },
         {
           "file": "projects/viva-ecommerce-store/route-search.png",
           "type": "route",
-          "label": "Section"
+          "label": "Route"
         },
         {
           "file": "projects/viva-ecommerce-store/route-shop.png",
           "type": "route",
-          "label": "Section"
+          "label": "Route"
         }
       ],
       "screenshot_error": null
@@ -741,8 +741,8 @@
       "screenshots": [
         {
           "file": "projects/price_prediction_used_cars_explainable_ai/data_analysis.jpg",
-          "type": "hero",
-          "label": "Hero View"
+          "type": "section",
+          "label": "Section"
         }
       ],
       "page_title": "price_prediction_used_cars_explainable_ai",
@@ -945,17 +945,17 @@
         {
           "file": "projects/The-Registry/route-aitools.png",
           "type": "route",
-          "label": "Section"
+          "label": "Route"
         },
         {
           "file": "projects/The-Registry/route-favorites.png",
           "type": "route",
-          "label": "Section"
+          "label": "Route"
         },
         {
           "file": "projects/The-Registry/route-search.png",
           "type": "route",
-          "label": "Section"
+          "label": "Route"
         }
       ],
       "page_title": "The Registry — Blogs, AI Tools & Code Snippets",
@@ -1018,7 +1018,7 @@
         {
           "file": "projects/fragment/full.png",
           "type": "full",
-          "label": "Full Page"
+          "label": "full"
         },
         {
           "file": "projects/fragment/filtered.png",
@@ -1213,7 +1213,7 @@
         {
           "file": "projects/nextjs-dashboard/full.png",
           "type": "full",
-          "label": "Full Page"
+          "label": "full"
         },
         {
           "file": "projects/nextjs-dashboard/mobile.png",
@@ -1338,12 +1338,12 @@
         {
           "file": "projects/travelandtour/route1.png",
           "type": "route",
-          "label": "Section 1"
+          "label": "Route 1"
         },
         {
           "file": "projects/travelandtour/route2.png",
           "type": "route",
-          "label": "Section 2"
+          "label": "Route 2"
         }
       ],
       "page_title": "Travel&Tour",
@@ -1398,17 +1398,12 @@
           "label": "Hero View"
         },
         {
-          "file": "projects/tictactoe/hero-dark.png",
-          "type": "section",
-          "label": "Section"
-        },
-        {
-          "file": "projects/tictactoe/hero3.png",
-          "type": "section",
-          "label": "Section 3"
+          "file": "projects/tictactoe/content.png",
+          "type": "content",
+          "label": "Content View"
         }
       ],
-      "page_title": "Tic tac toe",
+      "page_title": "Document",
       "screenshot_error": null
     },
     {
@@ -1466,19 +1461,9 @@
           "label": "Content View"
         },
         {
-          "file": "projects/rentalcar/full.png",
-          "type": "full",
-          "label": "Full Page"
-        },
-        {
           "file": "projects/rentalcar/route-1.png",
           "type": "route",
-          "label": "Route 1"
-        },
-        {
-          "file": "projects/rentalcar/route-3.png",
-          "type": "route",
-          "label": "Route 3"
+          "label": "MetroRide"
         }
       ],
       "page_title": "Rental Car",
@@ -1626,8 +1611,8 @@
       "screenshots": [
         {
           "file": "projects/salmankalam.github.io/salmankalam.github.io_.png",
-          "type": "hero",
-          "label": "Hero View"
+          "type": "section",
+          "label": "Section"
         }
       ],
       "page_title": "Salman Kalam — Portfolio",
