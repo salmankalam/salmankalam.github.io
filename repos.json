@@ -189,7 +189,7 @@
       "long_summary": "A TypeScript, CSS, HTML repository",
       "repo_url": "https://github.com/salmankalam/uicomponents",
       "pages_url": "https://salmankalam.github.io/uicomponents/",
-      "pages_enabled": false,
+      "pages_enabled": true,
       "frontend": true,
       "hostedByTheUser": false,
       "hostedByTheUserLink": null,
@@ -225,9 +225,29 @@
           "file": "projects/uicomponents/hero.png",
           "type": "hero",
           "label": "Hero View"
+        },
+        {
+          "file": "projects/uicomponents/content.png",
+          "type": "content",
+          "label": "Content View"
+        },
+        {
+          "file": "projects/uicomponents/section-1.png",
+          "type": "section",
+          "label": "About"
+        },
+        {
+          "file": "projects/uicomponents/section-2.png",
+          "type": "section",
+          "label": "Projects"
+        },
+        {
+          "file": "projects/uicomponents/section-3.png",
+          "type": "section",
+          "label": "Skills"
         }
       ],
-      "page_title": "uicomponents",
+      "page_title": "21st.dev Components Showcase",
       "screenshot_error": null
     },
     {

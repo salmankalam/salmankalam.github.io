@@ -294,31 +294,42 @@ async function captureRepo(repo) {
       }
     } else {
       // Single-page / HTML sites have no internal routes: screenshot each
-      // in-page #section (up to MAX_ROUTES), like the route capture above.
+      // in-page #section (up to MAX_ROUTES), or fall back to evenly-spaced
+      // scroll positions when the page exposes no anchor links.
       const sections = await discoverSections(page, repo.pages_url);
-      for (const [i, section] of sections.entries()) {
+      const shots = sections.length > 0
+        ? sections.map((s) => ({ id: s.id, label: s.label }))
+        : (await scrollFractionShots(page)).map((s) => ({ y: s.y, label: s.label }));
+      for (const [i, shot] of shots.entries()) {
         const file = `section-${i + 1}.png`;
-        console.log(`    → ${file} (${section.label})`);
+        console.log(`    → ${file} (${shot.label})`);
         const sPath = path.join(outDir, file);
         await shootWithRetry(
           page,
           repo.pages_url,
-          () =>
-            page
-              .evaluate((elId) => {
-                const el = document.getElementById(elId);
-                if (el) el.scrollIntoView({ block: "start" });
-                window.scrollBy(0, -80);
-              }, section.id)
+          () => {
+            if (shot.id) {
+              return page
+                .evaluate((elId) => {
+                  const el = document.getElementById(elId);
+                  if (el) el.scrollIntoView({ block: "start" });
+                  window.scrollBy(0, -80);
+                }, shot.id)
+                .then(() => page.waitForTimeout(500))
+                .then(() => page.screenshot({ path: sPath, fullPage: false }));
+            }
+            return page
+              .evaluate((yy) => window.scrollTo(0, yy), shot.y)
               .then(() => page.waitForTimeout(500))
-              .then(() => page.screenshot({ path: sPath, fullPage: false })),
+              .then(() => page.screenshot({ path: sPath, fullPage: false }));
+          },
           sPath,
           file
         );
         screenshots.push({
           file: `${relativeDir}/${file}`,
           type: "section",
-          label: section.label || `Section ${i + 1}`,
+          label: shot.label || `Section ${i + 1}`,
         });
       }
     }
@@ -378,11 +389,20 @@ async function discoverRoutes(page, pagesUrl) {
     // Skip fragments-only and javascript:/mailto: links.
     if (isHashOnly && !href.startsWith("#/")) continue;
     if (/^(javascript|mailto|tel|data):/.test(href)) continue;
-    // Skip same-origin home page itself and external sites.
+    // Skip same-origin home page itself and external sites. SPA hash routes
+    // like #/components are NOT the bare home page, so keep them.
     if (url.origin !== base.origin) continue;
-    if (url.pathname === base.pathname && url.search === base.search) continue;
+    if (
+      url.pathname === base.pathname &&
+      url.search === base.search &&
+      (!url.hash || url.hash === "#" || url.hash === "#/")
+    )
+      continue;
     // Skip in-page anchors on the same path (non-hash-router).
     if (url.hash && !href.startsWith("#/")) continue;
+    // Only count as an internal route if it's a hash route or lives under the
+    // same base path. Links to other areas of the site are not project routes.
+    if (!href.startsWith("#/") && !url.pathname.startsWith(base.pathname)) continue;
 
     const key = url.href.replace(/#.*$/, "");
     if (seen.has(key)) continue;
@@ -446,6 +466,24 @@ async function discoverSections(page, pagesUrl) {
   }
 
   return sections;
+}
+
+// For single-page / JS-routed sites with no anchor links to discover, capture
+// several evenly-spaced scroll-position screenshots so the project still gets
+// multiple shots instead of just hero + content.
+async function scrollFractionShots(page) {
+  const MAX = Number(process.env.MAX_ROUTES || 8);
+  const total = await page.evaluate(() => document.documentElement.scrollHeight);
+  const vh = await page.evaluate(() => window.innerHeight);
+  if (!total || !vh || total <= vh * 1.1) return [];
+  const count = Math.min(MAX, Math.max(2, Math.floor((total - vh) / vh) + 1));
+  const shots = [];
+  for (let k = 0; k < count; k++) {
+    const y =
+      count === 1 ? 0 : Math.min(total - vh, Math.round(((total - vh) * k) / (count - 1)));
+    shots.push({ y, label: `View ${k + 1}` });
+  }
+  return shots;
 }
 
 const IMAGE_EXTS = new Set([".png", ".jpg", ".jpeg", ".gif", ".webp", ".avif"]);
@@ -574,7 +612,7 @@ async function main() {
   // Normalize ordering for every repo so the hero is always first, regardless
   // of how the screenshots were originally captured or stored.
   for (const repo of repos) {
-    if (Array.isArray(repo.screenshots)) repo.screenshots.sort(sortScreenshots);
+    if (Array.isArray(repo.screenshots)) sortScreenshots(repo.screenshots);
   }
 
   fs.writeFileSync(
