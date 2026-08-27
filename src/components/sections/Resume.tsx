@@ -52,11 +52,11 @@ function ResumePreview({ onClose }: { onClose: () => void }) {
             </div>
           </div>
 
-          <div className="flex-1 overflow-auto bg-[#0a0a0a] p-4">
-            <img
-              src={RESUME_IMAGE}
-              alt="Resume preview"
-              className="mx-auto h-[70vh] w-auto max-w-full rounded-lg object-contain"
+          <div className="flex-1 overflow-hidden bg-[#0a0a0a]">
+            <iframe
+              src={RESUME_URL}
+              title="Resume PDF"
+              className="block h-[78vh] w-full border-0 bg-white"
             />
           </div>
         </motion.div>
