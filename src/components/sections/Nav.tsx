@@ -20,9 +20,9 @@ export function Nav() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
-        className="mix-blend-difference"
+        className="sm:mix-blend-difference"
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 max-sm:bg-[#0a0a0a]/95 max-sm:backdrop-blur-md">
           <a href="#" className="flex items-baseline gap-2">
             <span className="text-sm tracking-[0.2em] uppercase text-white/90">
               SK
