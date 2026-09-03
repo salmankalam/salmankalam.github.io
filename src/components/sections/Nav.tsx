@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useState } from "motion/react";
+import { useState } from "react";
+import { motion } from "motion/react";
 
 const links = [
   { label: "About", href: "#about" },
@@ -29,7 +30,7 @@ export function Nav() {
             Salman Kalam
           </span>
         </a>
-        <div className="flex items-center gap-8 hidden sm:block">
+        <div className="hidden sm:flex items-center gap-8">
           {links.map((link) => (
             <motion.a
               key={link.href}
@@ -50,48 +51,43 @@ export function Nav() {
         </div>
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="block sm:hidden text-white"
+          className="flex sm:hidden flex-col justify-center items-center w-8 h-8 gap-1.5"
           aria-controls="nav-menu"
           aria-expanded={isMenuOpen}
         >
-          <svg
-            className="h-6 w-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              points="M3 12l2-2m0 0l2-2m-2 2l2 2m7-4l2-2m0 0l2-2m-2 2l2 2m7-4l2 2m0 0l2 2m-7 4l-2-2m0 0l-2-2m7 4l2 2m-7-4l-2-2"
-            />
-          </svg>
+          <span
+            className={`block w-5 h-px bg-white transition-transform duration-300 ${
+              isMenuOpen ? "translate-y-[3.5px] rotate-45" : ""
+            }`}
+          />
+          <span
+            className={`block w-5 h-px bg-white transition-opacity duration-300 ${
+              isMenuOpen ? "opacity-0" : ""
+            }`}
+          />
+          <span
+            className={`block w-5 h-px bg-white transition-transform duration-300 ${
+              isMenuOpen ? "-translate-y-[3.5px] -rotate-45" : ""
+            }`}
+          />
         </button>
         {isMenuOpen && (
           <div
             id="nav-menu"
-            className="absolute top-full left-0 right-0 bg-[#0a0a0a] py-8 md:hidden z-40"
+            className="absolute top-full left-0 right-0 bg-[#0a0a0a] py-8 sm:hidden z-40"
           >
-            <a
-              href="#about"
-              className="block mb-4 text-white text-sm uppercase tracking-[0.2em] transition-colors hover:text-white"
-            >
-              About
-            </a>
-            <a href="#projects" className="block mb-4 text-white text-sm uppercase tracking-[0.2em] transition-colors hover:text-white">
-              Projects
-            </a>
-            <a href="#certificates" className="block mb-4 text-white text-sm uppercase tracking-[0.2em] transition-colors hover:text-white">
-              Certificates
-            </a>
-            <a href="#resume" className="block mb-4 text-white text-sm uppercase tracking-[0.2em] transition-colors hover:text-white">
-              Resume
-            </a>
-            <a href="#contact" className="block mb-4 text-white text-sm uppercase tracking-[0.2em] transition-colors hover:text-white">
-              Contact
-            </a>
+            {links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setIsMenuOpen(false)}
+                className="block mb-4 text-center text-white text-sm uppercase tracking-[0.2em] transition-colors hover:text-white/70"
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
-        </div>
+        )}
       </div>
     </motion.nav>
   );
