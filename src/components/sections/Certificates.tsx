@@ -191,7 +191,7 @@ export function Certificates() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2, ease: [0.34, 1.56, 0.64, 1] }}
-          className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-5"
+          className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-5"
         >
           {featuredCertificates.map((cert, i) => (
             <CertificateCard
