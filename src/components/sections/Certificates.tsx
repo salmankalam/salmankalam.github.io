@@ -2,7 +2,11 @@
 
 import { motion, AnimatePresence, useInView } from "motion/react";
 import { useRef, useState } from "react";
-import { certificates, featuredCertificates } from "../../data/certificates";
+import {
+  certificates,
+  featuredCertificates,
+  certificateCategories,
+} from "../../data/certificates";
 import type { Certificate } from "../../data/certificates";
 import { TiltCard } from "../ui/tilt-card";
 import { GlowingEffect } from "../ui/glowing-effect";
@@ -206,22 +210,42 @@ export function Certificates() {
         <div className="mt-20">
           <SectionHeader label="Credentials" title="All Certificates" />
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2, ease: [0.34, 1.56, 0.64, 1] }}
-            className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-5"
-          >
-            {certificates.map((cert, i) => (
-              <CertificateCard
-                key={cert.image}
-                cert={cert}
-                index={i}
-                onSelect={setSelected}
-              />
-            ))}
-          </motion.div>
+          {certificateCategories.map((cat) => {
+            const certs = certificates.filter((c) => c.category === cat.id);
+            if (certs.length === 0) return null;
+
+            return (
+              <div key={cat.id} className="mt-10 first:mt-8">
+                <motion.h3
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  className="text-[0.8rem] font-medium uppercase tracking-[0.15em] text-white/60"
+                >
+                  {cat.label}
+                  <span className="ml-2 text-white/30">({certs.length})</span>
+                </motion.h3>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.1, ease: [0.34, 1.56, 0.64, 1] }}
+                  className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-5"
+                >
+                  {certs.map((cert, i) => (
+                    <CertificateCard
+                      key={cert.image}
+                      cert={cert}
+                      index={i}
+                      onSelect={setSelected}
+                    />
+                  ))}
+                </motion.div>
+              </div>
+            );
+          })}
         </div>
       </div>
 
