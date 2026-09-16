@@ -35,6 +35,13 @@ export const featuredCertificates: Certificate[] = [
     tags: ["React", "Full Stack", "Hosting", "Frontend"],
     featured: true,
   },
+  {
+    name: "Search Professional Certificate by Moz",
+    image: "certificates/featured/CertificateOfCompletion_Search Professional-Certificate-by-Moz.png",
+    link: "https://example.com/certificate/search-professional-moz",
+    tags: ["SEO", "Search", "Moz", "Digital Marketing"],
+    featured: true,
+  },
 ];
 
 export const certificates: Certificate[] = [
@@ -103,5 +110,41 @@ export const certificates: Certificate[] = [
     image: "certificates/react-server-side-rendering-with-nextjs.png",
     link: "https://example.com/certificate/react-ssr-nextjs",
     tags: ["React", "Next.js", "SSR", "Frontend"],
+  },
+  {
+    name: "Docker Build and Optimize Docker Images",
+    image: "certificates/Docker-Build-and-Optimize-Docker-Images.png",
+    link: "https://example.com/certificate/docker-build-optimize",
+    tags: ["Docker", "Containers", "Optimization", "DevOps"],
+  },
+  {
+    name: "Microservices Foundations",
+    image: "certificates/Microservices-Foundations.png",
+    link: "https://example.com/certificate/microservices-foundations",
+    tags: ["Microservices", "Architecture", "Distributed Systems"],
+  },
+  {
+    name: "Programming Foundations: Design Patterns",
+    image: "certificates/Programming-Foundations-Design-Patterns.png",
+    link: "https://example.com/certificate/design-patterns",
+    tags: ["Programming", "Design Patterns", "Software Architecture"],
+  },
+  {
+    name: "SOLID Principles: System Design for Java Developers",
+    image: "certificates/SOLID-Principles-System-Design-for-Java-Developers.png",
+    link: "https://example.com/certificate/solid-java-system-design",
+    tags: ["Java", "SOLID", "System Design", "OOP"],
+  },
+  {
+    name: "Technical SEO",
+    image: "certificates/Technical-SEO.png",
+    link: "https://example.com/certificate/technical-seo",
+    tags: ["SEO", "Technical", "Web Performance", "Search"],
+  },
+  {
+    name: "Using AI as Your SEO Assistant",
+    image: "certificates/Using-AI-as-Your-SEO-Assistant.png",
+    link: "https://example.com/certificate/ai-seo-assistant",
+    tags: ["AI", "SEO", "Marketing", "Automation"],
   },
 ];
