@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 import emailjs from "@emailjs/browser";
 import { GradientButton } from "../ui/gradient-button";
@@ -15,6 +15,13 @@ type Status = "idle" | "sending" | "sent" | "error";
 export function Contact() {
   const formRef = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<Status>("idle");
+
+  useEffect(() => {
+    if (status === "sent" || status === "error") {
+      const timer = setTimeout(() => setStatus("idle"), 8000);
+      return () => clearTimeout(timer);
+    }
+  }, [status]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
