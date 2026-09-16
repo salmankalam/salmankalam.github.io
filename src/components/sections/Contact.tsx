@@ -1,10 +1,36 @@
 "use client";
 
+import { useRef, useState } from "react";
 import { motion } from "motion/react";
+import emailjs from "@emailjs/browser";
 import { GradientButton } from "../ui/gradient-button";
 import { SmoothCaretInput } from "../ui/smooth-caret-input";
 
+const SERVICE_ID = "service_evvwvv5";
+const TEMPLATE_ID = "template_fq4j5h6";
+const PUBLIC_KEY = "8fuW4-xIqGTRIt6aw";
+
+type Status = "idle" | "sending" | "sent" | "error";
+
 export function Contact() {
+  const formRef = useRef<HTMLFormElement>(null);
+  const [status, setStatus] = useState<Status>("idle");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formRef.current) return;
+
+    setStatus("sending");
+
+    try {
+      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, PUBLIC_KEY);
+      setStatus("sent");
+      formRef.current.reset();
+    } catch {
+      setStatus("error");
+    }
+  };
+
   return (
     <section id="contact" className="bg-[#0a0a0a] px-6 py-32">
       <div className="mx-auto max-w-3xl">
@@ -29,25 +55,28 @@ export function Contact() {
         </motion.h2>
 
         <motion.form
+          ref={formRef}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2, ease: [0.34, 1.56, 0.64, 1] }}
-          onSubmit={(e) => e.preventDefault()}
+          onSubmit={handleSubmit}
           className="mt-16 space-y-10"
         >
           <div className="grid gap-10 md:grid-cols-2">
             <SmoothCaretInput
               label="Name"
-              id="name"
+              name="from_name"
               placeholder="Your name"
               type="text"
+              required
             />
             <SmoothCaretInput
               label="Email"
-              id="email"
+              name="from_email"
               placeholder="your@email.com"
               type="email"
+              required
             />
           </div>
           <div>
@@ -59,13 +88,39 @@ export function Contact() {
             </label>
             <textarea
               id="message"
+              name="message"
               rows={4}
               placeholder="Your message..."
+              required
               className="w-full bg-transparent border-b border-[var(--ic-border)] py-3 text-sm text-[var(--ic-foreground)] placeholder:text-[var(--ic-muted-foreground)] outline-none transition-[border-color,box-shadow] duration-300 focus:border-[var(--ic-foreground)] focus:shadow-[0_1px_0_var(--ic-foreground)] resize-none"
             />
           </div>
-          <div className="flex justify-end">
-            <GradientButton type="submit">Send Message</GradientButton>
+
+          <div className="flex items-center justify-end gap-4">
+            {status === "sent" && (
+              <motion.span
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                className="text-sm text-emerald-400"
+              >
+                Message sent!
+              </motion.span>
+            )}
+            {status === "error" && (
+              <motion.span
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                className="text-sm text-red-400"
+              >
+                Failed to send. Try again.
+              </motion.span>
+            )}
+            <GradientButton
+              type="submit"
+              disabled={status === "sending"}
+            >
+              {status === "sending" ? "Sending..." : "Send Message"}
+            </GradientButton>
           </div>
         </motion.form>
       </div>
