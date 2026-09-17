@@ -36,7 +36,61 @@
       "pushed_at": "2026-09-16T17:32:46Z",
       "size": 15,
       "ai_enriched": false,
-      "isBlog": true
+      "isBlog": true,
+      "screenshots": [
+        {
+          "file": "projects/seo-guide/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        },
+        {
+          "file": "projects/seo-guide/content.png",
+          "type": "content",
+          "label": "Content View"
+        },
+        {
+          "file": "projects/seo-guide/section-1.png",
+          "type": "section",
+          "label": "Core Concepts"
+        },
+        {
+          "file": "projects/seo-guide/section-2.png",
+          "type": "section",
+          "label": "Keyword Research8"
+        },
+        {
+          "file": "projects/seo-guide/section-3.png",
+          "type": "section",
+          "label": "Performance5"
+        },
+        {
+          "file": "projects/seo-guide/section-4.png",
+          "type": "section",
+          "label": "Backlinks3"
+        },
+        {
+          "file": "projects/seo-guide/section-5.png",
+          "type": "section",
+          "label": "Content Writing6"
+        },
+        {
+          "file": "projects/seo-guide/section-6.png",
+          "type": "section",
+          "label": "Intent & Pages4"
+        },
+        {
+          "file": "projects/seo-guide/section-7.png",
+          "type": "section",
+          "label": "Technical SEO8"
+        },
+        {
+          "file": "projects/seo-guide/section-8.png",
+          "type": "section",
+          "label": "Tools16"
+        }
+      ],
+      "page_title": "SEO Guide",
+      "screenshot_error": null
     },
     {
       "name": "design-patterns-and-principles",
@@ -73,7 +127,61 @@
       "pushed_at": "2026-09-16T16:48:09Z",
       "size": 17,
       "ai_enriched": false,
-      "isBlog": true
+      "isBlog": true,
+      "screenshots": [
+        {
+          "file": "projects/design-patterns-and-principles/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        },
+        {
+          "file": "projects/design-patterns-and-principles/content.png",
+          "type": "content",
+          "label": "Content View"
+        },
+        {
+          "file": "projects/design-patterns-and-principles/section-1.png",
+          "type": "section",
+          "label": "Core Concepts"
+        },
+        {
+          "file": "projects/design-patterns-and-principles/section-2.png",
+          "type": "section",
+          "label": "Strategy3"
+        },
+        {
+          "file": "projects/design-patterns-and-principles/section-3.png",
+          "type": "section",
+          "label": "Adapter3"
+        },
+        {
+          "file": "projects/design-patterns-and-principles/section-4.png",
+          "type": "section",
+          "label": "Observer3"
+        },
+        {
+          "file": "projects/design-patterns-and-principles/section-5.png",
+          "type": "section",
+          "label": "Decorator3"
+        },
+        {
+          "file": "projects/design-patterns-and-principles/section-6.png",
+          "type": "section",
+          "label": "Iterator2"
+        },
+        {
+          "file": "projects/design-patterns-and-principles/section-7.png",
+          "type": "section",
+          "label": "Factory3"
+        },
+        {
+          "file": "projects/design-patterns-and-principles/section-8.png",
+          "type": "section",
+          "label": "SOLID Principles"
+        }
+      ],
+      "page_title": "Object Design Patterns & Principles",
+      "screenshot_error": null
     },
     {
       "name": "git-guide",
