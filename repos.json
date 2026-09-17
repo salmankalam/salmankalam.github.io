@@ -1192,7 +1192,7 @@
       "screenshot_error": null,
       "hostedByTheUser": true,
       "hostedByTheUserLink": "https://aitoolshub123.lovable.app",
-      "isBlog": true
+      "isBlog": false
     },
     {
       "name": "chatbot",
@@ -1500,7 +1500,7 @@
       ],
       "page_title": "Document",
       "screenshot_error": null,
-      "isBlog": true
+      "isBlog": false
     },
     {
       "name": "rentalcar",
@@ -1564,7 +1564,7 @@
       ],
       "page_title": "Rental Car",
       "screenshot_error": null,
-      "isBlog": true
+      "isBlog": false
     },
     {
       "name": "Web-Notes",
@@ -1616,7 +1616,7 @@
         }
       ],
       "screenshot_error": null,
-      "isBlog": true
+      "isBlog": false
     },
     {
       "name": "Notes",
