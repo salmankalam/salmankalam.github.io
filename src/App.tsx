@@ -4,6 +4,7 @@ import {
   About,
   Skills,
   Projects,
+  Blogs,
   Certificates,
   Education,
   Resume,
@@ -20,6 +21,7 @@ export default function App() {
         <About />
         <Skills />
         <Projects />
+        <Blogs />
         <Certificates />
         <Education />
         <Resume />

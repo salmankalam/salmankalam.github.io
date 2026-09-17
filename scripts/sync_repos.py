@@ -571,7 +571,13 @@ def main():
 
         print(f"  Analyzing...")
         frontend = is_frontend_repo(languages, contents, full_name, repo)
-        print(f"     Frontend: {frontend}")
+        vite = is_vite_project(token, full_name, contents) if frontend else False
+        # A "blog" is a plain HTML site hosted on Pages (not React/Vite)
+        is_blog = frontend and not vite and isinstance(contents, list) and any(
+            isinstance(item, dict) and item.get("name") == "index.html"
+            for item in contents
+        )
+        print(f"     Frontend: {frontend}, Blog: {is_blog}")
 
         pages_info = check_pages(token, full_name)
         pages_url = None
@@ -586,7 +592,7 @@ def main():
                 else:
                     pages_url = pages_info.get("html_url") or f"https://{OWNER}.github.io/{name}/"
                 print(f"     Pages active (workflow): {pages_url}")
-            elif is_vite_project(token, full_name, contents):
+            elif vite:
                 print(f"     Vite/React app detected; deploying built dist via Actions...")
                 default_branch = repo.get("default_branch") or "main"
                 wf_ok = create_deploy_workflow(token, full_name, default_branch, "dist")
@@ -665,6 +671,7 @@ def main():
             "pages_url": pages_url,
             "pages_enabled": pages_on and not externally_hosted_this,
             "frontend": frontend,
+            "isBlog": is_blog,
             "hostedByTheUser": externally_hosted_this,
             "hostedByTheUserLink": None,
             "pinned": name in pinned_names,

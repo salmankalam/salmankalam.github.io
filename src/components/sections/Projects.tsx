@@ -9,7 +9,7 @@ import { ProjectPreview } from "../ui/project-preview";
 import type { Repo } from "../../data/repos";
 
 const validRepos = repos.filter(
-  (r) => r.screenshots?.length || r.pages_enabled || r.frontend
+  (r) => (r.screenshots?.length || r.pages_enabled || r.frontend) && !r.isBlog
 );
 
 const pinned = validRepos.filter((r) => r.pinned);

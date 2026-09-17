@@ -16,6 +16,7 @@ export interface Repo {
   pages_url: string | null;
   pages_enabled: boolean;
   frontend: boolean;
+  isBlog?: boolean;
   hostedByTheUser?: boolean;
   hostedByTheUserLink?: string | null;
   tags: {

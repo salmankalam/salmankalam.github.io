@@ -35,7 +35,8 @@
       "updated_at": "2026-09-16T17:32:49Z",
       "pushed_at": "2026-09-16T17:32:46Z",
       "size": 15,
-      "ai_enriched": false
+      "ai_enriched": false,
+      "isBlog": true
     },
     {
       "name": "design-patterns-and-principles",
@@ -71,7 +72,8 @@
       "updated_at": "2026-09-16T16:48:13Z",
       "pushed_at": "2026-09-16T16:48:09Z",
       "size": 17,
-      "ai_enriched": false
+      "ai_enriched": false,
+      "isBlog": true
     },
     {
       "name": "git-guide",
@@ -161,7 +163,8 @@
         }
       ],
       "page_title": "Git & GitHub Guide",
-      "screenshot_error": null
+      "screenshot_error": null,
+      "isBlog": true
     },
     {
       "name": "docker-guide",
@@ -251,7 +254,8 @@
         }
       ],
       "page_title": "Docker Command Guide",
-      "screenshot_error": null
+      "screenshot_error": null,
+      "isBlog": true
     },
     {
       "name": "uicomponents",
@@ -320,7 +324,8 @@
         }
       ],
       "page_title": "21st.dev Components Showcase",
-      "screenshot_error": null
+      "screenshot_error": null,
+      "isBlog": false
     },
     {
       "name": "graphify",
@@ -375,7 +380,8 @@
         }
       ],
       "page_title": "Graphify — Setup Guide",
-      "screenshot_error": null
+      "screenshot_error": null,
+      "isBlog": true
     },
     {
       "name": "podcast-xml-rss--generator",
@@ -431,7 +437,8 @@
         }
       ],
       "page_title": "podcast-xml-rss--generator",
-      "screenshot_error": null
+      "screenshot_error": null,
+      "isBlog": false
     },
     {
       "name": "podcast_test-practical_github_actions",
@@ -476,7 +483,8 @@
         }
       ],
       "page_title": "podcast_test-practical_github_actions",
-      "screenshot_error": null
+      "screenshot_error": null,
+      "isBlog": false
     },
     {
       "name": "codegraph",
@@ -531,7 +539,8 @@
           "label": "full"
         }
       ],
-      "screenshot_error": null
+      "screenshot_error": null,
+      "isBlog": true
     },
     {
       "name": "machine-learning-algorithms",
@@ -576,7 +585,8 @@
         }
       ],
       "page_title": "machine-learning-algorithms",
-      "screenshot_error": null
+      "screenshot_error": null,
+      "isBlog": false
     },
     {
       "name": "data_analysis-python-sql-r-mongodb",
@@ -621,7 +631,8 @@
         }
       ],
       "page_title": "data_analysis-python-sql-r-mongodb",
-      "screenshot_error": null
+      "screenshot_error": null,
+      "isBlog": false
     },
     {
       "name": "viva-ecommerce-store",
@@ -711,7 +722,8 @@
           "label": "Route"
         }
       ],
-      "screenshot_error": null
+      "screenshot_error": null,
+      "isBlog": false
     },
     {
       "name": "retail-ai-backend",
@@ -766,7 +778,8 @@
       ],
       "page_title": "retail-ai-backend",
       "pinned": false,
-      "screenshot_error": null
+      "screenshot_error": null,
+      "isBlog": false
     },
     {
       "name": "price_prediction_used_cars_explainable_ai",
@@ -819,7 +832,8 @@
       ],
       "page_title": "price_prediction_used_cars_explainable_ai",
       "pinned": true,
-      "screenshot_error": null
+      "screenshot_error": null,
+      "isBlog": false
     },
     {
       "name": "car-prediction-insights",
@@ -890,7 +904,8 @@
       "page_title": "Valua.AI — Instant AI valuations for used cars",
       "screenshot_error": null,
       "hostedByTheUser": true,
-      "hostedByTheUserLink": "https://car-prediction-insights.vercel.app/"
+      "hostedByTheUserLink": "https://car-prediction-insights.vercel.app/",
+      "isBlog": false
     },
     {
       "name": "car-prediction-backend",
@@ -950,7 +965,8 @@
       ],
       "page_title": "car prediction backend",
       "pinned": true,
-      "screenshot_error": null
+      "screenshot_error": null,
+      "isBlog": false
     },
     {
       "name": "The-Registry",
@@ -1033,7 +1049,8 @@
       "page_title": "The Registry — Blogs, AI Tools & Code Snippets",
       "screenshot_error": null,
       "hostedByTheUser": true,
-      "hostedByTheUserLink": "https://theregistry123.lovable.app/"
+      "hostedByTheUserLink": "https://theregistry123.lovable.app/",
+      "isBlog": false
     },
     {
       "name": "fragment",
@@ -1101,7 +1118,8 @@
       "page_title": "Lovable App",
       "screenshot_error": null,
       "hostedByTheUser": true,
-      "hostedByTheUserLink": "https://thefragment.lovable.app"
+      "hostedByTheUserLink": "https://thefragment.lovable.app",
+      "isBlog": false
     },
     {
       "name": "ai_tools_hub",
@@ -1173,7 +1191,8 @@
       "page_title": "AI Tools Hub — Best AI Tools of 2025",
       "screenshot_error": null,
       "hostedByTheUser": true,
-      "hostedByTheUserLink": "https://aitoolshub123.lovable.app"
+      "hostedByTheUserLink": "https://aitoolshub123.lovable.app",
+      "isBlog": true
     },
     {
       "name": "chatbot",
@@ -1224,7 +1243,8 @@
       ],
       "page_title": "chatbot",
       "pinned": false,
-      "screenshot_error": null
+      "screenshot_error": null,
+      "isBlog": false
     },
     {
       "name": "nextjs-dashboard",
@@ -1294,7 +1314,8 @@
         }
       ],
       "page_title": "Next.js App Router Course - Starter | nextjs-dashboard",
-      "screenshot_error": null
+      "screenshot_error": null,
+      "isBlog": false
     },
     {
       "name": "myblog",
@@ -1351,7 +1372,8 @@
       "page_title": "myblog",
       "screenshot_error": null,
       "hostedByTheUser": false,
-      "hostedByTheUserLink": null
+      "hostedByTheUserLink": null,
+      "isBlog": false
     },
     {
       "name": "travelandtour",
@@ -1419,7 +1441,8 @@
         }
       ],
       "page_title": "Travel&Tour",
-      "screenshot_error": null
+      "screenshot_error": null,
+      "isBlog": false
     },
     {
       "name": "tictactoe",
@@ -1476,7 +1499,8 @@
         }
       ],
       "page_title": "Document",
-      "screenshot_error": null
+      "screenshot_error": null,
+      "isBlog": true
     },
     {
       "name": "rentalcar",
@@ -1539,7 +1563,8 @@
         }
       ],
       "page_title": "Rental Car",
-      "screenshot_error": null
+      "screenshot_error": null,
+      "isBlog": true
     },
     {
       "name": "Web-Notes",
@@ -1590,7 +1615,8 @@
           "label": "Hero View"
         }
       ],
-      "screenshot_error": null
+      "screenshot_error": null,
+      "isBlog": true
     },
     {
       "name": "Notes",
@@ -1637,7 +1663,8 @@
       ],
       "page_title": "Notes",
       "pinned": false,
-      "screenshot_error": null
+      "screenshot_error": null,
+      "isBlog": false
     },
     {
       "name": "salmankalam.github.io",
@@ -1688,7 +1715,8 @@
         }
       ],
       "page_title": "Salman Kalam — Portfolio",
-      "screenshot_error": null
+      "screenshot_error": null,
+      "isBlog": true
     }
   ]
 }
