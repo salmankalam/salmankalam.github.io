@@ -51,42 +51,42 @@
         {
           "file": "projects/seo-guide/section-1.png",
           "type": "section",
-          "label": "Core Concepts"
+          "label": "Section 1"
         },
         {
           "file": "projects/seo-guide/section-2.png",
           "type": "section",
-          "label": "Keyword Research8"
+          "label": "Section 2"
         },
         {
           "file": "projects/seo-guide/section-3.png",
           "type": "section",
-          "label": "Performance5"
+          "label": "Section 3"
         },
         {
           "file": "projects/seo-guide/section-4.png",
           "type": "section",
-          "label": "Backlinks3"
+          "label": "Section 4"
         },
         {
           "file": "projects/seo-guide/section-5.png",
           "type": "section",
-          "label": "Content Writing6"
+          "label": "Section 5"
         },
         {
           "file": "projects/seo-guide/section-6.png",
           "type": "section",
-          "label": "Intent & Pages4"
+          "label": "Section 6"
         },
         {
           "file": "projects/seo-guide/section-7.png",
           "type": "section",
-          "label": "Technical SEO8"
+          "label": "Section 7"
         },
         {
           "file": "projects/seo-guide/section-8.png",
           "type": "section",
-          "label": "Tools16"
+          "label": "Section 8"
         }
       ],
       "page_title": "SEO Guide",
@@ -142,42 +142,42 @@
         {
           "file": "projects/design-patterns-and-principles/section-1.png",
           "type": "section",
-          "label": "Core Concepts"
+          "label": "Section 1"
         },
         {
           "file": "projects/design-patterns-and-principles/section-2.png",
           "type": "section",
-          "label": "Strategy3"
+          "label": "Section 2"
         },
         {
           "file": "projects/design-patterns-and-principles/section-3.png",
           "type": "section",
-          "label": "Adapter3"
+          "label": "Section 3"
         },
         {
           "file": "projects/design-patterns-and-principles/section-4.png",
           "type": "section",
-          "label": "Observer3"
+          "label": "Section 4"
         },
         {
           "file": "projects/design-patterns-and-principles/section-5.png",
           "type": "section",
-          "label": "Decorator3"
+          "label": "Section 5"
         },
         {
           "file": "projects/design-patterns-and-principles/section-6.png",
           "type": "section",
-          "label": "Iterator2"
+          "label": "Section 6"
         },
         {
           "file": "projects/design-patterns-and-principles/section-7.png",
           "type": "section",
-          "label": "Factory3"
+          "label": "Section 7"
         },
         {
           "file": "projects/design-patterns-and-principles/section-8.png",
           "type": "section",
-          "label": "SOLID Principles"
+          "label": "Section 8"
         }
       ],
       "page_title": "Object Design Patterns & Principles",
