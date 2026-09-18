@@ -1,0 +1,419 @@
+{
+  "communities": {
+    "0": [
+      "scripts_sync_repos",
+      "scripts_sync_repos_check_pages",
+      "scripts_sync_repos_create_deploy_workflow",
+      "scripts_sync_repos_create_or_update_file",
+      "scripts_sync_repos_detect_pages_source",
+      "scripts_sync_repos_enable_pages",
+      "scripts_sync_repos_enable_pages_workflow",
+      "scripts_sync_repos_ensure_vite_base",
+      "scripts_sync_repos_fetch_all_repos",
+      "scripts_sync_repos_fetch_pinned_repos",
+      "scripts_sync_repos_fetch_readme",
+      "scripts_sync_repos_fetch_repo_contents",
+      "scripts_sync_repos_fetch_repo_contents_at",
+      "scripts_sync_repos_fetch_repo_languages",
+      "scripts_sync_repos_fetch_repo_topics",
+      "scripts_sync_repos_generate_basic_summary",
+      "scripts_sync_repos_get_file_sha",
+      "scripts_sync_repos_get_headers",
+      "scripts_sync_repos_get_token",
+      "scripts_sync_repos_is_frontend_repo",
+      "scripts_sync_repos_is_vite_project",
+      "scripts_sync_repos_load_existing_repos",
+      "scripts_sync_repos_main",
+      "scripts_sync_repos_rationale_190",
+      "scripts_sync_repos_rationale_214",
+      "scripts_sync_repos_rationale_245",
+      "scripts_sync_repos_rationale_296",
+      "scripts_sync_repos_rationale_327",
+      "scripts_sync_repos_repo_name_to_title",
+      "scripts_sync_repos_save_repos",
+      "scripts_sync_repos_set_pages_workflow"
+    ],
+    "1": [
+      "src_components_sections_certificates",
+      "src_components_sections_certificates_certificatecard",
+      "src_components_sections_certificates_certificatepreview",
+      "src_components_sections_contact",
+      "src_components_sections_hero",
+      "src_components_sections_hero_roles",
+      "src_components_ui_animated_text_cycle",
+      "src_components_ui_animated_text_cycle_animatedtextcycle",
+      "src_components_ui_animated_text_cycle_animatedtextcycleprops",
+      "src_components_ui_dia_text",
+      "src_components_ui_dia_text_diatextprops",
+      "src_components_ui_dia_text_diatextreveal",
+      "src_components_ui_glowing_effect",
+      "src_components_ui_glowing_effect_glowingeffect",
+      "src_components_ui_glowing_effect_glowingeffectprops",
+      "src_components_ui_gradient_button",
+      "src_components_ui_gradient_button_gradientbutton",
+      "src_components_ui_gradient_button_gradientbuttonprops",
+      "src_components_ui_index",
+      "src_components_ui_smooth_caret_input",
+      "src_components_ui_smooth_caret_input_smoothcaretinput",
+      "src_components_ui_smooth_caret_input_smoothcaretinputprops",
+      "src_components_ui_tilt_card",
+      "src_components_ui_tilt_card_tiltcard",
+      "src_components_ui_tilt_card_tiltcardprops",
+      "src_data_certificates",
+      "src_data_certificates_certificate",
+      "src_data_certificates_certificates",
+      "src_lib_utils",
+      "src_lib_utils_cn"
+    ],
+    "2": [
+      "src_app",
+      "src_app_app",
+      "src_components_sections_about",
+      "src_components_sections_about_about",
+      "src_components_sections_about_languages",
+      "src_components_sections_about_revealtext",
+      "src_components_sections_certificates_certificates",
+      "src_components_sections_contact_contact",
+      "src_components_sections_education",
+      "src_components_sections_education_education",
+      "src_components_sections_education_timelineitem",
+      "src_components_sections_footer",
+      "src_components_sections_footer_footer",
+      "src_components_sections_hero_hero",
+      "src_components_sections_index",
+      "src_components_sections_nav",
+      "src_components_sections_nav_links",
+      "src_components_sections_nav_nav",
+      "src_components_sections_resume",
+      "src_components_sections_resume_resume",
+      "src_components_sections_resume_resumepreview",
+      "src_components_sections_skills_skills",
+      "src_data_cv",
+      "src_data_cv_cv",
+      "src_data_cv_extractsection",
+      "src_data_cv_lines",
+      "src_main"
+    ],
+    "3": [
+      "ref_dom",
+      "ref_dom_iterable",
+      "ref_es2023",
+      "ref_src",
+      "ref_vite_client",
+      "tsconfig",
+      "tsconfig_compileroptions",
+      "tsconfig_compileroptions_allowimportingtsextensions",
+      "tsconfig_compileroptions_allowsyntheticdefaultimports",
+      "tsconfig_compileroptions_erasablesyntaxonly",
+      "tsconfig_compileroptions_jsx",
+      "tsconfig_compileroptions_lib",
+      "tsconfig_compileroptions_module",
+      "tsconfig_compileroptions_moduledetection",
+      "tsconfig_compileroptions_moduleresolution",
+      "tsconfig_compileroptions_noemit",
+      "tsconfig_compileroptions_nofallthroughcasesinswitch",
+      "tsconfig_compileroptions_nounusedlocals",
+      "tsconfig_compileroptions_nounusedparameters",
+      "tsconfig_compileroptions_resolvejsonmodule",
+      "tsconfig_compileroptions_skiplibcheck",
+      "tsconfig_compileroptions_strict",
+      "tsconfig_compileroptions_target",
+      "tsconfig_compileroptions_types",
+      "tsconfig_compileroptions_verbatimmodulesyntax",
+      "tsconfig_include"
+    ],
+    "4": [
+      "src_components_sections_projects",
+      "src_components_sections_projects_categories",
+      "src_components_sections_projects_categorize",
+      "src_components_sections_projects_category",
+      "src_components_sections_projects_others",
+      "src_components_sections_projects_pinned",
+      "src_components_sections_projects_projectcard",
+      "src_components_sections_projects_projectgrid",
+      "src_components_sections_projects_projects",
+      "src_components_sections_projects_validrepos",
+      "src_components_sections_skills",
+      "src_components_sections_skills_alldomain",
+      "src_components_sections_skills_alllanguages",
+      "src_components_sections_skills_alltools",
+      "src_components_sections_skills_skillgroup",
+      "src_components_sections_skills_skillgroups",
+      "src_components_ui_project_preview",
+      "src_components_ui_project_preview_projectpreview",
+      "src_components_ui_project_preview_projectpreviewprops",
+      "src_components_ui_project_preview_taggroup",
+      "src_data_repos",
+      "src_data_repos_repo",
+      "src_data_repos_repos",
+      "src_data_repos_reposfile",
+      "src_data_repos_screenshot"
+    ],
+    "5": [
+      "class_variance_authority",
+      "clsx",
+      "motion",
+      "package",
+      "package_dependencies",
+      "package_dependencies_class_variance_authority",
+      "package_dependencies_clsx",
+      "package_dependencies_motion",
+      "package_dependencies_react",
+      "package_dependencies_react_dom",
+      "package_dependencies_tailwind_merge",
+      "package_name",
+      "package_private",
+      "package_scripts",
+      "package_scripts_build",
+      "package_scripts_dev",
+      "package_scripts_preview",
+      "package_type",
+      "package_version",
+      "react",
+      "react_dom",
+      "tailwind_merge"
+    ],
+    "6": [
+      "scripts_capture_screenshots",
+      "scripts_capture_screenshots_applyplaceholder",
+      "scripts_capture_screenshots_capturerepo",
+      "scripts_capture_screenshots_dirname",
+      "scripts_capture_screenshots_discoverroutes",
+      "scripts_capture_screenshots_discoversections",
+      "scripts_capture_screenshots_four04_titles",
+      "scripts_capture_screenshots_image_exts",
+      "scripts_capture_screenshots_isblankbuffer",
+      "scripts_capture_screenshots_isblankfile",
+      "scripts_capture_screenshots_main",
+      "scripts_capture_screenshots_placeholders",
+      "scripts_capture_screenshots_projectsdir",
+      "scripts_capture_screenshots_reposjson",
+      "scripts_capture_screenshots_root",
+      "scripts_capture_screenshots_scanlocalimages",
+      "scripts_capture_screenshots_scrollfractionshots",
+      "scripts_capture_screenshots_shootwithretry",
+      "scripts_capture_screenshots_sortscreenshots",
+      "scripts_capture_screenshots_triggerlazyload",
+      "scripts_capture_screenshots_type_rank",
+      "scripts_capture_screenshots_typeoffile"
+    ],
+    "7": [
+      "opencode_opencode",
+      "opencode_opencode_environment_github_personal_access_token",
+      "opencode_opencode_github_command",
+      "opencode_opencode_github_environment",
+      "opencode_opencode_github_type",
+      "opencode_opencode_mcp",
+      "opencode_opencode_mcp_github",
+      "opencode_opencode_plugin",
+      "opencode_opencode_schema",
+      "ref_docker",
+      "ref_e",
+      "ref_ghcr_io_github_github_mcp_server_latest",
+      "ref_github_personal_access_token",
+      "ref_i",
+      "ref_opencode_plugins_graphify_js",
+      "ref_rm",
+      "ref_run",
+      "ref_stdio",
+      "ref_transport"
+    ],
+    "8": [
+      "package_devdependencies",
+      "package_devdependencies_playwright",
+      "package_devdependencies_pngjs",
+      "package_devdependencies_tailwindcss",
+      "package_devdependencies_tailwindcss_vite",
+      "package_devdependencies_types_react",
+      "package_devdependencies_types_react_dom",
+      "package_devdependencies_typescript",
+      "package_devdependencies_vite",
+      "package_devdependencies_vitejs_plugin_react",
+      "playwright",
+      "pngjs",
+      "tailwindcss",
+      "tailwindcss_vite",
+      "types_react",
+      "types_react_dom",
+      "typescript",
+      "vite",
+      "vitejs_plugin_react"
+    ],
+    "9": [
+      "opencode_plugins_graphify",
+      "opencode_plugins_graphify_graphifyplugin",
+      "opencode_plugins_graphify_rationale_4"
+    ],
+    "10": [
+      "scripts_enrich_repos",
+      "scripts_enrich_repos_main"
+    ],
+    "11": [
+      "src_vite_env_d"
+    ],
+    "12": [
+      "vite_config"
+    ]
+  },
+  "cohesion": {
+    "0": 0.14838709677419354,
+    "1": 0.14942528735632185,
+    "2": 0.12535612535612536,
+    "3": 0.07692307692307693,
+    "4": 0.10666666666666667,
+    "5": 0.09090909090909091,
+    "6": 0.1645021645021645,
+    "7": 0.10526315789473684,
+    "8": 0.10526315789473684,
+    "9": 0.6666666666666666,
+    "10": 1.0,
+    "11": 1.0,
+    "12": 1.0
+  },
+  "gods": [
+    {
+      "id": "scripts_sync_repos_main",
+      "label": "main()",
+      "degree": 21
+    },
+    {
+      "id": "tsconfig_compileroptions",
+      "label": "compilerOptions",
+      "degree": 19
+    },
+    {
+      "id": "scripts_sync_repos_get_headers",
+      "label": "get_headers()",
+      "degree": 15
+    },
+    {
+      "id": "src_lib_utils_cn",
+      "label": "cn()",
+      "degree": 13
+    },
+    {
+      "id": "opencode_opencode_github_command",
+      "label": "command",
+      "degree": 10
+    },
+    {
+      "id": "scripts_capture_screenshots_capturerepo",
+      "label": "captureRepo()",
+      "degree": 9
+    },
+    {
+      "id": "scripts_capture_screenshots_main",
+      "label": "main()",
+      "degree": 6
+    },
+    {
+      "id": "scripts_sync_repos_ensure_vite_base",
+      "label": "ensure_vite_base()",
+      "degree": 6
+    },
+    {
+      "id": "scripts_capture_screenshots_isblankfile",
+      "label": "isBlankFile()",
+      "degree": 5
+    },
+    {
+      "id": "scripts_capture_screenshots_scanlocalimages",
+      "label": "scanLocalImages()",
+      "degree": 5
+    }
+  ],
+  "surprises": [
+    {
+      "source": "AnimatedTextCycle()",
+      "target": "cn()",
+      "source_files": [
+        "src/components/ui/animated-text-cycle.tsx",
+        "src/lib/utils.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "cross-file semantic connection"
+    },
+    {
+      "source": "DiaTextReveal()",
+      "target": "cn()",
+      "source_files": [
+        "src/components/ui/dia-text.tsx",
+        "src/lib/utils.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "cross-file semantic connection"
+    },
+    {
+      "source": "GlowingEffect()",
+      "target": "cn()",
+      "source_files": [
+        "src/components/ui/glowing-effect.tsx",
+        "src/lib/utils.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "cross-file semantic connection"
+    },
+    {
+      "source": "GradientButton()",
+      "target": "cn()",
+      "source_files": [
+        "src/components/ui/gradient-button.tsx",
+        "src/lib/utils.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "cross-file semantic connection"
+    },
+    {
+      "source": "ProjectPreviewProps",
+      "target": "Repo",
+      "source_files": [
+        "src/components/ui/project-preview.tsx",
+        "src/data/repos.ts"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "cross-file semantic connection"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `devDependencies` connect `devDependencies` to `package.json`?",
+      "why": "High betweenness centrality (0.021) - this node is a cross-community bridge."
+    },
+    {
+      "type": "isolated_nodes",
+      "question": "What connects `$schema`, `.opencode/plugins/graphify.js`, `type` to the rest of the system?",
+      "why": "83 weakly-connected nodes found - possible documentation gaps or missing edges."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `sync_repos.py` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.14838709677419354 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `cn` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.14942528735632185 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `sections/index.ts` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.12535612535612536 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `compilerOptions` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.07692307692307693 - nodes in this community are weakly interconnected."
+    },
+    {
+      "type": "low_cohesion",
+      "question": "Should `Projects.tsx` be split into smaller, more focused modules?",
+      "why": "Cohesion score 0.10666666666666667 - nodes in this community are weakly interconnected."
+    }
+  ]
+}
