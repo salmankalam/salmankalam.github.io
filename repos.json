@@ -1,6 +1,53 @@
 {
-  "last_updated": "2026-09-21T11:51:24.768229+00:00",
+  "last_updated": "2026-09-22T10:52:46.276651+00:00",
   "repos": [
+    {
+      "name": "designslices",
+      "full_name": "salmankalam/designslices",
+      "description": "Designslices",
+      "short_summary": "Digital Experiences by Design Slices",
+      "long_summary": "create a site for a website development agency named \"Desing Slices\". they make full stack websites using many modern frameworks like react, nextjs, tanstack start, astro. they make e-commerce, portfolio, dashboards and marketing websites. they also offer wordpress and woo commerce websites. they have many such projects to showcase to build user trust and would like to display them on this new agency website. their philosophy is that: they dont just make websites, they make great digital experiences. some of their features that they offer for all sites are: fabulous designs, awesome animations and UX, great SEO, high performance, secure and high converting websites. they also go an extra step to include: google analytics, content SEO improvements, optimize for core web vitals, submit sitemap.xml to google console, deploy the site and 7 day free support. thats all the agency offers. they charge 500 for standard wordpress sites, 500 for marketing sites, 250 for portfolio sites, 1000 for ",
+      "repo_url": "https://github.com/salmankalam/designslices",
+      "pages_url": null,
+      "pages_enabled": false,
+      "frontend": true,
+      "isBlog": false,
+      "hostedByTheUser": false,
+      "hostedByTheUserLink": null,
+      "pinned": false,
+      "tags": {
+        "languages": [
+          "TypeScript",
+          "CSS",
+          "JavaScript"
+        ],
+        "domain": [
+          "data analysis",
+          "frontend",
+          "fullstack"
+        ],
+        "tools": [
+          "nextjs",
+          "node.js",
+          "react"
+        ],
+        "type": [
+          "project"
+        ]
+      },
+      "topics": [],
+      "language": "TypeScript",
+      "languages": {
+        "TypeScript": 191507,
+        "CSS": 7860,
+        "JavaScript": 1250
+      },
+      "created_at": "2026-09-22T09:25:18Z",
+      "updated_at": "2026-09-22T09:25:29Z",
+      "pushed_at": "2026-09-22T09:25:24Z",
+      "size": 548,
+      "ai_enriched": false
+    },
     {
       "name": "seo-guide",
       "full_name": "salmankalam/seo-guide",
