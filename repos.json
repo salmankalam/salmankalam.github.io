@@ -46,7 +46,16 @@
       "updated_at": "2026-09-22T09:25:29Z",
       "pushed_at": "2026-09-22T09:25:24Z",
       "size": 548,
-      "ai_enriched": false
+      "ai_enriched": false,
+      "screenshots": [
+        {
+          "file": "projects/designslices/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        }
+      ],
+      "page_title": "designslices",
+      "screenshot_error": null
     },
     {
       "name": "seo-guide",
