@@ -40,7 +40,21 @@
       "updated_at": "2026-10-10T11:36:10Z",
       "pushed_at": "2026-10-10T11:36:07Z",
       "size": 0,
-      "ai_enriched": false
+      "ai_enriched": false,
+      "screenshots": [
+        {
+          "file": "projects/skai/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        },
+        {
+          "file": "projects/skai/content.png",
+          "type": "content",
+          "label": "Content View"
+        }
+      ],
+      "page_title": "Site not found · GitHub Pages",
+      "screenshot_error": null
     },
     {
       "name": "designslices",
