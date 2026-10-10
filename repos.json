@@ -5,15 +5,15 @@
       "name": "skai",
       "full_name": "salmankalam/skai",
       "description": "Skai",
-      "short_summary": "A TypeScript, JavaScript, CSS repository",
-      "long_summary": "A TypeScript, JavaScript, CSS repository",
+      "short_summary": "AI-powered app deployed on Cloudflare Workers",
+      "long_summary": "AI-powered app deployed on Cloudflare Workers",
       "repo_url": "https://github.com/salmankalam/skai",
-      "pages_url": "https://salmankalam.github.io/skai/",
-      "pages_enabled": true,
+      "pages_url": null,
+      "pages_enabled": false,
       "frontend": true,
       "isBlog": false,
-      "hostedByTheUser": false,
-      "hostedByTheUserLink": null,
+      "hostedByTheUser": true,
+      "hostedByTheUserLink": "https://sk-ai.salmankalam123.workers.dev/",
       "pinned": false,
       "tags": {
         "languages": [
@@ -40,21 +40,7 @@
       "updated_at": "2026-10-10T11:36:10Z",
       "pushed_at": "2026-10-10T11:36:07Z",
       "size": 0,
-      "ai_enriched": false,
-      "screenshots": [
-        {
-          "file": "projects/skai/hero.png",
-          "type": "hero",
-          "label": "Hero View"
-        },
-        {
-          "file": "projects/skai/content.png",
-          "type": "content",
-          "label": "Content View"
-        }
-      ],
-      "page_title": "Site not found · GitHub Pages",
-      "screenshot_error": null
+      "ai_enriched": false
     },
     {
       "name": "designslices",
