@@ -241,6 +241,26 @@ def enable_pages(token, full_name, branch="main", path="/"):
     return r.status_code in (200, 201, 204)
 
 
+def disable_pages(token, full_name):
+    """Turn GitHub Pages off for a repo the user hosts elsewhere."""
+    headers = {**get_headers(token), "Accept": "application/vnd.github.v3+json"}
+    r = requests.delete(f"{GITHUB_API}/repos/{full_name}/pages", headers=headers)
+    return r.status_code in (200, 204, 404)
+
+
+def enforce_external_hosting(token, externally_hosted):
+    """Disable Pages on repos the user hosts externally (e.g. Cloudflare Workers)."""
+    for full_name in sorted(externally_hosted):
+        if full_name.endswith(".github.io"):
+            continue
+        pages_info = check_pages(token, full_name)
+        if pages_info and pages_info.get("status") in ("built", "building"):
+            ok = disable_pages(token, full_name)
+            print(f"  Disabled Pages on externally-hosted {full_name}: {ok}")
+        else:
+            print(f"  {full_name} is externally hosted, Pages already off")
+
+
 def is_vite_project(token, full_name, contents):
     """True if the repo is a Vite/React app (needs workflow build, never legacy deploy)."""
     if not isinstance(contents, list):
@@ -534,6 +554,10 @@ def main():
         if r.get("hostedByTheUser")
     }
     print(f"\n Tracked repos: {len(tracked_names)}")
+
+    if externally_hosted:
+        print("\n Enforcing external hosting (Pages must stay off)...")
+        enforce_external_hosting(token, externally_hosted)
 
     print("\n Fetching pinned repos...")
     pinned_names = fetch_pinned_repos(token)
