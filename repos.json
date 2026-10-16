@@ -1,6 +1,49 @@
 {
-  "last_updated": "2026-10-15T10:46:56.952236+00:00",
+  "last_updated": "2026-10-16T10:35:16.302913+00:00",
   "repos": [
+    {
+      "name": "pixel-perfect-pixels",
+      "full_name": "salmankalam/pixel-perfect-pixels",
+      "description": "Pixel Perfect Pixels",
+      "short_summary": "Pixel Perfect Pixels",
+      "long_summary": "Implement exactly the screenshot and nothing else",
+      "repo_url": "https://github.com/salmankalam/pixel-perfect-pixels",
+      "pages_url": "https://salmankalam.github.io/pixel-perfect-pixels/",
+      "pages_enabled": true,
+      "frontend": true,
+      "isBlog": false,
+      "hostedByTheUser": false,
+      "hostedByTheUserLink": null,
+      "pinned": false,
+      "tags": {
+        "languages": [
+          "TypeScript",
+          "CSS",
+          "JavaScript"
+        ],
+        "domain": [
+          "frontend"
+        ],
+        "tools": [
+          "node.js"
+        ],
+        "type": [
+          "project"
+        ]
+      },
+      "topics": [],
+      "language": "TypeScript",
+      "languages": {
+        "TypeScript": 224247,
+        "CSS": 4324,
+        "JavaScript": 1250
+      },
+      "created_at": "2026-10-15T14:39:17Z",
+      "updated_at": "2026-10-16T09:45:20Z",
+      "pushed_at": "2026-10-16T09:45:16Z",
+      "size": 471,
+      "ai_enriched": false
+    },
     {
       "name": "skai",
       "full_name": "salmankalam/skai",
@@ -14,7 +57,7 @@
       "isBlog": false,
       "hostedByTheUser": true,
       "hostedByTheUserLink": "https://sk-ai.salmankalam123.workers.dev/",
-      "pinned": false,
+      "pinned": true,
       "tags": {
         "languages": [
           "TypeScript",
@@ -474,7 +517,7 @@
       "frontend": true,
       "hostedByTheUser": false,
       "hostedByTheUserLink": null,
-      "pinned": false,
+      "pinned": true,
       "tags": {
         "languages": [
           "TypeScript",
@@ -1218,7 +1261,7 @@
       "pushed_at": "2026-06-17T06:55:42Z",
       "size": 238,
       "ai_enriched": true,
-      "pinned": true,
+      "pinned": false,
       "screenshots": [
         {
           "file": "projects/The-Registry/hero.png",
@@ -1500,7 +1543,7 @@
       "pushed_at": "2025-10-16T10:18:58Z",
       "size": 923,
       "ai_enriched": true,
-      "pinned": true,
+      "pinned": false,
       "screenshots": [
         {
           "file": "projects/nextjs-dashboard/hero.png",
