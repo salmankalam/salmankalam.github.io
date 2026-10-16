@@ -42,7 +42,21 @@
       "updated_at": "2026-10-16T09:45:20Z",
       "pushed_at": "2026-10-16T09:45:16Z",
       "size": 471,
-      "ai_enriched": false
+      "ai_enriched": false,
+      "screenshots": [
+        {
+          "file": "projects/pixel-perfect-pixels/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        },
+        {
+          "file": "projects/pixel-perfect-pixels/content.png",
+          "type": "content",
+          "label": "Content View"
+        }
+      ],
+      "page_title": "Site not found · GitHub Pages",
+      "screenshot_error": null
     },
     {
       "name": "skai",
