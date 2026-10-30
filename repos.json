@@ -34,7 +34,16 @@
       "updated_at": "2026-10-30T11:53:42Z",
       "pushed_at": "2026-10-30T11:53:41Z",
       "size": 0,
-      "ai_enriched": false
+      "ai_enriched": false,
+      "screenshots": [
+        {
+          "file": "projects/sk-video-generator/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        }
+      ],
+      "page_title": "sk-video-generator",
+      "screenshot_error": null
     },
     {
       "name": "skwatches",
@@ -79,7 +88,21 @@
       "updated_at": "2026-10-30T11:26:54Z",
       "pushed_at": "2026-10-30T11:26:47Z",
       "size": 0,
-      "ai_enriched": false
+      "ai_enriched": false,
+      "screenshots": [
+        {
+          "file": "projects/skwatches/hero.png",
+          "type": "hero",
+          "label": "Hero View"
+        },
+        {
+          "file": "projects/skwatches/content.png",
+          "type": "content",
+          "label": "Content View"
+        }
+      ],
+      "page_title": "Site not found · GitHub Pages",
+      "screenshot_error": null
     },
     {
       "name": "pixel-perfect-pixels",
