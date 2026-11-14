@@ -1,6 +1,55 @@
 {
-  "last_updated": "2026-11-13T13:50:58.262920+00:00",
+  "last_updated": "2026-11-14T12:54:01.866603+00:00",
   "repos": [
+    {
+      "name": "vidSKify-remotion-video-generator",
+      "full_name": "salmankalam/vidSKify-remotion-video-generator",
+      "description": "Vidskify Remotion Video Generator",
+      "short_summary": "vidSkify",
+      "long_summary": "A local AI video generator. Describe a video in plain English (optionally with reference images and a website), get a structured plan, edit every field, and render a real MP4 with Remotion.",
+      "repo_url": "https://github.com/salmankalam/vidSKify-remotion-video-generator",
+      "pages_url": null,
+      "pages_enabled": false,
+      "frontend": true,
+      "isBlog": false,
+      "hostedByTheUser": false,
+      "hostedByTheUserLink": null,
+      "pinned": false,
+      "tags": {
+        "languages": [
+          "TypeScript",
+          "CSS",
+          "Python",
+          "JavaScript"
+        ],
+        "domain": [
+          "backend",
+          "data analysis",
+          "database",
+          "frontend"
+        ],
+        "tools": [
+          "next.js"
+        ],
+        "type": [
+          "project",
+          "template"
+        ]
+      },
+      "topics": [],
+      "language": "TypeScript",
+      "languages": {
+        "TypeScript": 309593,
+        "CSS": 3000,
+        "Python": 1873,
+        "JavaScript": 94
+      },
+      "created_at": "2026-10-30T11:53:40Z",
+      "updated_at": "2026-11-13T16:48:00Z",
+      "pushed_at": "2026-11-13T17:34:22Z",
+      "size": 154,
+      "ai_enriched": false
+    },
     {
       "name": "sk-video-generator",
       "full_name": "salmankalam/sk-video-generator",
